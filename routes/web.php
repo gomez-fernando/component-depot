@@ -11,6 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+
+//     return view('welcome');
+
+
+// });
+
+// RUTAS GENERALES
+Auth::routes();
+Route::get('/', 'HomeController@index')->name('welcome');
+Route::get('/home', 'HomeController@home')->name('home');
