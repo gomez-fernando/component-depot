@@ -2,6 +2,7 @@
 
 namespace Illuminate\Database\Schema\Grammars;
 
+use RuntimeException;
 use Illuminate\Support\Fluent;
 use Illuminate\Database\Schema\Blueprint;
 
@@ -19,7 +20,7 @@ class PostgresGrammar extends Grammar
      *
      * @var array
      */
-    protected $modifiers = ['Collate', 'Increment', 'Nullable', 'Default'];
+    protected $modifiers = ['Increment', 'Nullable', 'Default'];
 
     /**
      * The columns available as serials.
@@ -42,7 +43,7 @@ class PostgresGrammar extends Grammar
      */
     public function compileTableExists()
     {
-        return "select * from information_schema.tables where table_schema = ? and table_name = ? and table_type = 'BASE TABLE'";
+        return 'select * from information_schema.tables where table_schema = ? and table_name = ?';
     }
 
     /**
@@ -166,10 +167,6 @@ class PostgresGrammar extends Grammar
             $sql .= $command->initiallyImmediate ? ' initially immediate' : ' initially deferred';
         }
 
-        if (! is_null($command->notValid)) {
-            $sql .= ' not valid';
-        }
-
         return $sql;
     }
 
@@ -200,7 +197,7 @@ class PostgresGrammar extends Grammar
     /**
      * Compile the SQL needed to drop all tables.
      *
-     * @param  array  $tables
+     * @param  string  $tables
      * @return string
      */
     public function compileDropAllTables($tables)
@@ -211,23 +208,12 @@ class PostgresGrammar extends Grammar
     /**
      * Compile the SQL needed to drop all views.
      *
-     * @param  array  $views
+     * @param  string  $views
      * @return string
      */
     public function compileDropAllViews($views)
     {
         return 'drop view "'.implode('","', $views).'" cascade';
-    }
-
-    /**
-     * Compile the SQL needed to drop all types.
-     *
-     * @param array $types
-     * @return string
-     */
-    public function compileDropAllTypes($types)
-    {
-        return 'drop type "'.implode('","', $types).'" cascade';
     }
 
     /**
@@ -250,16 +236,6 @@ class PostgresGrammar extends Grammar
     public function compileGetAllViews($schema)
     {
         return "select viewname from pg_catalog.pg_views where schemaname = '{$schema}'";
-    }
-
-    /**
-     * Compile the SQL needed to retrieve all type names.
-     *
-     * @return string
-     */
-    public function compileGetAllTypes()
-    {
-        return 'select distinct pg_type.typname from pg_type inner join pg_enum on pg_enum.enumtypid = pg_type.oid';
     }
 
     /**
@@ -470,7 +446,7 @@ class PostgresGrammar extends Grammar
      */
     protected function typeInteger(Fluent $column)
     {
-        return $this->generatableColumn('integer', $column);
+        return $column->autoIncrement ? 'serial' : 'integer';
     }
 
     /**
@@ -481,7 +457,7 @@ class PostgresGrammar extends Grammar
      */
     protected function typeBigInteger(Fluent $column)
     {
-        return $this->generatableColumn('bigint', $column);
+        return $column->autoIncrement ? 'bigserial' : 'bigint';
     }
 
     /**
@@ -492,7 +468,7 @@ class PostgresGrammar extends Grammar
      */
     protected function typeMediumInteger(Fluent $column)
     {
-        return $this->generatableColumn('integer', $column);
+        return $column->autoIncrement ? 'serial' : 'integer';
     }
 
     /**
@@ -503,7 +479,7 @@ class PostgresGrammar extends Grammar
      */
     protected function typeTinyInteger(Fluent $column)
     {
-        return $this->generatableColumn('smallint', $column);
+        return $column->autoIncrement ? 'smallserial' : 'smallint';
     }
 
     /**
@@ -514,42 +490,7 @@ class PostgresGrammar extends Grammar
      */
     protected function typeSmallInteger(Fluent $column)
     {
-        return $this->generatableColumn('smallint', $column);
-    }
-
-    /**
-     * Create the column definition for a generatable column.
-     *
-     * @param  string  $type
-     * @param  \Illuminate\Support\Fluent  $column
-     * @return string
-     */
-    protected function generatableColumn($type, Fluent $column)
-    {
-        if (! $column->autoIncrement && is_null($column->generatedAs)) {
-            return $type;
-        }
-
-        if ($column->autoIncrement && is_null($column->generatedAs)) {
-            return with([
-                'integer' => 'serial',
-                'bigint' => 'bigserial',
-                'smallint' => 'smallserial',
-            ])[$type];
-        }
-
-        $options = '';
-
-        if (! is_bool($column->generatedAs) && ! empty($column->generatedAs)) {
-            $options = sprintf(' (%s)', $column->generatedAs);
-        }
-
-        return sprintf(
-            '%s generated %s as identity%s',
-            $type,
-            $column->always ? 'always' : 'by default',
-            $options
-        );
+        return $column->autoIncrement ? 'smallserial' : 'smallint';
     }
 
     /**
@@ -663,7 +604,7 @@ class PostgresGrammar extends Grammar
      */
     protected function typeDateTime(Fluent $column)
     {
-        return $this->typeTimestamp($column);
+        return "timestamp($column->precision) without time zone";
     }
 
     /**
@@ -674,7 +615,7 @@ class PostgresGrammar extends Grammar
      */
     protected function typeDateTimeTz(Fluent $column)
     {
-        return $this->typeTimestampTz($column);
+        return "timestamp($column->precision) with time zone";
     }
 
     /**
@@ -784,11 +725,11 @@ class PostgresGrammar extends Grammar
      * Create the column definition for a spatial Geometry type.
      *
      * @param  \Illuminate\Support\Fluent  $column
-     * @return string
+     * @throws \RuntimeException
      */
     protected function typeGeometry(Fluent $column)
     {
-        return $this->formatPostGisType('geometry');
+        throw new RuntimeException('The database driver in use does not support the Geometry spatial column type.');
     }
 
     /**
@@ -880,20 +821,6 @@ class PostgresGrammar extends Grammar
     }
 
     /**
-     * Get the SQL for a collation column modifier.
-     *
-     * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
-     * @param  \Illuminate\Support\Fluent  $column
-     * @return string|null
-     */
-    protected function modifyCollate(Blueprint $blueprint, Fluent $column)
-    {
-        if (! is_null($column->collation)) {
-            return ' collate '.$this->wrapValue($column->collation);
-        }
-    }
-
-    /**
      * Get the SQL for a nullable column modifier.
      *
      * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
@@ -928,7 +855,7 @@ class PostgresGrammar extends Grammar
      */
     protected function modifyIncrement(Blueprint $blueprint, Fluent $column)
     {
-        if ((in_array($column->type, $this->serials) || ($column->generatedAs !== null)) && $column->autoIncrement) {
+        if (in_array($column->type, $this->serials) && $column->autoIncrement) {
             return ' primary key';
         }
     }

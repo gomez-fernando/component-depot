@@ -1,5 +1,6 @@
-# phhp storm config files
-.idea\
 
 *.xml
-*.iml
+*.xml
+.idea/workspace.xml
+*.xml
+.idea

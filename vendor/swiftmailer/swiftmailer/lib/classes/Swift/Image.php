@@ -30,7 +30,7 @@ class Swift_Image extends Swift_EmbeddedFile
     }
 
     /**
-     * Create a new Image from a filesystem path.
+     * Create a new Component from a filesystem path.
      *
      * @param string $path
      *
