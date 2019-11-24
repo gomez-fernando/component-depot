@@ -80,9 +80,11 @@ class componentController extends Controller
 
     public function detail($id){
         $component = Component::find($id);
+        $averageRating = \App\Helpers\RatingsHelper::getAverageForComponent($id);
 
         return view('component.detail', [
-            'component' => $component
+            'component' => $component,
+            'averageRating' => $averageRating
         ]);
     }
 

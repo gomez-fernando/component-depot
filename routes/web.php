@@ -23,6 +23,9 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->name('welcome');
 Route::get('/home', 'HomeController@home')->name('home');
 
+// RATING
+Route::get('/ratings', 'RatingController@hello');
+Route::post('/ratings', 'RatingController@store')->name('rating.store');
 // USUARIO
 Route::get('/configuracion', 'userController@config')->name('config');
 Route::post('/user/update', 'userController@update')->name('user.update');
