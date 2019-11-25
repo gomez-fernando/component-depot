@@ -83,7 +83,7 @@ body{
 }
 
 .image-container img{
-    width: 100%;
+    width: 50%;
 }
 
 .pub_image .card-body{
@@ -236,4 +236,3 @@ footer a{
         margin-top: 16px;
     }
 }
-
