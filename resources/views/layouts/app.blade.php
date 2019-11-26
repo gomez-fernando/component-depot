@@ -25,6 +25,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/styles-01.css') }}" rel="stylesheet">
 
     <!-- favicoon -->
     <link rel="shortout icon" type="image/png" href="{{ asset('../img/favicon-laravel-32x32.png') }}">
@@ -37,28 +38,35 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    Component Depot
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="row w-100 m-auto">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
-                    </ul>
+                    <div class="col-6 a">
+                        <div class="pt-2 pb-2 pl-1 pr-1"><?php echo date("d M Y");?></div>
+                    </div>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
+                    <div class="col-6 b">
                         <!-- Authentication Links -->
                         @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('lang.login') }}</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register') }}">{{ __('lang.register') }}</a>
+                            <li class="nav-item dropdown float-right">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle pt-2 pb-2 pl-1 pr-1" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    <i class="icon-cms"></i><span class="sm-hidden">Area personal</span>  <span class="caret"></span>
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+
+
+
+                                    <a class="dropdown-item" href="{{ route('login') }}">
+                                        {{ __('lang.login') }}
+                                    </a>
+
+                                    <a class="dropdown-item" href="{{ route('register') }}">
+                                        {{ __('lang.register') }}
+                                    </a>
+
+
+                                </div>
                             </li>
                         @else
                         <li class="nav-item">
@@ -78,13 +86,6 @@
                                 </li>
                         @endif
 
-                        {{-- <li>
-                                &nbsp; &nbsp;
-                        </li> --}}
-{{--                        <li>--}}
-{{--                            @include('includes.avatar')--}}
-{{--                        </li>--}}
-
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->nick }} <span class="caret"></span>
@@ -92,9 +93,6 @@
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
-{{--                                <a class="dropdown-item" href="{{ route('profile', ['id' => Auth::user()->id]) }}">--}}
-{{--                                    {{ __('lang.profile') }}--}}
-{{--                                    </a>--}}
 
                                 <a class="dropdown-item" href="{{ route('config') }}">
                                     {{ __('lang.profile') }}
@@ -118,6 +116,30 @@
             </div>
         </nav>
 
+{{--        SEGUNDO NAVBAR--}}
+        <nav class="navbar navbar-expand-md navbar-laravel header-02">
+            <div class="container">
+                <a class="navbar-brand" href="{{ url('/') }}">Component Depot</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                    <!-- Right Side Of Navbar -->
+                    <ul class="navbar-nav ml-auto">
+                        @if(isset($categories))
+                            @foreach ($categories as $category)
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('home', ['categoryId' =>$category->id]) }}">{{ $category->name }}</a>
+                                </li>
+                            @endforeach
+                        @endif
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
         <main class="py-4">
             @yield('content')
         </main>
