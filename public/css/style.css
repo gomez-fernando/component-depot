@@ -46,6 +46,9 @@ body{
 
 .pub_image{
     margin-bottom: 1.5em;
+    float: left;
+    width: 50%;
+    padding: 25px;
 }
 
 .pub_image .container-avatar{
@@ -55,7 +58,7 @@ body{
 
 .pub_image .data-user{
     font-weight: bold;
-    line-height: 35px;
+    line-height: 15px;
 }
 
 .pub_image .data-user a{
@@ -65,12 +68,12 @@ body{
 .pub_image .nickname{
     color: gray;
 }
-
+/* esto es para redimensionar donde muestra la imagen*/
 .image-container{
-    height: 500px;
+    height: 390px;
     /* max-height: 500px; */
     width: auto;
-    max-height: 400px;
+    max-height: 270px;
     overflow: hidden;
 }
 
@@ -83,15 +86,16 @@ body{
 }
 
 .image-container img{
-    width: 50%;
+    width: 70%;
 }
 
 .pub_image .card-body{
     padding: 0;
 }
-
+/* esto es para el texto de las imagenes */
 .pub_image .description{
     padding: 1.3em 1.3em 0em 1.3em;
+    max-height: 200px;
 }
 
 .pub_image .btn-comments{
