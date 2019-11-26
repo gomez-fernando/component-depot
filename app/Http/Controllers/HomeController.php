@@ -24,6 +24,21 @@ class HomeController extends Controller
      */
     public function index()
     {
+        if(!empty($section_id)){
+            // $publishedArticles = Article::all(); asi tambien funcionaria pero sin ordenarlos
+            $publishedArticles = Article::orderBy('id', 'desc')
+                ->where('state', 'publicado')
+                ->where('section_id', $section_id)
+                ->paginate(6);
+            $sections = Section::orderBy('id')->get();
+        } else {
+            // $publishedArticles = Article::all(); asi tambien funcionaria pero sin ordenarlos
+            $publishedArticles = Article::orderBy('id', 'desc')
+                ->where('state', 'publicado')
+//                ->where('section_id', $section_id)
+                ->paginate(6);
+            $sections = Section::orderBy('id')->get();
+        }
 
         // $components = Component::all(); asi tambien funcionaria pero sin ordenarlos
         $components = Component::orderBy('id', 'desc')->paginate(5);
