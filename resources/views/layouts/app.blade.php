@@ -25,7 +25,6 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/styles-01.css') }}" rel="stylesheet">
 
     <!-- favicoon -->
     <link rel="shortout icon" type="image/png" href="{{ asset('../img/favicon-laravel-32x32.png') }}">

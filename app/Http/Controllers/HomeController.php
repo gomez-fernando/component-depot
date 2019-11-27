@@ -39,7 +39,7 @@ class HomeController extends Controller
         }
 
         // $components = Component::all(); asi tambien funcionaria pero sin ordenarlos
-        $components = Component::orderBy('id', 'desc')->paginate(5);
+        $components = Component::orderBy('id', 'desc')->paginate(6);
 
         return view('welcome', [
             'categories' => $categories,
@@ -48,7 +48,7 @@ class HomeController extends Controller
     }
 
     public function home() {
-        $components = Component::orderBy('id', 'desc')->paginate(5);
+        $components = Component::orderBy('id', 'desc')->paginate(6);
 
         return view('home', [
             'components' => $components
