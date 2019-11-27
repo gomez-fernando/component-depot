@@ -98,7 +98,7 @@ body{
 .pub_image .description{
   font-size: 14px;
 	line-height: 22px;
-	max-height: 44px;
+	height: 40px;
 	overflow: hidden;
 	margin: 0 0 10px 0;
 }
