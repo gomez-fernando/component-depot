@@ -173,8 +173,10 @@
         $(document).ready(function () {
             let $control = $('#stars').barrating({
                 theme: 'fontawesome-stars',
-                silent: true,
+                silent: false,
                 onSelect: function(value, text) {
+
+
 
                     let data = {
                         user_id : '{{ Auth::user()->id}}',
