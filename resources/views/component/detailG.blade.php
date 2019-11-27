@@ -116,25 +116,7 @@
                         <div class="clearfix"></div>
                         <div class="comments">
                             <h2>Comentarios ({{ count($component->comments) }})</h2>
-                            <hr>
-
-                            <form action="{{ route('comment.save') }}" method="POST" id="">
-                                @csrf
-
-                                <input type="hidden" value="{{ $component->id }}" name="component_id" id="" />
-                                <p>
-                                    <textarea name="content" id="" class="form-control {{ $errors->has('content') ? 'is-invalid' : '' }}" required></textarea>
-                                    @if ($errors->has('content'))
-                                        <span class="invalid-feedback" role="alert">
-                    <strong>{{ $errors->first('content') }}</strong>
-                </span>
-
-                                    @endif
-                                </p>
-                                <button type="submit" class="btn btn-success" id="">Enviar</button>
-                            </form>
-
-                            <hr>
+                         
                             @foreach ($component->comments as $comment)
                                 <div class="comment">
             <span class="nickname">
