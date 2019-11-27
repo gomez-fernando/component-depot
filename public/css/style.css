@@ -49,6 +49,7 @@ body{
     float: left;
     width: 50%;
     padding: 25px;
+    position: relative;
 }
 
 .pub_image .container-avatar{
@@ -72,8 +73,8 @@ body{
 .image-container{
     height: 390px;
     /* max-height: 500px; */
-    width: auto;
-    max-height: 270px;
+    width: 270px;
+    max-height: 390px;
     overflow: hidden;
 }
 
@@ -94,8 +95,11 @@ body{
 }
 /* esto es para el texto de las imagenes */
 .pub_image .description{
-    padding: 1.3em 1.3em 0em 1.3em;
-    max-height: 200px;
+  font-size: 14px;
+	line-height: 22px;
+	max-height: 44px;
+	overflow: hidden;
+	margin: 0 0 10px 0;
 }
 
 .pub_image .btn-comments{
@@ -158,6 +162,8 @@ body{
 .actions a{
     margin-right: 20px;
 }
+
+
 
 #app > main > div > div > div > form > div > input.btn.btn-sm.btn-primary{
     margin-bottom: 3px;

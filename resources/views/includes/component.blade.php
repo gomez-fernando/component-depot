@@ -26,7 +26,7 @@
           {{ $component->description }}
         </p>
       </div>
-      <div class="likes">
+      <div class="likes"  class="btn">Leer m&aacute;s <i></i>>
 {{--           Comprobar si el usuario le dio like a la imagen--}}
           @if (Auth::check())
               <?php $user_like = false ?>
@@ -56,6 +56,3 @@
       </div>
     </div>
   </div>
-
-
-
