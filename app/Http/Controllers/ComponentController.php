@@ -79,13 +79,21 @@ class componentController extends Controller
     }
 
     public function detail($id){
+
         $component = Component::find($id);
         $averageRating = \App\Helpers\RatingsHelper::getAverageForComponent($id);
 
-        return view('component.detail', [
-            'component' => $component,
-            'averageRating' => $averageRating
-        ]);
+        if (Auth::check()){
+            return view('component.detail', [
+                'component' => $component,
+                'averageRating' => $averageRating
+            ]);
+        } else{
+            return view('component.detailG', [
+                'component' => $component,
+                'averageRating' => $averageRating
+            ]);
+        }
     }
 
     public function delete($id){
