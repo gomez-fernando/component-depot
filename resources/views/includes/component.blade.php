@@ -1,4 +1,5 @@
-<div class="card pub_image">
+<div class="col-sm-12">
+<div class="card pub_image h-100 card-body">
     <div class="card-header">
 
       <div class="data-user">
@@ -10,8 +11,8 @@
     </div>
 
     <div class="card-body">
-      <div class="image-container">
-        <img src="{{ route('component.file', ['filename' => $component->image_path]) }}" alt="imagen del componente">
+      <div>
+        <img class="img-fluid" src="{{ route('component.file', ['filename' => $component->image_path]) }}" alt="imagen del componente">
       </div>
 
         <div class="description">
@@ -26,7 +27,7 @@
           {{ $component->description }}
         </p>
       </div>
-      <div class="likes"  class="btn">Leer m&aacute;s <i></i>>
+      <div class="likes btn btn-primary">Leer m&aacute;s <i></i>>
 {{--           Comprobar si el usuario le dio like a la imagen--}}
           @if (Auth::check())
               <?php $user_like = false ?>
@@ -38,9 +39,9 @@
 
 
                   @if ($user_like)
-                      <img src="{{ asset('img/facebook-like-64-blue.png') }}" alt="" data-id="{{ $component->id }}" class="btn-dislike">
+                      <img class="img-fluid" src="{{ asset('img/facebook-like-64-blue.png') }}" alt="" data-id="{{ $component->id }}" class="btn-dislike">
                   @else
-                      <img src="{{ asset('img/facebook-like-64-gray.png') }}" alt="" data-id="{{ $component->id }}" class="btn-like">
+                      <img class="img-fluid" src="{{ asset('img/facebook-like-64-gray.png') }}" alt="" data-id="{{ $component->id }}" class="btn-like">
                   @endif
                   <span class="number_likes">{{ count($component->likes) }}</span>
 
@@ -56,3 +57,4 @@
       </div>
     </div>
   </div>
+</div>
