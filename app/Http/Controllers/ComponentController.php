@@ -150,7 +150,7 @@ class componentController extends Controller
         $user = \Auth::user();
         $component = Component::find($id);
 
-        if ($user && $user()->role == 'admin'){
+        if ($user && $user->role == 'admin'){
             return view('component.edit', [
                 'component' => $component
             ]);
