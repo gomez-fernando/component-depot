@@ -23,11 +23,11 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($categoryId = null)
     {
         if(!empty($categoryId)){
             $components = Component::orderBy('id', 'desc')
-                ->where('section_id', $categoryId)
+                ->where('category_id', $categoryId)
                 ->paginate(6);
             $categories = Category::orderBy('id')->get();
         } else {
@@ -39,9 +39,9 @@ class HomeController extends Controller
         }
 
         // $components = Component::all(); asi tambien funcionaria pero sin ordenarlos
-        $components = Component::orderBy('id', 'desc')->paginate(6);
+//        $components = Component::orderBy('id', 'desc')->paginate(6);
 
-        return view('welcome', [
+        return view('home', [
             'categories' => $categories,
             'components' => $components
         ]);
@@ -49,9 +49,12 @@ class HomeController extends Controller
 
     public function home() {
         $components = Component::orderBy('id', 'desc')->paginate(6);
+        $categories = Category::orderBy('id')->get();
+
 
         return view('home', [
-            'components' => $components
+            'components' => $components,
+            'categories' => $categories
         ]);
     }
 }
