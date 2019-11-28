@@ -36,7 +36,7 @@
 
                             <!-- Modal body -->
                             <div class="modal-body">
-                                ¿Quieres borrar esta imagen definitivamente?
+                                ¿Quiere borrar éste componente definitivamente?
                             </div>
 
                             <!-- Modal footer -->
@@ -83,10 +83,6 @@
                 @endif
             @endforeach
 
-{{--{{  dd($ratings) }}--}}
-{{--            @foreach ($ratings as $rating)--}}
-{{--                {{ $rating }}--}}
-{{--            @endforeach--}}
             @if ($user_like)
                 <img src="{{ asset('img/facebook-like-64-blue.png') }}" alt="" data-id="{{ $component->id }}" class="btn-dislike">
             @else
@@ -110,6 +106,24 @@
             <option value="5">5</option>
         </select>
 
+    </div>
+
+    {{-- // descripción --}}
+    <div class="clearfix"></div>
+    <div class="comments">
+        <h2>Descripción</h2>
+        <hr>
+
+
+        <hr>
+            <div class="comment">
+
+                <p>
+                    {{ $component->description }} <br>
+
+                </p>
+
+            </div>
     </div>
 
     {{-- // comentarios --}}

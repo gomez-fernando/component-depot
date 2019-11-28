@@ -14,9 +14,9 @@
     <div class="col-md-8">
       {{-- // mostramos mensaje --}}
         @include('includes.message')
-      {{-- // mustro las fotos --}}
+      {{-- // mustro los componentes --}}
       @foreach ($components as $component)
-        @include('includes.component', ['component' => $component])
+        @include('includes.component', ['component' => $component, 'averageRating' => \App\Helpers\RatingsHelper::getAverageForComponent($component->id)])
       @endforeach
       {{-- // añadimos enlaces de paginacion --}}
       {{-- IMPORTANTE CLASS CLEARFIX para limpiar los flotados --}}

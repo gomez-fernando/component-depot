@@ -43,7 +43,7 @@ class HomeController extends Controller
 
         return view('home', [
             'categories' => $categories,
-            'components' => $components
+            'components' => $components,
         ]);
     }
 

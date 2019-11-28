@@ -50,6 +50,19 @@
               <span class="number_likes">{{ count($component->likes) }}</span>
 
           @endif
+
+          {{--        //pintamos el average--}}
+
+{{--          $averageRating = \App\Helpers\RatingsHelper::getAverageForComponent();--}}
+
+          <select id="stars">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+          </select>
+
     </div>
       {{-- // comentarios --}}
       <div class="comments">
@@ -58,3 +71,40 @@
     </div>
   </div>
 </div>
+
+@section('js')
+
+
+    <script src="{{asset('js/jsBarrating.js')}}"></script>
+    <script type="text/javascript">
+        $("#stars").on("click",function(){
+            alert('hola')
+        })
+        let averageRating = parseInt('{{$averageRating}}');
+        console.log(averageRating);
+        $(document).ready(function () {
+
+
+            let $control = $('#stars').barrating({
+                theme: 'fontawesome-stars',
+                silent: false,
+                readonly: true,
+                onSelect: function() {
+                    // alert ('holas');
+                }
+            });
+
+            $control.barrating('set' , averageRating);
+
+            $.ajax({url: "rating", success: function(result){
+                    $("#div1").html(result);
+                }})
+
+        });
+
+
+
+    </script>
+@endsection
+
+
