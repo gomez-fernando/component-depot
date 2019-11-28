@@ -4,12 +4,16 @@
 <title>{{ __('lang.home') }}</title>
 @endsection
 
+
+
 @section('content')
-<div class="container">
-  <div class="row justify-content-center">
+
+    <div class="container">
+
+        <div class="row justify-content-center">
     <div class="col-md-8">
       {{-- // mostramos mensaje --}}
-      @include('includes.message')
+        @include('includes.message')
       {{-- // mustro las fotos --}}
       @foreach ($components as $component)
         @include('includes.component', ['component' => $component])

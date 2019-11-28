@@ -116,7 +116,7 @@
                         <div class="clearfix"></div>
                         <div class="comments">
                             <h2>Comentarios ({{ count($component->comments) }})</h2>
-                         
+
                             @foreach ($component->comments as $comment)
                                 <div class="comment">
             <span class="nickname">
@@ -145,43 +145,26 @@
 
 @endsection
 
+
 @section('js')
 
 
     <script src="{{asset('js/jsBarrating.js')}}"></script>
     <script type="text/javascript">
+        $("#stars").on("click",function(){
+            alert('hola')
+        })
         let averageRating = parseInt('{{$averageRating}}');
         console.log(averageRating);
         $(document).ready(function () {
+
+
             let $control = $('#stars').barrating({
                 theme: 'fontawesome-stars',
                 silent: false,
                 readonly: true,
-                onSelect: function(value, text) {
-
-
-
-{{--                    --}}{{--let data = {--}}
-{{--                    --}}{{--    user_id : '{{ Auth::user()->id}}',--}}
-{{--                    --}}{{--    component_id : '{{ $component->id }}',--}}
-{{--                    --}}{{--    value: value--}}
-{{--                    --}}{{--}--}}
-{{--                    --}}{{--let urlAjax =  '{{route('rating.store')}}';--}}
-
-{{--                    --}}{{--console.log(urlAjax);--}}
-
-{{--                    $.ajax({--}}
-{{--                        url:urlAjax,--}}
-{{--                        data:data,--}}
-{{--                        method: "POST",--}}
-{{--                        dataType: 'json',--}}
-{{--                        headers: {--}}
-{{--                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')--}}
-{{--                        }--}}
-{{--                    }).done(function(response) {--}}
-{{--                        console.log(response)--}}
-{{--                    });--}}
-
+                onSelect: function() {
+                    // alert ('holas');
                 }
             });
 
@@ -192,6 +175,8 @@
                 }})
 
         });
+
+
 
     </script>
 @endsection

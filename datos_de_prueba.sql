@@ -14,7 +14,7 @@ INSERT INTO `users` VALUES(NULL, 'user', 'nombre1', 'apellido1', 'nick1', 'novat
 INSERT INTO `categories` VALUES
 (null, 1, 'Tarjetas gráficas', 'Tarjetas gráficas', CURTIME(), CURTIME()),
 (null, 1, 'Procesadores CPU', 'AMD e INTEL', CURTIME(), CURTIME()),
-(null, 1, 'Memoria RAM DDR4', 'Memoria RAM DDR', CURTIME(), CURTIME()),
+(null, 1, 'Memoria RAM', 'Memoria RAM DDR', CURTIME(), CURTIME()),
 (null, 1, 'Discos duros HD', 'Discos duros HD para PC y portátil', CURTIME(), CURTIME()),
 (null, 1, 'Discos duros SD', 'Discos duros SD para PC y portátil', CURTIME(), CURTIME());
 

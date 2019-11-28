@@ -20,8 +20,8 @@
 
 // RUTAS GENERALES
 Auth::routes();
-Route::get('/', 'HomeController@index')->name('welcome');
-Route::get('/home', 'HomeController@home')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
+Route::get('/home/{categoryId?}', 'HomeController@index')->name('home');
 
 // RATING
 Route::get('/ratings', 'RatingController@hello');

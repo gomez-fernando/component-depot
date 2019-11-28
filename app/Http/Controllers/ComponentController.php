@@ -6,6 +6,7 @@ use App\Comment;
 use App\Component;
 use App\Like;
 use App\Rating;
+use App\Category;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
@@ -82,16 +83,21 @@ class componentController extends Controller
 
         $component = Component::find($id);
         $averageRating = \App\Helpers\RatingsHelper::getAverageForComponent($id);
+        $categories = Category::orderBy('id')->get();
+//        dd($categories);
 
         if (Auth::check()){
             return view('component.detail', [
                 'component' => $component,
-                'averageRating' => $averageRating
+                'averageRating' => $averageRating,
+                'categories' => $categories
             ]);
         } else{
             return view('component.detailG', [
                 'component' => $component,
-                'averageRating' => $averageRating
+                'averageRating' => $averageRating,
+                'categories' => $categories
+
             ]);
         }
     }
