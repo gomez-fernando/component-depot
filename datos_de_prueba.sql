@@ -22,11 +22,7 @@ INSERT INTO `categories` VALUES
 -- insert into `components`
 --
 
-INSERT INTO `components` VALUES(null, 2, 1, 'Toshiba HDD 500GB 5400RPM SATA3 ', 'toshiba-hdd-500gb-5400rpm-sata3.jpg', '
-    Factor de forma 2.5"
-    Velocidad de 5400 rpm
-    Capacidad de almacenamiento 500 GB
-', CURTIME(), CURTIME() ),
+INSERT INTO `components` VALUES
 (null, 1, 1, 'Gigabyte GeForce GT 710 2GB GDDR', 'GT710.jpg', 'Disfruta de toda la potencia de esta Gigabyte GeForce GT 710 con 2GB de memoria y conectores de primera calidad chapados en oro, con conectores de gran superficie fabricadas para una durabilidad increible. Con conexiones HDMI, DVI y D-sub podrás conectar tus dispositivos favoritos a tu ordenador y poder disfrutar aun más de tu ordenador.', CURTIME(), CURTIME()),
 (null, 1, 1, 'Asus Dual GeForce RTX 2070 SUPER', 'RTX2070.jpg', 'Gráfica ASUS Dual GeForce® RTX 2070 SUPER™ EVO OC edition 8GB GDDR6 con dos potentes ventiladores Axial-tech para disfrutar de juegos triple A y VR con frecuencias de refresco más altas.', CURTIME(), CURTIME()),
 (null, 1, 1, 'Asus GeForce GTX 1650 Dual 4GB', 'GTX1650.jpg', 'La ASUS Dual GeForce® GTX 1650 está construida con el rendimiento gráfico de vanguardia de la galardonada arquitectura NVIDIA Turing ™ para potenciar sus juegos favoritos. Prepare el juego con un rendimiento que es dos veces más rápido que la GeForce GTX 950 y hasta un 70% más rápido que la GTX 1050. GeForce Experience te permite capturar y compartir videos, capturas de pantalla y transmisiones en vivo con amigos, mantener actualizados los controladores de GeForce y optimizar fácilmente la configuración del juego.', CURTIME(), CURTIME()),
