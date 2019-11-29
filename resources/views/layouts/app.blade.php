@@ -47,7 +47,7 @@
                     <div class="col-6 b">
                         <!-- Authentication Links -->
                         @guest
-                            <li class="nav-item dropdown float-right">
+                            <li class="nav dropdown float-right">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle pt-2 pb-2 pl-1 pr-1" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     <i class="icon-cms"></i><span class="sm-hidden">Area personal</span>  <span class="caret"></span>
                                 </a>
@@ -68,47 +68,47 @@
                                 </div>
                             </li>
                         @else
-                        <li class="nav-item">
-                        <a href="{{ route('home') }}" class="nav-link">{{ __('lang.home') }}</a>
-                        </li>
 
+                        <li class="nav dropdown float-right">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ Auth::user()->nick }} <span class="caret"></span>
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+
+
+                            <a class="dropdown-item" href="{{ route('config') }}">
+                                {{ __('lang.profile') }}
+                                </a>
+
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                                    {{ __('lang.logout') }}
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+
+                            </div>
+                        </li>
                         @if (Auth::user() && Auth::user()->role == 'user')
-                                <li class="nav-item">
+                                <li class="nav float-right">
                                     <a href="{{ route('likes') }}" class="nav-link">{{ __('lang.favorites') }}</a>
                                 </li>
                         @endif
 
 
                         @if (Auth::user() && Auth::user()->role == 'admin')
-                                <li class="nav-item">
+                                <li class="nav float-right">
                                     <a href="{{ route('component.create') }}" class="nav-link">{{ __('lang.upload_component') }}</a>
                                 </li>
                         @endif
+                        <li class="nav float-right">
+                        <a href="{{ route('home') }}" class="nav-link">{{ __('lang.home') }}</a>
+                        </li>
 
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->nick }} <span class="caret"></span>
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-
-
-                                <a class="dropdown-item" href="{{ route('config') }}">
-                                    {{ __('lang.profile') }}
-                                    </a>
-
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('lang.logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-
-                                </div>
-                            </li>
                         @endguest
                     </ul>
                 </div>
@@ -131,7 +131,7 @@
                     <ul class="navbar-nav ml-auto">
                         @if(isset($categories))
                             @foreach ($categories as $category)
-                                <li class="nav-item">
+                                <li class="nav">
                                     <a class="nav-link" href="{{ route('home', ['categoryId' =>$category->id]) }}">{{ $category->name }}</a>
                                 </li>
                             @endforeach
