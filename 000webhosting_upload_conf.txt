@@ -18,8 +18,3 @@ $this->app->bind('path.public',function(){return base_path('public_html'); });
 
 
 
-database name: id11029831_laragram
-database user: id11029831_laragram
-database password: kl6mn23c9jn5n
-db host: localhost
-
