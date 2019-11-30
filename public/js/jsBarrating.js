@@ -269,6 +269,7 @@
                 resetStyle();
 
                 // add classes
+                console.log('this ok');
                 $a.addClass('br-selected br-current')[nextAllorPreviousAll()]()
                     .addClass('br-selected');
 
@@ -426,7 +427,7 @@
                 self.$widget = buildWidget();
                 self.$widget.insertAfter(self.$elem);
 
-                applyStyle();
+                //applyStyle();
 
                 showSelectedRating();
 
@@ -480,7 +481,7 @@
                 resetSelectField();
                 showSelectedRating(ratingText());
 
-                applyStyle();
+                //applyStyle();
 
                 // onClear callback
                 options.onClear.call(

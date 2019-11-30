@@ -82,9 +82,11 @@ class componentController extends Controller
     public function detail($id){
 
         $component = Component::find($id);
+
+
         $averageRating = \App\Helpers\RatingsHelper::getAverageForComponent($id);
         $categories = Category::orderBy('id')->get();
-//        dd($categories);
+
 
         if (Auth::check()){
             return view('component.detail', [
