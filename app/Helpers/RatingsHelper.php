@@ -8,12 +8,16 @@ use App\Component;
 
 class RatingsHelper{
 
-    static function getAverageForComponent(int $id) : int  {
+    static function getAverageForComponent($id) : int  {
 
         /** @var Component $component */
         $component = Component::find($id);
-        $ratings = $component->ratings()->avg('value');
-        return  intval($ratings);
+        if($component) {
+            $ratings = $component->ratings()->avg('value');
+            return  intval($ratings);
+        }
+
+        return 0;
 
     }
 

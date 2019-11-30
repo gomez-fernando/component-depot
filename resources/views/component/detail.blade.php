@@ -98,7 +98,7 @@
         @endif
 
 {{--        //pintamos el average--}}
-        <select id="stars">
+        <select id="stars-{{$component->id}}">
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -175,54 +175,26 @@
 </div>
 </div>
 
-@endsection
-
-@section('js')
+<script>
 
 
-    <script src="{{asset('js/jsBarrating.js')}}"></script>
-    <script type="text/javascript">
-        let averageRating = parseInt('{{$averageRating}}');
-        console.log(averageRating);
-        $(document).ready(function () {
-            let $control = $('#stars').barrating({
-                theme: 'fontawesome-stars',
-                silent: false,
-                onSelect: function(value, text) {
+    var componentId = '{{ $component->id }}';
+    var averageRating = parseInt('{{\App\Helpers\RatingsHelper::getAverageForComponent($component->id)}}');
+
+
+    var userId = '{{ Auth::user()->id}}';
+    var urlRatingStore = '{{route('rating.store')}}';
+
+    console.log(userId);
+    console.log(urlRatingStore);
 
 
 
-                    let data = {
-                        user_id : '{{ Auth::user()->id}}',
-                        component_id : '{{ $component->id }}',
-                        value: value
-                    }
-                    let urlAjax =  '{{route('rating.store')}}';
+</script>
 
-                    console.log(urlAjax);
+<script src="{{asset('js/jsBarrating.js')}}"></script>
+<script src="{{ asset('js/stars.js') }}"></script>
 
-                    $.ajax({
-                        url:urlAjax,
-                        data:data,
-                        method: "POST",
-                        dataType: 'json',
-                        headers: {
-                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                        }
-                    }).done(function(response) {
-                       console.log(response)
-                    });
 
-                }
-            });
 
-            $control.barrating('set' , averageRating);
-
-            $.ajax({url: "rating", success: function(result){
-                $("#div1").html(result);
-           }})
-
-        });
-
-    </script>
 @endsection

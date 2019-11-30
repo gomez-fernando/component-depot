@@ -1,7 +1,7 @@
 <div class="col-sm-12">
 <div class="card pub_image h-100 card-body">
     <div class="card-header">
-
+        <meta name="csrf-token" content="{{ csrf_token() }}">
       <div class="data-user">
       <a href="{{ route('component.detail', ['id' => $component->id]) }}">
         {{ $component->name}}
@@ -55,7 +55,7 @@
 
 {{--          $averageRating = \App\Helpers\RatingsHelper::getAverageForComponent();--}}
 
-          <select id="stars">
+          <select id="stars-{{$component->id}}" class="stars">
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -72,39 +72,17 @@
   </div>
 </div>
 
-@section('js')
+<script>
 
-
-    <script src="{{asset('js/jsBarrating.js')}}"></script>
-    <script type="text/javascript">
-        $("#stars").on("click",function(){
-            alert('hola')
-        })
-        let averageRating = parseInt('{{$averageRating}}');
-        console.log(averageRating);
-        $(document).ready(function () {
-
-
-            let $control = $('#stars').barrating({
-                theme: 'fontawesome-stars',
-                silent: false,
-                readonly: true,
-                onSelect: function() {
-                    // alert ('holas');
-                }
-            });
-
-            $control.barrating('set' , averageRating);
-
-            $.ajax({url: "rating", success: function(result){
-                    $("#div1").html(result);
-                }})
-
-        });
+    var componentId = '{{ $component->id }}';
+    var averageRating = '{{\App\Helpers\RatingsHelper::getAverageForComponent($component->id)}}';
+    var userId = '{{ Auth::user()->id}}';
+    var urlRatingStore = '{{route('rating.store')}}';
 
 
 
-    </script>
-@endsection
+</script>
 
 
+<script src="{{asset('js/jsBarrating.js')}}"></script>
+<script src="{{ asset('js/stars.js') }}"></script>
