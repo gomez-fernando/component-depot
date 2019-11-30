@@ -15,9 +15,16 @@
       {{-- // mostramos mensaje --}}
         @include('includes.message')
       {{-- // mustro los componentes --}}
-      @foreach ($components as $component)
-        @include('includes.component', ['component' => $component, 'averageRating' => \App\Helpers\RatingsHelper::getAverageForComponent($component->id)])
-      @endforeach
+        @if (Auth::check())
+            @foreach ($components as $component)
+                @include('includes.component', ['component' => $component, 'averageRating' => \App\Helpers\RatingsHelper::getAverageForComponent($component->id)])
+            @endforeach
+        @else
+            @foreach ($components as $component)
+                @include('includes.componentG', ['component' => $component, 'averageRating' => \App\Helpers\RatingsHelper::getAverageForComponent($component->id)])
+            @endforeach
+        @endif
+
       {{-- // añadimos enlaces de paginacion --}}
       {{-- IMPORTANTE CLASS CLEARFIX para limpiar los flotados --}}
       <div class="clearfix"></div>
