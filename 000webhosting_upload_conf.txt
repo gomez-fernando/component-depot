@@ -1,0 +1,25 @@
+1. copiar todo a /
+
+2. delete public_html
+
+3. rename public to public_html
+
+1. copiar esto en el método register() de /app/Providers/AppServiceProvider.php
+
+$this->app->bind('path.public',function(){return base_path('public_html'); });
+
+2. Open /.env and copy APP_KEY value without base64:    FS5pgSXrYmsLLFQcCymrXv1g271FwK/RzXap43dt0F8=
+
+6. go to /config/app.php, find 'key' and replace the line with the following code: 'key' => env('APP_KEY', base64_decode('%your copied app key%')),
+
+7. Update the database credentials from /config/database.php or .env file.  Lookup for mysql vector and update the database, username, password properly.
+
+8. Clear old Laravel cache: Delete all files from /bootstrap/cache/    except .gitignore
+
+
+
+database name: id11029831_laragram
+database user: id11029831_laragram
+database password: kl6mn23c9jn5n
+db host: localhost
+
