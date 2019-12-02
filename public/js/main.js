@@ -9,7 +9,6 @@ window.addEventListener('load', function(){
     function like(){
         $('.btn-like').unbind('click').click(function(){
             console.log('like');
-            alert('hola');
 
             $(this).addClass('btn-dislike').removeClass('btn-like');
             $(this).attr('src', url+'/img/facebook-like-64-blue.png');
