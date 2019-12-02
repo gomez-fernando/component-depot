@@ -1,3 +1,8 @@
+html, body{
+    margin:0px;
+    height:100%;
+}
+
 body{
     background: linear-gradient(
 		rgba( 243, 229, 7 , 0.5),
@@ -43,6 +48,71 @@ body{
 .pub_image .container-avatar img{
     height: 100%;
 }
+
+
+/**/
+.header-01 {
+    background-color: #58595b;
+    color: #373535;
+    padding: 0;
+    font-size: 13px;
+    height: 40px;
+}
+
+.header-01 .nav-item {float: none;text-align: right;display: inline-block;}
+.header-01 .nav-link {
+    color: #373535;
+    text-align: right;
+    padding: 0.5rem 0 0.5rem 1rem;
+}
+.header-01 i.icon-cms {
+    float: left;
+    width: 20px;
+    height: 20px;
+    background-image: url(../img/icon-header-cms.png);
+    margin-right: 5px;
+}
+.header-01 i.icon-profile {
+    float: left;
+    width: 20px;
+    height: 20px;
+    background-image: url(../img/icon-header-profile.png);
+    margin-right: 5px;
+}
+.header-01 .b {
+    text-align: right;
+}
+/**/
+.header-02 {
+    padding: 10px 0;
+    background-color: #ffffff;
+}
+.header-02 .navbar-brand {
+    background-image: url(../img/logo-01.png);
+    height: 60px;
+    width: 200px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0 10px;
+}
+.header-02 .nav-link {
+    font-weight: bold;
+    font-family: 'Raleway', serif;
+    font-size: 18px;
+    color: #373535;
+    transition: 0.3s ease all;
+}
+.header-02 .nav-link.selected,
+.header-02 .nav-link.selected:hover {
+    background-color: #227dc7;
+    color: #ffffff;
+}
+.header-02 .nav-link:hover {
+    color: #227dc7;
+}
+/**/
+
 
 .pub_image{
     margin-bottom: 1.5em;
