@@ -32,31 +32,29 @@
       </div>
       <div class="row">
           <div class="likes">
-              {{--           Comprobar si el usuario le dio like a la imagen--}}
-              @if (Auth::check())
-                  <?php $user_like = false ?>
-                  @foreach ($component->likes as $like)
-                      @if ($like->user->id == Auth::user()->id)
-                          <?php $user_like = true ?>
+{{--              <a href="{{ route('component.detail', ['id' => $component->id]) }}">--}}
+                  {{--           Comprobar si el usuario le dio like a la imagen--}}
+                  @if (Auth::check())
+                      <?php $user_like = false ?>
+                      @foreach ($component->likes as $like)
+                          @if ($like->user->id == Auth::user()->id)
+                              <?php $user_like = true ?>
+                          @endif
+                      @endforeach
+
+
+                      @if ($user_like)
+                          <img class="img-fluid" src="{{ asset('img/facebook-like-64-blue.png') }}" alt="" data-id="{{ $component->id }}" class="btn-dislike">
+                      @else
+                          <img class="img-fluid" src="{{ asset('img/facebook-like-64-gray.png') }}" alt="" data-id="{{ $component->id }}" class="btn-like">
                       @endif
-                  @endforeach
-
-
-                  @if ($user_like)
-                      <img class="img-fluid" src="{{ asset('img/facebook-like-64-blue.png') }}" alt="" data-id="{{ $component->id }}" class="btn-dislike">
+                      <span class="number_likes">{{ count($component->likes) }}</span>
                   @else
-                      <img class="img-fluid" src="{{ asset('img/facebook-like-64-gray.png') }}" alt="" data-id="{{ $component->id }}" class="btn-like">
+                      <img src="{{ asset('img/facebook-like-64-gray.png') }}" alt="">
+                      <span class="number_likes">{{ count($component->likes) }}</span>
+
                   @endif
-                  <span class="number_likes">{{ count($component->likes) }}</span>
-
-              @else
-                  <img src="{{ asset('img/facebook-like-64-gray.png') }}" alt="">
-                  <span class="number_likes">{{ count($component->likes) }}</span>
-
-              @endif
-
-
-
+{{--              </a>--}}
           </div>
       </div>
 

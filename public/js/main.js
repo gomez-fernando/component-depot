@@ -18,7 +18,7 @@ window.addEventListener('load', function(){
                 type: 'GET',
                 success: function(response){
                     if (response.like){
-                        console.log('has dado like a la publicacion');
+                        console.log('has dado like al componente');
                     } else {
                         console.log('error al dar like');
                     }
@@ -44,7 +44,7 @@ window.addEventListener('load', function(){
                 type: 'GET',
                 success: function(response){
                     if (response.like){
-                        console.log('has dado dislike a la publicacion');
+                        console.log('has dado dislike al componente');
                     } else {
                         console.log('error al dar dislike');
                     }
