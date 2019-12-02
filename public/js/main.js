@@ -1,5 +1,4 @@
-// var url = 'https://lara-gram.000webhostapp.com';
-var url = 'http://component-depot-personal.test';
+var url = 'http://component-depot.test';
 
 window.addEventListener('load', function(){
 
@@ -10,6 +9,7 @@ window.addEventListener('load', function(){
     function like(){
         $('.btn-like').unbind('click').click(function(){
             console.log('like');
+            alert('hola');
 
             $(this).addClass('btn-dislike').removeClass('btn-like');
             $(this).attr('src', url+'/img/facebook-like-64-blue.png');
@@ -57,14 +57,6 @@ window.addEventListener('load', function(){
         });
     }
     dislike();
-
-    // BUSCADOR
-    $('#buscador').submit(function(e){
-        // alert('ey');
-        // e.preventDefault();
-        $(this).attr('action',url+'/gente/'+$('#buscador #search').val());
-        // $(this).submit();
-    });
 
       // Back to top button
     $(window).scroll(function() {

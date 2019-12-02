@@ -7,7 +7,6 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\File;
 use App\User;
 use App\Component;
 

@@ -17,8 +17,9 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
 
-      <!-- Libraries CSS Files -->
+    <!-- Libraries CSS Files -->
 <link href="{{asset('../lib/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
 <link href="{{ asset('../lib/animate-css/animate.min.css') }}" rel="stylesheet">
 
@@ -35,7 +36,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+        <nav class="navbar navbar-expand-md header-01 navbar-laravel">
             <div class="container">
                 <div class="row w-100 m-auto">
                     <!-- Left Side Of Navbar -->
