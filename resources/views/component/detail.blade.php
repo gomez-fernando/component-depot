@@ -91,7 +91,6 @@
             <span class="number_likes">{{ count($component->likes) }}</span>
 
         @else
-{{--            <img src="{{ asset('img/facebook-like-64-gray.png') }}" alt="" data-id="{{ $component->id }}" class="btn-like">--}}
             <img src="{{ asset('img/facebook-like-64-gray.png') }}" alt="">
             <span class="number_likes">{{ count($component->likes) }}</span>
 
