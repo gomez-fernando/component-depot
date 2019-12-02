@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
 @section('title')
-<title>{{ __('lang.settings') }}</title>
+    <title>{{ __('lang.profile') }}</title>
 @endsection
 
 @section('content')
 
-<div class="container">
+    <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
 
@@ -16,7 +16,7 @@
                     <div class="card-header">{{ __('lang.my_account_settings') }}</div>
 
                     <div class="card-body">
-                    <form method="POST" action="{{ route('user.update') }}" enctype="multipart/form-data" aria-label="Configuración de mi cuenta">
+                        <form method="POST" action="{{ route('user.update') }}" enctype="multipart/form-data" aria-label="Configuración de mi cuenta">
                             @csrf
 
                             <div class="form-group row">
@@ -48,7 +48,7 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="nick" class="col-md-4 col-form-label text-md-right">{{ __('Nick') }}</label>
+                                <label for="nick" class="col-md-4 col-form-label text-md-right">{{ __('lang.nick') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="nick" type="text" class="form-control{{ $errors->has('nick') ? ' is-invalid' : '' }}" name="nick" value="{{ Auth::user()->nick }}" required autofocus>
@@ -75,12 +75,11 @@
                                 </div>
                             </div>
 
-                            {{-- la contraseña se hará mas adelante --}}
-                            {{-- <div class="form-group row">
+                            <div class="form-group row">
                                 <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+                                    <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" >
 
                                     @if ($errors->has('password'))
                                         <span class="invalid-feedback" role="alert">
@@ -94,30 +93,11 @@
                                 <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-                                </div>
-                            </div> --}}
-
-                            <div class="form-group row">
-
-
-
-
-
-                                <label for="image_path" class="col-md-4 col-form-label text-md-right">{{ __('Avatar') }}</label>
-
-                                <div class="col-md-6">
-                                    {{-- // inlcuyo la imagen del usuario --}}
-                                        @include('includes.avatar')
-                                    <input id="image_path" type="file" class="form-control{{ $errors->has('image_path') ? ' is-invalid' : '' }}" name="image_path" >
-
-                                    @if ($errors->has('image_path'))
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $errors->first('image_path') }}</strong>
-                                        </span>
-                                    @endif
+                                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" >
                                 </div>
                             </div>
+
+
 
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">

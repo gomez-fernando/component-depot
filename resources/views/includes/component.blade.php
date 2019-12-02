@@ -10,6 +10,9 @@
 
     </div>
 
+{{--    {{ $identity }}--}}
+
+
     <div class="card-body">
       <div>
         <img class="img-fluid" src="{{ route('component.file', ['filename' => $component->image_path]) }}" alt="imagen del componente">
@@ -76,7 +79,7 @@
 
     var componentId = '{{ $component->id }}';
     var averageRating = '{{\App\Helpers\RatingsHelper::getAverageForComponent($component->id)}}';
-    var userId = '{{ Auth::user()->id}}';
+    var userId = '{{ $identity}}';
     var urlRatingStore = '{{route('rating.store')}}';
 
 
