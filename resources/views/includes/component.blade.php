@@ -30,15 +30,16 @@
           {{ $component->description }}
         </p>
       </div>
-      <div class="likes btn btn-primary">Leer m&aacute;s <i></i>>
-{{--           Comprobar si el usuario le dio like a la imagen--}}
-          @if (Auth::check())
-              <?php $user_like = false ?>
-              @foreach ($component->likes as $like)
-                  @if ($like->user->id == Auth::user()->id)
-                      <?php $user_like = true ?>
-                  @endif
-              @endforeach
+      <div class="row">
+          <div class="likes">
+              {{--           Comprobar si el usuario le dio like a la imagen--}}
+              @if (Auth::check())
+                  <?php $user_like = false ?>
+                  @foreach ($component->likes as $like)
+                      @if ($like->user->id == Auth::user()->id)
+                          <?php $user_like = true ?>
+                      @endif
+                  @endforeach
 
 
                   @if ($user_like)
@@ -48,24 +49,31 @@
                   @endif
                   <span class="number_likes">{{ count($component->likes) }}</span>
 
-          @else
-              <img src="{{ asset('img/facebook-like-64-gray.png') }}" alt="">
-              <span class="number_likes">{{ count($component->likes) }}</span>
+              @else
+                  <img src="{{ asset('img/facebook-like-64-gray.png') }}" alt="">
+                  <span class="number_likes">{{ count($component->likes) }}</span>
 
-          @endif
+              @endif
 
-          {{--        //pintamos el average--}}
 
-{{--          $averageRating = \App\Helpers\RatingsHelper::getAverageForComponent();--}}
 
-          <select id="stars-{{$component->id}}" class="stars">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-          </select>
+          </div>
+      </div>
 
+    <div class="row">
+        <div class="stars">
+            {{--        //pintamos el average--}}
+
+            {{--          $averageRating = \App\Helpers\RatingsHelper::getAverageForComponent();--}}
+
+            <select id="stars-{{$component->id}}" class="stars">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </div>
     </div>
       {{-- // comentarios --}}
       <div class="comments">
