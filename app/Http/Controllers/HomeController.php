@@ -25,6 +25,12 @@ class HomeController extends Controller
      */
     public function index($categoryId = null)
     {
+        if (\Auth::check()){
+            $identity = \Auth::user()->id;
+        } else{
+            $identity = 0;
+        }
+
         if(!empty($categoryId)){
             $components = Component::orderBy('id', 'desc')
                 ->where('category_id', $categoryId)
@@ -42,6 +48,7 @@ class HomeController extends Controller
 //        $components = Component::orderBy('id', 'desc')->paginate(6);
 
         return view('home', [
+            'identity' => $identity,
             'categories' => $categories,
             'components' => $components,
         ]);
