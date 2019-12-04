@@ -21,8 +21,8 @@
                     </div>
 
                     <div class="card-body">
-                        <div class="image-container image-detail">
-                            <img src="{{ route('component.file', ['filename' => $component->image_path]) }}" alt="">
+                        <div class="">
+                            <img class="img-fluid" src="{{ route('component.file', ['filename' => $component->image_path]) }}" alt="">
                         </div>
 
                         <div class="description">
