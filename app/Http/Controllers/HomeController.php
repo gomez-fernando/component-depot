@@ -61,8 +61,8 @@ class HomeController extends Controller
                 }
             }
 
-            $userUpdated = \Auth::user();
-            dd('el user era ' . $userLevel.' y ahora es '.$userUpdated->level.' Con valoraciones: '.$ratings);
+//            $userUpdated = \Auth::user();
+//            dd('el user era ' . $userLevel.' y ahora es '.$userUpdated->level.' Con valoraciones: '.$ratings);
 
         } else{
             $identity = 0;

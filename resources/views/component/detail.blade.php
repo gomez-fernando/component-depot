@@ -96,21 +96,37 @@
 
         @endif
 
-{{--        //pintamos el average--}}
-        <select id="stars-{{$component->id}}">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-        </select>
+        @if ($ratingsQuantity == 0)
+            <div class="row">
+                <p>Sé el primero en valorar éste producto</p>
+            </div>
+        @endif
+            {{--        //pintamos el average--}}
+
+            <select id="stars-{{$component->id}}">
+                {{--            <option value="0" style="visibility: hidden !important">0</option>--}}
+                <option value=""></option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+            <span>
+                @if ($ratingsQuantity == 1)
+                    {{ $ratingsQuantity }} valoración
+                @else
+                    {{ $ratingsQuantity }} valoraciones
+                @endif
+            </span>
+
 
     </div>
 
     {{-- // descripción --}}
     <div class="clearfix"></div>
     <div class="comments">
-        <h2>Descripción</h2>
+        <h2 >Descripción</h2>
         <hr>
 
 

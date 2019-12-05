@@ -85,6 +85,9 @@ class componentController extends Controller
 
 
         $averageRating = \App\Helpers\RatingsHelper::getAverageForComponent($id);
+        $ratingsQuantity = Rating::where('component_id', $id)
+                                    ->count();
+//        dd($ratingsQuantity);
         $categories = Category::orderBy('id')->get();
 
 
@@ -92,12 +95,14 @@ class componentController extends Controller
             return view('component.detail', [
                 'component' => $component,
                 'averageRating' => $averageRating,
+                'ratingsQuantity' => $ratingsQuantity,
                 'categories' => $categories
             ]);
         } else{
             return view('component.detailG', [
                 'component' => $component,
                 'averageRating' => $averageRating,
+                'ratingsQuantity' => $ratingsQuantity,
                 'categories' => $categories
 
             ]);
