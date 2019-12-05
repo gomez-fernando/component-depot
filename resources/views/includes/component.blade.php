@@ -69,11 +69,13 @@
             {{--          $averageRating = \App\Helpers\RatingsHelper::getAverageForComponent();--}}
 
             <select id="stars-{{$component->id}}" class="stars">
+                <option value="0">0</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
                 <option value="5">5</option>
+                <option value="6">5</option>
             </select>
         </div>
     </div>
