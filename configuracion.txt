@@ -1,0 +1,8 @@
+configurar:
+    config/app.php,
+    .env,
+-----------------------
+crear un virtual host
+
+------------------------
+la password para admin y user1 es pass12PASS
