@@ -99,8 +99,8 @@ body{
     margin-left: auto;
 }
 .pub_image_solo{
-    margin-bottom: 1.5em;    
-    width: 50%;
+    margin-bottom: 1.5em;
+    /* width: 50%; */
     padding: 25px;
     position: relative;
     margin-right: auto;
