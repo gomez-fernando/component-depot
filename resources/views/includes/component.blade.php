@@ -10,14 +10,10 @@
 
     </div>
 
-<<<<<<< Updated upstream
 {{--    {{ $identity }}--}}
 
 
     <div class="card-body">
-=======
-    <div class="card-body ">
->>>>>>> Stashed changes
       <div>
         <img class="img-fluid" src="{{ route('component.file', ['filename' => $component->image_path]) }}" alt="imagen del componente">
       </div>
@@ -96,13 +92,8 @@
 
 
 
-<<<<<<< Updated upstream
 </script>
 
 
 <script src="{{asset('js/jsBarrating.js')}}"></script>
 <script src="{{ asset('js/stars.js') }}"></script>
-=======
-    </script>
-@endsection
->>>>>>> Stashed changes
