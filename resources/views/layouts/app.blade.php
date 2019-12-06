@@ -41,7 +41,7 @@
                 <div class="row w-100 m-auto">
                     <!-- Left Side Of Navbar -->
                     <div class="col-6 a">
-                        <div class="pt-2 pb-2 pl-1 pr-1"><?php echo date("d M Y");?></div>
+                      <a class="navbar-brand" href="{{ url('/') }}">Component Depot</a>
                     </div>
 
                     <!-- Right Side Of Navbar -->
@@ -121,7 +121,7 @@
 
         <nav class="navbar navbar-expand-md navbar-laravel header-02">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">Component Depot</a>
+                <div class="pt-2 pb-2 pl-1 pr-1"><?php echo date("d M Y");?></div>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
