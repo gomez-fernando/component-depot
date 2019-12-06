@@ -1,8 +1,3 @@
-html, body{
-    margin:0px;
-    height:100%;
-}
-
 body{
     background: linear-gradient(
 		rgba( 243, 229, 7 , 0.5),
@@ -49,77 +44,14 @@ body{
     height: 100%;
 }
 
-
-/**/
-.header-01 {
-    background-color: #58595b;
-    color: #373535;
-    padding: 0;
-    font-size: 13px;
-    height: 40px;
-}
-
-.header-01 .nav-item {float: none;text-align: right;display: inline-block;}
-.header-01 .nav-link {
-    color: #373535;
-    text-align: right;
-    padding: 0.5rem 0 0.5rem 1rem;
-}
-.header-01 i.icon-cms {
-    float: left;
-    width: 20px;
-    height: 20px;
-    background-image: url(../img/icon-header-cms.png);
-    margin-right: 5px;
-}
-.header-01 i.icon-profile {
-    float: left;
-    width: 20px;
-    height: 20px;
-    background-image: url(../img/icon-header-profile.png);
-    margin-right: 5px;
-}
-.header-01 .b {
-    text-align: right;
-}
-/**/
-.header-02 {
-    padding: 10px 0;
-    background-color: #ffffff;
-}
-.header-02 .navbar-brand {
-    background-image: url(../img/logo-01.png);
-    height: 60px;
-    width: 200px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    margin: 0 10px;
-}
-.header-02 .nav-link {
-    font-weight: bold;
-    font-family: 'Raleway', serif;
-    font-size: 18px;
-    color: #373535;
-    transition: 0.3s ease all;
-}
-.header-02 .nav-link.selected,
-.header-02 .nav-link.selected:hover {
-    background-color: #227dc7;
-    color: #ffffff;
-}
-.header-02 .nav-link:hover {
-    color: #227dc7;
-}
-/**/
-
-
 .pub_image{
     margin-bottom: 1.5em;
     float: left;
     width: 50%;
     padding: 25px;
     position: relative;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .pub_image .container-avatar{
@@ -142,11 +74,14 @@ body{
 }
 /* esto es para redimensionar donde muestra la imagen*/
 .image-container{
-    height: 390px;
+    height: auto;
     /* max-height: 500px; */
-    width: 270px;
+    width: auto;
     max-height: 390px;
     overflow: hidden;
+    display:block;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .image-detail{
@@ -159,29 +94,65 @@ body{
 
 .image-container img{
     width: 70%;
+    display:block;
+    margin-right: auto;
+    margin-left: auto;
 }
+
+/*Aqui para las vistas inviduales*/
+.pub_image_solo{
+    margin-bottom: 1.5em;
+    /* width: 50%; */
+    padding: 25px;
+    position: relative;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.container_solo{
+  width: 50%;
+}
+
+.img-fluid_solo{
+  width: 80%;
+  position: relative;
+  margin-left: 50%;
+}
+
+.name_component{
+  color: rgb(68, 141, 255);
+  font-size: 18px;
+}
+/*Hasta aqui las vistas indivuales*/
 
 .pub_image .card-body{
     padding: 0;
+    margin-right:10px;
 }
 /* esto es para el texto de las imagenes */
 .pub_image .description{
-  font-size: 14px;
+    font-size: 14px;
 	line-height: 22px;
 	height: 40px;
 	overflow: hidden;
-	margin: 0 0 10px 0;
+    margin: 0 0 10px 0;
 }
 
 .pub_image .btn-comments{
     margin: 0px 20px 20px 5px;
     /* margin-left: 0px; */
+    display:block;
+    margin: auto;
 }
 
 .likes{
-    float: left;
-    padding: 0px 10px 0px 20px;
+    /*float: left;*/
+    padding-right:auto;
+    padding-left:auto;
     /* padding-right: 10px; */
+    display:block;
+    margin: auto;
+    text-align: center;
 }
 
 .likes img{
@@ -190,6 +161,9 @@ body{
 
 .pub_image_detail .comments{
     padding: 20px;
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
 }
 
 .comment a.btn.btn-sm.btn-light{

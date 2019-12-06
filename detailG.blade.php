@@ -7,7 +7,7 @@
                 {{-- // mostramos mensaje --}}
                 @include('includes.message')
 
-                <div class="card pub_image_solo pub_image_detail_solo">
+                <div class="card pub_image_solo pub_image_detail">
                     <div class="card-header">
                         <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -21,15 +21,18 @@
                     </div>
 
                     <div class="card-body">
-                        <div class="container_solo">
-                            <img class="img-fluid_solo" src="{{ route('component.file', ['filename' => $component->image_path]) }}" alt="">
+                        <div class="image-container image-detail">
+                            <img src="{{ route('component.file', ['filename' => $component->image_path]) }}" alt="">
                         </div>
 
-                        <div class="name_component">
+                        <div class="description">
                             <p>
                                 <strong>{{ $component->name }}</strong>
                             </p>
 
+                            <p>
+                                {{ $component->description }}
+                            </p>
                         </div>
                         <div class="likes">
                             {{--           Comprobar si el usuario le dio like a la imagen--}}
@@ -72,7 +75,7 @@
 
                         {{-- // descripción --}}
                         <div class="clearfix"></div>
-                        <div class="description">
+                        <div class="comments">
                             <h2>Descripción</h2>
                             <hr>
                             <div class="comment">
