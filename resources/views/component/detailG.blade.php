@@ -7,7 +7,7 @@
                 {{-- // mostramos mensaje --}}
                 @include('includes.message')
 
-                <div class="card pub_image pub_image_detail">
+                <div class="card pub_image_solo pub_image_detail">
                     <div class="card-header">
                         <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -21,8 +21,8 @@
                     </div>
 
                     <div class="card-body">
-                        <div class="">
-                            <img class="img-fluid" src="{{ route('component.file', ['filename' => $component->image_path]) }}" alt="">
+                        <div class="image-container image-detail">
+                            <img src="{{ route('component.file', ['filename' => $component->image_path]) }}" alt="">
                         </div>
 
                         <div class="description">
