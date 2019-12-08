@@ -83,6 +83,11 @@ class HomeController extends Controller
 
         // $components = Component::all(); asi tambien funcionaria pero sin ordenarlos
 //        $components = Component::orderBy('id', 'desc')->paginate(6);
+        if(!isset($_COOKIE['entrar']) && !\Auth::check()){
+            setcookie("entrar", 0, time()+1200);
+            return view('index');
+        }
+
 
         return view('home', [
             'identity' => $identity,

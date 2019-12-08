@@ -1,14 +1,116 @@
-body{
+.with-background{
     background: linear-gradient(
 		rgba( 243, 229, 7 , 0.5),
 		rgba(  243, 229, 7 , 0.5)
 	),  url('../img/fondo.jpg');
 	background-size: cover;
 	background-attachment: fixed;
+
+
     /*background-image: url('../img/fondo.jpg');*/
     /*background-size: cover;*/
     /*background-attachment: fixed;*/
+    /*max-width: 100%;*/
 }
+
+#particles-js {
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    z-index: -1;
+}
+
+/*--------------------------------------------------------------
+# Welcome
+--------------------------------------------------------------*/
+#welcome {
+    display: table;
+    width: 100%;
+    height: 100vh;
+    /*background: url(../img/favicon-laravel-32x32.png) top center fixed;*/
+    background: url(https://miro.medium.com/max/4956/1*-JNHHrkVr7bg3A9SwWYSvA.png) top center fixed;
+    background-size: cover;
+    /* para poner sobre las partículas */
+    position: relative;
+     z-index: 99;
+    /*opacity: .85;*/
+}
+
+#welcome .actions a, #welcome-informacion .actions a {
+    font-family: "Raleway", sans-serif;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding: 8px 20px;
+    border-radius: 2px;
+    transition: 0.5s;
+    margin: 10px;
+}
+
+html body div section#welcome div.welcome-container div.wow.fadeIn h2{
+    margin-top: 150px !important;
+    margin-bottom: 50px;
+    color: #007bff;
+}
+
+/* #welcome-informacion {
+  display: table;
+  width: 100%;
+  height: 100vh;
+  background: url(../img/logo.jpg) top center fixed;
+  background-size: cover;
+} */
+
+#welcome .welcome-logo, #welcome-informacion .welcome-logo {
+    margin: 20px;
+}
+
+#welcome .welcome-logo img, #welcome-informacion .welcome-logo img {
+    max-width: 15%;
+}
+
+#welcome .welcome-container, #welcome-informacion .welcome-container {
+    background: rgba(0, 0, 0, 0.6);
+    display: table-cell;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    vertical-align: middle;
+}
+
+#welcome h1, #welcome-informacion h1 {
+    margin: 0px !important;
+    font-family: 'Permanent Marker', cursive;
+    /*margin: 30px 0 10px 0;*/
+    font-size: 5rem;
+    font-weight: 600;
+    line-height: 150px;
+    text-transform: uppercase;
+    color:#fafafa;
+    z-index: 1;
+}
+
+html body div#particles.js section#welcome div.welcome-container div.wow.fadeIn h1{
+    font-family: 'Permanent Marker', cursive;
+}
+
+
+.btn-informacion-riesgos {
+    /* #welcome .btn-informacion-riesgos, #welcome-informacion .btn-informacion-riesgos { */
+    background: #007bff;
+    border: 2px solid #007bff;
+    color: #fff;
+}
+
+#welcome .btn-informacion-riesgos:hover, #welcome-informacion .btn-informacion-riesgos:hover {
+    background: none;
+    border: 2px solid #fff;
+    color: #fff;
+}
+
+/*----------------------------------*/
 
 /* Back to top button */
 .back-to-top {
