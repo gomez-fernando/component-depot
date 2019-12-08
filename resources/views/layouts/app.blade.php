@@ -35,6 +35,7 @@
     <link rel="stylesheet" href="{{ asset('css/fontawesome-stars.css') }}">
 </head>
 <body>
+<div class="with-background">
     <div id="app">
         <nav class="navbar navbar-expand-md header-01 navbar-laravel">
             <div class="container">
@@ -186,7 +187,7 @@
  <script src="{{ asset('lib/easing/easing.js') }}"></script>
 
 
-
+</div>
 </body>
 
 @yield('js')

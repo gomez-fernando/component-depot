@@ -22,6 +22,7 @@
 Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home/{categoryId?}', 'HomeController@index')->name('home');
+Route::get('/index', 'HomeController@index')->name('index');
 
 // RATING
 Route::get('/ratings', 'RatingController@hello');
