@@ -1,3 +1,74 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,600|Noticia+Text:700|Raleway:400,600|Poppins');
+body {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 14px;
+}
+body {
+    min-width: 0;
+}
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+i {
+	-webkit-background-size: contain;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active  {
+    -webkit-box-shadow: 0 0 0 30px #f4f4f4 inset !important;
+}
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+}
+textarea {
+    overflow:auto;
+    resize:none;
+}
+::-webkit-input-placeholder {
+    color: #333333;
+}
+::-moz-placeholder {
+    color: #333333;
+}
+:-ms-input-placeholder {
+    color: #333333;
+}
+:-moz-placeholder {
+    color: #333333;
+}
+ul,
+li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+}
+:focus {
+    outline: none!important;
+    -webkit-box-shadow: none!important;
+    box-shadow: none!important;
+    text-decoration: none!important;
+}
+.no-padding {
+    padding: 0;
+}
+h1, h2, h3, h4 {
+	font-weight: bold;
+	font-family: 'Raleway', serif;
+}
+/* -----------------------------------
+PORTADA
+--------------------------------- */
 .with-background{
     background: linear-gradient(
 		rgba( 243, 229, 7 , 0.5),
@@ -126,6 +197,25 @@ html body div#particles.js section#welcome div.welcome-container div.wow.fadeIn 
     transition: background 0.5s;
   }
 
+/* ------------------------------------
+HEADER-02
+------------------------------------ */
+#header-02 .nav-link{
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 5px;
+    color: #444343;
+}
+
+.header-02 .nav-link.selected,
+.header-02 .nav-link.selected:hover {
+	background-color: #b59a09;
+	color: #ffffff !important;
+}
+.header-02 .nav-link:hover {
+	color: #b59a09 !important;
+}
+/* ---------------------------- */
 .avatar{
     width: 55px;
     margin-bottom: 15px;
@@ -331,7 +421,7 @@ footer {
     /* 0px -10px 8px 0px #888888 */
     padding-top: 18px;
     padding-bottom: 10px;
-    margin-top: 184px;
+    margin-top: 100px;
     text-align: center;
 }
 

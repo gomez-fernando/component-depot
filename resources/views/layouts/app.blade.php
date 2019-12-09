@@ -120,7 +120,7 @@
 
 {{--        @include('includes.header', ['categories' => $categories])--}}
 
-        <nav class="navbar navbar-expand-md navbar-laravel header-02">
+        <nav id="header-02" class="navbar navbar-expand-md header-02">
             <div class="container">
                 <div class="pt-2 pb-2 pl-1 pr-1"><?php echo date("d M Y");?></div>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
@@ -133,7 +133,7 @@
                     <ul class="navbar-nav ml-auto">
                         @if(isset($categories))
                             @foreach ($categories as $category)
-                                <li class="nav">
+                                <li class="nav-item">
                                     <a class="nav-link" href="{{ route('home', ['categoryId' =>$category->id]) }}">{{ $category->name }}</a>
                                 </li>
                             @endforeach
@@ -190,7 +190,19 @@
 
 
 </div>
+
+<script>
+// Resaltar enlace de la categoría seleccionada
+if(window.location.href.indexOf("/home/") > -1) {
+    url = window.location.href;
+    n = url.substr(url.length - 1);
+    $('.header-02 .nav-item:nth-child('+n+')').find('.nav-link').addClass('selected');
+    // Title con el nombre de la categoria
+    title = $('.header-02 .nav-link.selected').text();
+    document.title=title;
+}
+</script>
 </body>
 
-@yield('js')
+{{-- @yield('js') --}}
 </html>
