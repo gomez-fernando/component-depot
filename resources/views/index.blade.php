@@ -80,8 +80,9 @@ ob_start();
 {{--<script src="lib/easing/easing.js"></script> -->--}}
 
 <!-- Template Specisifc Custom Javascript File -->
-<script src="js/main.js"></script>
-<script src="js/custom.js"></script>
+<script src="{{ asset('js/main.js') }}"></script>
+<script src="{{ asset('js/custom.js') }}"></script>
+
 
 <!-- JS Particles.js -->
 <script src="js/particles.min.js"></script>

@@ -120,7 +120,7 @@
 
 {{--        @include('includes.header', ['categories' => $categories])--}}
 
-        <nav class="navbar navbar-expand-md navbar-laravel header-02">
+        <nav id="header-02" class="navbar navbar-expand-md header-02">
             <div class="container">
                 <div class="pt-2 pb-2 pl-1 pr-1"><?php echo date("d M Y");?></div>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
@@ -133,7 +133,7 @@
                     <ul class="navbar-nav ml-auto">
                         @if(isset($categories))
                             @foreach ($categories as $category)
-                                <li class="nav">
+                                <li class="nav-item">
                                     <a class="nav-link" href="{{ route('home', ['categoryId' =>$category->id]) }}">{{ $category->name }}</a>
                                 </li>
                             @endforeach
@@ -154,19 +154,21 @@
 ============================-->
 
 <footer id="footer">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="copyright">
-            Developed by: <a href="https://sites.google.com/fp.uoc.edu/grupo-jadf/presentaci%C3%B3n-del-proyecto" target="_blank"><strong>Grupo JDAF 2019 &copy;</strong></a>
-          </div>
-          <div class="credits">
 
-              <a href="https://sites.google.com/fp.uoc.edu/grupo-jadf/presentaci%C3%B3n-del-proyecto" target="_blank"><strong>Github</strong></a>
-          </div>
+        <div class="row justify-content-center redes-sociales">
+            <div class="col-auto">
+            <a href="https://sites.google.com/fp.uoc.edu/grupo-jadf/presentaci%C3%B3n-del-proyecto" target="_blank"><img src="{{ asset('img/google-plus-3-64.png') }}" alt=""></a>
+                <a href="https://www.youtube.com/watch?v=-Fyn83okjg8&feature=youtu.be" target="_blank"><img src="{{ asset('img/youtube-3-64.png') }}" alt=""></a>
+                <a href="https://github.com/FernandoDavidGomezOrtega/component-depot" target="_blank"><img src="{{ asset('img/github-8-64.png') }}" alt=""></a>
+            </div>
+            </div>
+
+            <div class="row ">
+            <div class="col-12" id="">
+                <p>
+                    <strong>Developed by: Grupo JDAF - UOC 2019 &copy;</strong>
+                </p>
         </div>
-      </div>
-    </div>
   </footer>
 
 
@@ -188,7 +190,19 @@
 
 
 </div>
+
+<script>
+// Resaltar enlace de la categoría seleccionada
+if(window.location.href.indexOf("/home/") > -1) {
+    url = window.location.href;
+    n = url.substr(url.length - 1);
+    $('.header-02 .nav-item:nth-child('+n+')').find('.nav-link').addClass('selected');
+    // Title con el nombre de la categoria
+    title = $('.header-02 .nav-link.selected').text();
+    document.title=title;
+}
+</script>
 </body>
 
-@yield('js')
+{{-- @yield('js') --}}
 </html>

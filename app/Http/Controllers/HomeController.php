@@ -81,8 +81,7 @@ class HomeController extends Controller
             $categories = Category::orderBy('id')->get();
         }
 
-        // $components = Component::all(); asi tambien funcionaria pero sin ordenarlos
-//        $components = Component::orderBy('id', 'desc')->paginate(6);
+//        para mostrar la portada
         if(!isset($_COOKIE['entrar']) && !\Auth::check()){
             setcookie("entrar", 0, time()+1200);
             return view('index');
