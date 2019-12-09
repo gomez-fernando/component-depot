@@ -154,19 +154,21 @@
 ============================-->
 
 <footer id="footer">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="copyright">
-            Developed by: <a href="https://sites.google.com/fp.uoc.edu/grupo-jadf/presentaci%C3%B3n-del-proyecto" target="_blank"><strong>Grupo JDAF 2019 &copy;</strong></a>
-          </div>
-          <div class="credits">
 
-              <a href="https://sites.google.com/fp.uoc.edu/grupo-jadf/presentaci%C3%B3n-del-proyecto" target="_blank"><strong>Github</strong></a>
-          </div>
+        <div class="row justify-content-center redes-sociales">
+            <div class="col-auto">
+            <a href="https://sites.google.com/fp.uoc.edu/grupo-jadf/presentaci%C3%B3n-del-proyecto" target="_blank"><img src="{{ asset('img/google-plus-3-64.png') }}" alt=""></a>
+                <a href="https://www.youtube.com/watch?v=-Fyn83okjg8&feature=youtu.be" target="_blank"><img src="{{ asset('img/youtube-3-64.png') }}" alt=""></a>
+                <a href="https://github.com/FernandoDavidGomezOrtega/component-depot" target="_blank"><img src="{{ asset('img/github-8-64.png') }}" alt=""></a>
+            </div>
+            </div>
+
+            <div class="row ">
+            <div class="col-12" id="">
+                <p>
+                    <strong>Developed by: Grupo JDAF - UOC 2019 &copy;</strong>
+                </p>
         </div>
-      </div>
-    </div>
   </footer>
 
 
