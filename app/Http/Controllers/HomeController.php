@@ -82,8 +82,8 @@ class HomeController extends Controller
         }
 
 //        para mostrar la portada
-        if(!isset($_COOKIE['entrar']) && !\Auth::check()){
-            setcookie("entrar", 0, time()+1200);
+        if(!isset($_COOKIE['ent']) && !\Auth::check()){
+            setcookie("ent", 0, time()+1200);
             return view('index');
         }
 

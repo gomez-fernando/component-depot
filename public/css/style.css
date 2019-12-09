@@ -134,6 +134,10 @@ html body div section#welcome div.welcome-container div.wow.fadeIn h2{
   background-size: cover;
 } */
 
+#logo img{
+    height: 60px;
+}
+
 #welcome .welcome-logo, #welcome-informacion .welcome-logo {
     margin: 20px;
 }
@@ -198,24 +202,69 @@ html body div#particles.js section#welcome div.welcome-container div.wow.fadeIn 
   }
 
 /* ------------------------------------
-HEADER-02
+HEADER-01
 ------------------------------------ */
-#header-02 .nav-link{
+#header-01 .nav-link{
     font-size: 18px;
     font-weight: bold;
     border-radius: 5px;
     color: #444343;
 }
 
-.header-02 .nav-link.selected,
-.header-02 .nav-link.selected:hover {
+.header-01 .nav-link.selected,
+.header-01 .nav-link.selected:hover {
 	background-color: #b59a09;
 	color: #ffffff !important;
 }
-.header-02 .nav-link:hover {
+.header-01 .nav-link:hover {
 	color: #b59a09 !important;
 }
-/* ---------------------------- */
+/* ------------------------------------
+HEADER-02
+------------------------------------ */
+#header-02{
+    height: 40px;
+    box-shadow: 0px -4px 0px rgba(0,0,0,.05);
+}
+
+/* ---------------------------------------
+BUSCADOR DE COMPONENTES
+--------------------------------------- */
+#componentsSearch {
+	position: relative;
+	border-radius: 0.25rem;
+	overflow: hidden;
+	border: 1px solid #cfcfcf;
+}
+#componentsSearch > * {
+	height: 40px;
+	line-height: 40px;
+	padding-top: 0;
+	padding-bottom: 0;
+}
+#componentsSearch .form-control {
+    height: 30px;
+	padding-left: 10px;
+	padding-right: 50px;
+	border: 0;
+}
+
+#componentsSearch input[type="submit"] {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 48px;
+	padding: 0;
+	font-size: 0;
+	border: 0;
+	background-color: #f4f4f4;
+	border-left: 1px solid #cfcfcf;
+	background-image: url(../img/icon-search.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	-webkit-background-size: 18px auto;
+	background-size: 18px auto;
+}
 .avatar{
     width: 55px;
     margin-bottom: 15px;
