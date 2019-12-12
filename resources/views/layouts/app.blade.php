@@ -170,7 +170,7 @@
         <div class="row justify-content-center redes-sociales">
             <div class="col-auto">
             <a href="https://sites.google.com/fp.uoc.edu/grupo-jadf/presentaci%C3%B3n-del-proyecto" target="_blank"><img src="{{ asset('img/google-plus-3-64.png') }}" alt=""></a>
-                <a href="https://www.youtube.com/watch?v=-Fyn83okjg8&feature=youtu.be" target="_blank"><img src="{{ asset('img/youtube-3-64.png') }}" alt=""></a>
+                <a href="" target="_blank"><img src="{{ asset('img/youtube-3-64.png') }}" alt=""></a>
                 <a href="https://github.com/FernandoDavidGomezOrtega/component-depot" target="_blank"><img src="{{ asset('img/github-8-64.png') }}" alt=""></a>
             </div>
             </div>
