@@ -1,5 +1,4 @@
-// var url = 'https://lara-gram.000webhostapp.com';
-var url = 'http://component-depot-personal.test';
+var url = 'http://component-depot.test';
 
 window.addEventListener('load', function(){
 
@@ -19,7 +18,7 @@ window.addEventListener('load', function(){
                 type: 'GET',
                 success: function(response){
                     if (response.like){
-                        console.log('has dado like a la publicacion');
+                        console.log('has dado like al componente');
                     } else {
                         console.log('error al dar like');
                     }
@@ -45,7 +44,7 @@ window.addEventListener('load', function(){
                 type: 'GET',
                 success: function(response){
                     if (response.like){
-                        console.log('has dado dislike a la publicacion');
+                        console.log('has dado dislike al componente');
                     } else {
                         console.log('error al dar dislike');
                     }
@@ -57,14 +56,6 @@ window.addEventListener('load', function(){
         });
     }
     dislike();
-
-    // BUSCADOR
-    $('#buscador').submit(function(e){
-        // alert('ey');
-        // e.preventDefault();
-        $(this).attr('action',url+'/gente/'+$('#buscador #search').val());
-        // $(this).submit();
-    });
 
       // Back to top button
     $(window).scroll(function() {
@@ -80,5 +71,13 @@ window.addEventListener('load', function(){
     $('.back-to-top').click(function(){
         $('html, body').animate({scrollTop : 0},1500, 'easeInOutExpo');
         return false;
+    });
+
+    // BUSCADOR
+    $('#componentsSearch').submit(function(e){
+        // alert('ey');
+        // e.preventDefault();
+        $(this).attr('action',url+'/article/components-search-result/'+$('#componentsSearch #search').val());
+        // $(this).submit();
     });
 });

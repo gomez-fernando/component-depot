@@ -85,6 +85,12 @@ class componentController extends Controller
 
 
         $averageRating = \App\Helpers\RatingsHelper::getAverageForComponent($id);
+        $ratingsQuantity = Rating::where('component_id', $id)
+                                    ->count();
+        $rated = Rating::where('user_id', \Auth::user()->id)
+                            ->where('component_id', $id)
+                             ->count();
+//        dd($rated);
         $categories = Category::orderBy('id')->get();
 
 
@@ -92,12 +98,15 @@ class componentController extends Controller
             return view('component.detail', [
                 'component' => $component,
                 'averageRating' => $averageRating,
-                'categories' => $categories
+                'ratingsQuantity' => $ratingsQuantity,
+                'categories' => $categories,
+                'rated' => $rated
             ]);
         } else{
             return view('component.detailG', [
                 'component' => $component,
                 'averageRating' => $averageRating,
+                'ratingsQuantity' => $ratingsQuantity,
                 'categories' => $categories
 
             ]);
@@ -198,5 +207,24 @@ class componentController extends Controller
         $component->update();
         return redirect()->route('component.detail', ['id' => $component_id])
                             ->with(['message' => 'Componente actulizado con exito']);
+    }
+
+    // buscador de componentes por nombre
+    public function componentsSearchResult($search = null) {
+        if (!empty($search)){
+            $categories = Category::orderBy('id')->get();
+            $components = Component::where('name', 'LIKE', '%'.$search.'%')
+                ->orderBy('id', 'desc')
+                ->paginate(6);
+            return view('component.componentsSearchResult', [
+                'components' => $components,
+                'search' => $search,
+                'categories' => $categories
+            ]);
+        }else{
+            return redirect()->route('home')->with([
+                'message' => 'Ningún producto coincide con la búsqueda'
+            ]);
+        }
     }
 }

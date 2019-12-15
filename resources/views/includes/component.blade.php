@@ -10,6 +10,9 @@
 
     </div>
 
+{{--    {{ $identity }}--}}
+
+
     <div class="card-body">
       <div>
         <img class="img-fluid" src="{{ route('component.file', ['filename' => $component->image_path]) }}" alt="imagen del componente">
@@ -27,42 +30,49 @@
           {{ $component->description }}
         </p>
       </div>
-      <div class="likes btn btn-primary">Leer m&aacute;s <i></i>>
-{{--           Comprobar si el usuario le dio like a la imagen--}}
-          @if (Auth::check())
-              <?php $user_like = false ?>
-              @foreach ($component->likes as $like)
-                  @if ($like->user->id == Auth::user()->id)
-                      <?php $user_like = true ?>
-                  @endif
-              @endforeach
+      <div class="row">
+          <div class="likes">
+{{--              <a href="{{ route('component.detail', ['id' => $component->id]) }}">--}}
+                  {{--           Comprobar si el usuario le dio like a la imagen--}}
+                  @if (Auth::check())
+                      <?php $user_like = false ?>
+                      @foreach ($component->likes as $like)
+                          @if ($like->user->id == Auth::user()->id)
+                              <?php $user_like = true ?>
+                          @endif
+                      @endforeach
 
 
-                  @if ($user_like)
-                      <img class="img-fluid" src="{{ asset('img/facebook-like-64-blue.png') }}" alt="" data-id="{{ $component->id }}" class="btn-dislike">
+                      @if ($user_like)
+                          <img class="img-fluid" src="{{ asset('img/facebook-like-64-blue.png') }}" alt="" data-id="{{ $component->id }}" class="btn-dislike">
+                      @else
+                          <img class="img-fluid" src="{{ asset('img/facebook-like-64-gray.png') }}" alt="" data-id="{{ $component->id }}" class="btn-like">
+                      @endif
+                      <span class="number_likes">{{ count($component->likes) }}</span>
                   @else
-                      <img class="img-fluid" src="{{ asset('img/facebook-like-64-gray.png') }}" alt="" data-id="{{ $component->id }}" class="btn-like">
+                      <img src="{{ asset('img/facebook-like-64-gray.png') }}" alt="">
+                      <span class="number_likes">{{ count($component->likes) }}</span>
+
                   @endif
-                  <span class="number_likes">{{ count($component->likes) }}</span>
+{{--              </a>--}}
+          </div>
+      </div>
 
-          @else
-              <img src="{{ asset('img/facebook-like-64-gray.png') }}" alt="">
-              <span class="number_likes">{{ count($component->likes) }}</span>
+    <div class="row">
+        <div class="stars">
+            {{--        //pintamos el average--}}
 
-          @endif
+            {{--          $averageRating = \App\Helpers\RatingsHelper::getAverageForComponent();--}}
 
-          {{--        //pintamos el average--}}
-
-{{--          $averageRating = \App\Helpers\RatingsHelper::getAverageForComponent();--}}
-
-          <select id="stars-{{$component->id}}" class="stars">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-          </select>
-
+            <select id="stars-{{$component->id}}" class="stars">
+                <option value=""></option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </div>
     </div>
       {{-- // comentarios --}}
       <div class="comments">
@@ -76,7 +86,7 @@
 
     var componentId = '{{ $component->id }}';
     var averageRating = '{{\App\Helpers\RatingsHelper::getAverageForComponent($component->id)}}';
-    var userId = '{{ Auth::user()->id}}';
+    var userId = '{{ $identity}}';
     var urlRatingStore = '{{route('rating.store')}}';
 
 

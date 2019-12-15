@@ -25,16 +25,47 @@ class RatingController extends Controller
                 $component_id = $request->input('component_id');
                 $value = $request->input('value');
 
+                // verificamos el nivel del usuario
+                $userLevel = \Auth::user()->level;
 
+                if ($userLevel == 'experto'){
+                    $rating = new Rating();
+                    $rating->user_id = $user_id;
+                    $rating->component_id = $component_id;
+                    $rating->value = $value;
+                    $rating->save();
 
-                $rating = new Rating();
-                $rating->user_id = $user_id;
-                $rating->component_id = $component_id;
-                $rating->value = $value;
+                    $rating = new Rating();
+                    $rating->user_id = $user_id;
+                    $rating->component_id = $component_id;
+                    $rating->value = $value;
+                    $rating->save();
 
+                    $rating = new Rating();
+                    $rating->user_id = $user_id;
+                    $rating->component_id = $component_id;
+                    $rating->value = $value;
+                    $rating->save();
+                } elseif ($userLevel == 'avanzado'){
+                    $rating = new Rating();
+                    $rating->user_id = $user_id;
+                    $rating->component_id = $component_id;
+                    $rating->value = $value;
+                    $rating->save();
 
+                    $rating = new Rating();
+                    $rating->user_id = $user_id;
+                    $rating->component_id = $component_id;
+                    $rating->value = $value;
+                    $rating->save();
+                }else{
+                    $rating = new Rating();
+                    $rating->user_id = $user_id;
+                    $rating->component_id = $component_id;
+                    $rating->value = $value;
+                    $rating->save();
+                }
 
-                $rating->save();
             } catch (\Exception $e) {
                 $status = false;
                 return \Response::json($e->getMessage(),200);

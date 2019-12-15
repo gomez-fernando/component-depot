@@ -1,0 +1,276 @@
+body{
+    background: linear-gradient(
+		rgba( 243, 229, 7 , 0.5),
+		rgba(  243, 229, 7 , 0.5)
+	),  url('../img/fondo.jpg');
+	background-size: cover;
+	background-attachment: fixed;
+    /*background-image: url('../img/fondo.jpg');*/
+    /*background-size: cover;*/
+    /*background-attachment: fixed;*/
+}
+
+/* Back to top button */
+.back-to-top {
+    position: fixed;
+    display: none;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 6px 12px 9px 12px;
+    font-size: 16px;
+    border-radius: 2px;
+    right: 15px;
+    bottom: 15px;
+    transition: background 0.5s;
+  }
+
+.avatar{
+    width: 55px;
+    margin-bottom: 15px;
+}
+
+.navbar .container-avatar,
+.pub_image .container-avatar{
+    width: 35px;
+    height: 35px;
+    /* border-radius: 900px; */
+    border-radius: 50%;
+    overflow: hidden;
+    margin-left: 20px;
+}
+
+.navbar .container-avatar img,
+.pub_image .container-avatar img{
+    height: 100%;
+}
+
+.pub_image{
+    margin-bottom: 1.5em;
+    float: left;
+    width: 50%;
+    padding: 25px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pub_image .container-avatar{
+    float: left;
+    margin-right: 15px;
+}
+
+.pub_image .data-user{
+    font-weight: bold;
+    line-height: 15px;
+    height: 40px;
+}
+
+.pub_image .data-user a{
+    color:  #444;
+}
+
+.pub_image .nickname{
+    color: gray;
+}
+/* esto es para redimensionar donde muestra la imagen*/
+.image-container{
+    height: auto;
+    /* max-height: 500px; */
+    width: auto;
+    max-height: 390px;
+    overflow: hidden;
+    display:block;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.image-detail{
+    max-height: 500px;
+}
+
+.image-container .image-detail img{
+    max-height: 500px;
+}
+
+.image-container img{
+    width: 70%;
+    display:block;
+    margin-right: auto;
+    margin-left: auto;
+}
+.pub_image_solo{
+    margin-bottom: 1.5em;    
+    width: 50%;
+    padding: 25px;
+    position: relative;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.pub_image .card-body{
+    padding: 0;
+    margin-right:10px;
+}
+/* esto es para el texto de las imagenes */
+.pub_image .description{
+    font-size: 14px;
+	line-height: 22px;
+	height: 40px;
+	overflow: hidden;
+    margin: 0 0 10px 0;
+}
+
+.pub_image .btn-comments{
+    margin: 0px 20px 20px 5px;
+    /* margin-left: 0px; */
+    display:block;
+    margin: auto;
+}
+
+.likes{
+    /*float: left;*/
+    padding-right:auto;
+    padding-left:auto;
+    /* padding-right: 10px; */
+    display:block;
+    margin: auto;
+    text-align: center;
+}
+
+.likes img{
+    width: 20px;
+}
+
+.pub_image_detail .comments{
+    padding: 20px;
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.comment a.btn.btn-sm.btn-light{
+    color: #750704 !important;
+}
+
+.number_likes{
+    color: gray;
+    font-size: 13px;
+}
+
+.profile-user{
+    height: 200px;
+    /* padding-bottom: 20px; */
+    margin-bottom: 40px;
+}
+
+.profile-user .container-avatar {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    float: left;
+}
+
+.profile-user .container-avatar img{
+    width: 100%;
+    height: 100% ;
+}
+
+.profile-user .user-info{
+    float: left;
+    padding: 30px 0px 0px 30px;
+}
+
+.actions{
+    float: right;
+    margin-right: 20px;
+}
+
+.actions a{
+    margin-right: 20px;
+}
+
+
+
+#app > main > div > div > div > form > div > input.btn.btn-sm.btn-primary{
+    margin-bottom: 3px;
+}
+
+#search{
+    border-radius: 5px;
+    border: 1px solid #dbdbdb ;
+    /* color: #999999; */
+    background: #fafafa;
+}
+
+footer {
+    background-color: rgba(255, 255, 255, .2);
+    -webkit-box-shadow: 0 2px 4px rgba(0,0,0,.04);
+    /* box-shadow: 0 2px 4px rgba(1,0,0,0); */
+    box-shadow: 0px -4px  0px rgba(0,0,0,.05);
+    /* 0px -10px 8px 0px #888888 */
+    padding-top: 18px;
+    padding-bottom: 10px;
+    margin-top: 184px;
+    text-align: center;
+}
+
+footer a{
+    color: rgb(64, 44, 241);
+}
+
+#app nav{
+    background-color: rgba(255, 255, 255, .5);
+}
+
+/* .navbar-light .navbar-nav .nav-link{
+    color: black;
+} */
+
+#login-form.card{
+    background-color: inherit;
+    color: #fafafa;
+    text-shadow: -1px -1px 1px #333, 1px -1px 1px #333, -1px 1px 1px #333, 1px 1px 1px #333;
+    /* font-weight: bold; */
+    border: none;
+}
+
+#login-form .card-header{
+    background-color: inherit;
+}
+
+#login-form.card label.form-check-label{
+    padding-right: 6px;
+    padding-left: 6px;
+}
+
+#login-form.card label.form-check-label,
+#login-form.card a.btn.btn-link{
+    background-color: rgba(0,0,0,.3);
+    border: 1px solid white;
+    border-radius: 3px;
+    color: #fafafa;
+}
+
+/* .btn .btn-primay{
+    margin-right: 30px !important;
+} */
+
+#login-form button.btn.btn-primary{
+    margin-right: 30px !important;
+    /* margin-bottom: 15px; */
+}
+
+
+@media screen and (max-width: 767px){
+    footer{
+        margin-top: 102px;
+    }
+}
+
+@media screen and (max-width: 396px){
+
+    #login-form a{
+        margin-top: 16px;
+    }
+}

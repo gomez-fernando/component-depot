@@ -22,6 +22,10 @@
 Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home/{categoryId?}', 'HomeController@index')->name('home');
+Route::get('/index', 'HomeController@index')->name('index');
+
+//buscador de componentes
+Route::get('/article/components-search-result/{search?}', 'ComponentController@componentsSearchResult')->name('component.componentsSearchResult');
 
 // RATING
 Route::get('/ratings', 'RatingController@hello');

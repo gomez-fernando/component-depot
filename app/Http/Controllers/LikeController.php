@@ -14,24 +14,27 @@ class likeController extends Controller
 
     public function index(){
         $user = \Auth::user();
+        $identity = $user->id;
 
         $likes = Like::where('user_id', $user->id)
                             ->orderBy('id', 'desc')
                             ->paginate(5);
 
-                            ///////// debug ////////////////
-                            // echo ('  es igual a: ');
-                            // var_dump($user->id);
-                            // die();
-                            ///////// end debug /////////
+                            /////// debug ////////////////
+//                             echo ('  es igual a: ');
+//                             var_dump($user->id);
+//                             die();
+                            /////// end debug /////////
 
         return view('like.index', [
+            'identity' => $identity,
             'likes' => $likes
         ]);
     }
 
     public function like($component_id){
-        // recoger datos del usuario y la imagen
+//        dd($component_id);
+        // recoger datos del usuario y el componente
         $user = \Auth::user();
 
         // condicion para ver si ya esxite el like y no duplicarlo
