@@ -100,7 +100,7 @@
         @endif
             {{--        //pintamos el average--}}
 
-            <select id="stars-{{$component->id}}">
+            <select id="stars-{{$component->id}}" >
                 {{--            <option value="0" style="visibility: hidden !important">0</option>--}}
                 <option value=""></option>
                 <option value="1">1</option>
@@ -192,6 +192,9 @@
 
     var componentId = '{{ $component->id }}';
     var averageRating = parseInt('{{\App\Helpers\RatingsHelper::getAverageForComponent($component->id)}}');
+    var rated = '{{ $rated }}';
+
+    console.log(rated + 'votaciones');
 
 
     var userId = '{{ Auth::user()->id}}';
