@@ -75,8 +75,8 @@
 
                         <div class="col-4">
 
-                              {{--                    formulario del buscador de tags--}}
-            <form method="get" action="" id="componentsSearch">
+                              {{--                    formulario del buscador de componentes--}}
+            <form method="get" action="{{ route('component.componentsSearchResult') }}" id="componentsSearch">
                     <input type="text" id="search" class="form-control" required>
                     <input type="submit" value="Buscar">
                 </form>
@@ -165,7 +165,7 @@
   Footer
 ============================-->
 
-<footer id="footer">
+<footer id="footer" >
 
         <div class="row justify-content-center redes-sociales">
             <div class="col-auto">
@@ -180,8 +180,9 @@
                 <p>
                     <strong>Developed by: Grupo JDAF - UOC 2019 &copy;</strong>
                 </p>
+            </div>
         </div>
-  </footer>
+</footer>
 
 
 </div>

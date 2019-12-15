@@ -72,4 +72,12 @@ window.addEventListener('load', function(){
         $('html, body').animate({scrollTop : 0},1500, 'easeInOutExpo');
         return false;
     });
+
+    // BUSCADOR
+    $('#componentsSearch').submit(function(e){
+        // alert('ey');
+        // e.preventDefault();
+        $(this).attr('action',url+'/article/components-search-result/'+$('#componentsSearch #search').val());
+        // $(this).submit();
+    });
 });

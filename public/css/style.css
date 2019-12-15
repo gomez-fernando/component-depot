@@ -231,14 +231,15 @@ HEADER-02
 BUSCADOR DE COMPONENTES
 --------------------------------------- */
 #componentsSearch {
-	position: relative;
+    margin-top: 3px;
+    position: relative;
 	border-radius: 0.25rem;
 	overflow: hidden;
 	border: 1px solid #cfcfcf;
 }
 #componentsSearch > * {
-	height: 40px;
-	line-height: 40px;
+	height: 30px;
+	line-height: 30px;
 	padding-top: 0;
 	padding-bottom: 0;
 }
@@ -264,7 +265,16 @@ BUSCADOR DE COMPONENTES
 	background-position: center;
 	-webkit-background-size: 18px auto;
 	background-size: 18px auto;
+    cursor: pointer;
 }
+
+/*----------------*/
+/*link login*/
+/*---------------*/
+#navbarDropdown{
+    color: #444343;
+}
+
 .avatar{
     width: 55px;
     margin-bottom: 15px;
@@ -288,11 +298,11 @@ BUSCADOR DE COMPONENTES
 .pub_image{
     margin-bottom: 1.5em;
     float: left;
-    width: 50%;
+    width: 45%;
     padding: 25px;
     position: relative;
     margin-left: auto;
-    margin-right: auto;
+    margin-right: 20px;
 }
 
 .pub_image .container-avatar{
@@ -365,6 +375,10 @@ BUSCADOR DE COMPONENTES
   font-size: 18px;
 }
 /*Hasta aqui las vistas indivuales*/
+
+.card{
+    background: #fafafa;
+}
 
 .pub_image .card-body{
     padding: 0;
