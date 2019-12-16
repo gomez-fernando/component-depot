@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Like;
+use App\Category;
 
 class likeController extends Controller
 {
@@ -19,6 +20,7 @@ class likeController extends Controller
         $likes = Like::where('user_id', $user->id)
                             ->orderBy('id', 'desc')
                             ->paginate(5);
+        $categories = Category::orderBy('id')->get();
 
                             /////// debug ////////////////
 //                             echo ('  es igual a: ');
@@ -28,7 +30,8 @@ class likeController extends Controller
 
         return view('like.index', [
             'identity' => $identity,
-            'likes' => $likes
+            'likes' => $likes,
+            'categories' => $categories
         ]);
     }
 

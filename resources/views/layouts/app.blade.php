@@ -66,97 +66,96 @@
             </div>
         </nav>
 
-{{--        @include('includes.header', ['categories' => $categories])--}}
-
-        <nav id="header-02" class="navbar navbar-expand-md header-02">
+        <nav id="header-02" class="navbar navbar-expand-md navbar-light header-02">
             <div class="container">
-                <div class="row w-100 m-auto">
-                        <div class="col-4 a pt-2 pb-2 pl-1 pr-1"><strong><?php echo date("d M Y");?></strong></div>
 
-                        <div class="col-4">
+                <span class="navbar-brand" ><strong><?php echo date("d M Y");?></strong></span>
 
-                              {{--                    formulario del buscador de componentes--}}
-            <form method="get" action="{{ route('component.componentsSearchResult') }}" id="componentsSearch">
-                    <input type="text" id="search" class="form-control" required>
-                    <input type="submit" value="Buscar">
-                </form>
+
+
+
+
+              @guest
+                    <li class="nav dropdown float-right">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle pt-2 pb-2 pl-1 pr-1" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <i class="icon-cms"></i><span class="sm-hidden">Area personal</span>  <span class="caret"></span>
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+
+
+
+                            <a class="dropdown-item" href="{{ route('login') }}">
+                                {{ __('lang.login') }}
+                            </a>
+
+                            <a class="dropdown-item" href="{{ route('register') }}">
+                                {{ __('lang.register') }}
+                            </a>
+
+
                         </div>
-                        <div class="col-4 b ">
+                    </li>
+              @else
 
-                                <!-- Right Side Of Navbar -->
-                                    <!-- Authentication Links -->
-                                    @guest
-                                        <li class="nav dropdown float-right">
-                                            <a id="navbarDropdown" class="nav-link dropdown-toggle pt-2 pb-2 pl-1 pr-1" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                                <i class="icon-cms"></i><span class="sm-hidden">Area personal</span>  <span class="caret"></span>
-                                            </a>
-
-                                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-
-
-
-                                                <a class="dropdown-item" href="{{ route('login') }}">
-                                                    {{ __('lang.login') }}
-                                                </a>
-
-                                                <a class="dropdown-item" href="{{ route('register') }}">
-                                                    {{ __('lang.register') }}
-                                                </a>
-
-
-                                            </div>
-                                        </li>
-                                    @else
-
-                                    <li class="nav dropdown float-right">
-                                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                            {{ Auth::user()->nick }} <span class="caret"></span>
-                                        </a>
-
-                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-
-
-                                        <a class="dropdown-item" href="{{ route('config') }}">
-                                            {{ __('lang.profile') }}
-                                            </a>
-
-                                            <a class="dropdown-item" href="{{ route('logout') }}"
-                                               onclick="event.preventDefault();
-                                                             document.getElementById('logout-form').submit();">
-                                                {{ __('lang.logout') }}
-                                            </a>
-
-                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                                @csrf
-                                            </form>
-
-                                        </div>
-                                    </li>
-                                    @if (Auth::user() && Auth::user()->role == 'user')
-                                            <li class="nav float-right">
-                                                <a href="{{ route('likes') }}" class="nav-link">{{ __('lang.favorites') }}</a>
-                                            </li>
-                                    @endif
-
-
-                                    @if (Auth::user() && Auth::user()->role == 'admin')
-                                            <li class="nav float-right">
-                                                <a href="{{ route('component.create') }}" class="nav-link">{{ __('lang.upload_component') }}</a>
-                                            </li>
-                                    @endif
-                                    <li class="nav float-right">
-                                    <a href="{{ route('home') }}" class="nav-link">{{ __('lang.home') }}</a>
-                                    </li>
-
-                                    @endguest
-                                {{-- </ul> --}}
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#links" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class=" navbar-collapse collapse show" id="links">
+                        {{--                    formulario del buscador de tags--}}
+                        <div class="row justify-content-center ml-auto">
+                            <form method="get" action="{{ route('component.componentsSearchResult') }}" id="componentsSearch">
+                                <input type="text" id="search" class="form-control" required>
+                                <input type="submit" value="Buscar">
+                            </form>
                         </div>
-                </div>
 
+                        <!-- Right Side Of Navbar -->
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav float-right">
+                                <a href="{{ route('home') }}" class="nav-link">{{ __('lang.home') }}</a>
+                            </li>
+                            @if (Auth::user() && Auth::user()->role == 'user')
+                                <li class="nav float-right">
+                                    <a href="{{ route('likes') }}" class="nav-link">{{ __('lang.favorites') }}</a>
+                                </li>
+                            @endif
+
+                            <li class="nav dropdown float-right">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->nick }} <span class="caret"></span>
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+
+
+                                    <a class="dropdown-item" href="{{ route('config') }}">
+                                        {{ __('lang.profile') }}
+                                    </a>
+
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                                        {{ __('lang.logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+
+            </div>
+
+              @endguest
             </div>
         </nav>
 
-
+{{--///////////////////////////////////////////////////////////////////////////////--}}
         <main class="py-4">
             @yield('content')
         </main>

@@ -17,7 +17,9 @@
       {{-- // mustro los componentes --}}
         @if (Auth::check())
             @foreach ($components as $component)
-                @include('includes.component', ['component' => $component, 'averageRating' => \App\Helpers\RatingsHelper::getAverageForComponent($component->id)])
+                @include('includes.component', ['component' => $component,
+                'averageRating' => \App\Helpers\RatingsHelper::getAverageForComponent($component->id),
+                'rated' => \App\Helpers\VotesQuantityHelper::votesQuantity($component->id)])
             @endforeach
         @else
             @foreach ($components as $component)
