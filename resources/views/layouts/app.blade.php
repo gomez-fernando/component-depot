@@ -188,8 +188,6 @@
 <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
   <!-- Required JavaScript Libraries -->
-  {{-- css/app.css --}}
-
   <script src="{{ asset('lib/jquery/jquery.min.js') }}"></script>
   <script src="{{ asset('lib/jquery-ui/jquery-ui.min.js') }}"></script>
   <script src="{{ asset('lib/bootstrap/js/bootstrap.min.js') }}"></script>
@@ -216,5 +214,4 @@ if(window.location.href.indexOf("/home/") > -1) {
 </script>
 </body>
 
-{{-- @yield('js') --}}
 </html>
