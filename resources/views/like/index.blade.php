@@ -12,7 +12,8 @@
         <hr>
 
         @foreach ($likes as $like)
-            @include('includes.component', ['component' =>$like->component])
+            @include('includes.component', ['component' =>$like->component,
+            'rated' => \App\Helpers\VotesQuantityHelper::votesQuantity($like->component)])
         @endforeach
 
               {{-- // añadimos enlaces de paginacion --}}

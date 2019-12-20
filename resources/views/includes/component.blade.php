@@ -72,6 +72,7 @@
                 <option value="4">4</option>
                 <option value="5">5</option>
             </select>
+            {{ $component->id }}
         </div>
     </div>
       {{-- // comentarios --}}
@@ -88,6 +89,7 @@
     var averageRating = '{{\App\Helpers\RatingsHelper::getAverageForComponent($component->id)}}';
     var userId = '{{ $identity}}';
     var urlRatingStore = '{{route('rating.store')}}';
+    var rated = '{{ $rated }}';
 
 
 
