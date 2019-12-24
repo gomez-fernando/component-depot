@@ -1,8 +1,13 @@
-{{-- mostramos mensaje de exito en la actalizacion --}}
+{{-- mostramos mensaje de exito o no en la actalizacion --}}
 @if (session('message'))
-    <div class="alert alert-success">
-        {{ session('message') }}
-    </div>
+    @if (session('status') == 'error')
+        <div class="alert alert-danger">
+            {{ session('message') }}
+        </div>
+    @else ()
+        <div class="alert alert-success">
+            {{ session('message') }}
+        </div>
+    @endif
 @endif
 
-{{-- añadir tambien un mensaje de alert danger --}}

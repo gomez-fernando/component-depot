@@ -143,6 +143,9 @@
                                             <li class="nav float-right">
                                                 <a href="{{ route('component.create') }}" class="nav-link">{{ __('lang.upload_component') }}</a>
                                             </li>
+                                            <li class="nav float-right">
+                                                <a href="{{ route('user.list') }}" class="nav-link">{{ __('lang.users') }}</a>
+                                            </li>
                                     @endif
                                     <li class="nav float-right">
                                     <a href="{{ route('home') }}" class="nav-link">{{ __('lang.home') }}</a>
@@ -190,13 +193,7 @@
 
   <!-- Required JavaScript Libraries -->
   <script src="{{ asset('lib/jquery/jquery.min.js') }}"></script>
-  <script src="{{ asset('lib/jquery-ui/jquery-ui.min.js') }}"></script>
-  <script src="{{ asset('lib/bootstrap/js/bootstrap.min.js') }}"></script>
-  <script src="{{ asset('lib/superfish/hoverIntent.js') }}"></script>
-  <script src="{{ asset('lib/superfish/superfish.min.js') }}"></script>
   <script src="{{ asset('lib/morphext/morphext.min.js') }}"></script>
-  <script src="{{ asset('lib/wow/wow.min.js') }}"></script>
-  <script src="{{ asset('lib/stickyjs/sticky.js') }}"></script>
  <script src="{{ asset('lib/easing/easing.js') }}"></script>
 
 

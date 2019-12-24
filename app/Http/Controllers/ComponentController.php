@@ -87,9 +87,13 @@ class componentController extends Controller
         $averageRating = \App\Helpers\RatingsHelper::getAverageForComponent($id);
         $ratingsQuantity = Rating::where('component_id', $id)
                                     ->count();
-        $rated = Rating::where('user_id', \Auth::user()->id)
-                            ->where('component_id', $id)
-                             ->count();
+        if(\Auth::check()){
+            $rated = Rating::where('user_id', \Auth::user()->id)
+                ->where('component_id', $id)
+                ->count();
+        } else {
+            $rated = 1;
+        }
 //        dd($rated);
         $categories = Category::orderBy('id')->get();
 
