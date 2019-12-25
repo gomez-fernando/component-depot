@@ -59,7 +59,7 @@
 
 </div>
 
-<div class="card-body aling-center">
+<div class="card-body align-center">
     <div>
         <img class="img-fluid_solo" src="{{ route('component.file', ['filename' => $component->image_path]) }}" alt="">
     </div>
@@ -188,8 +188,6 @@
 </div>
 
 <script>
-
-
     var componentId = '{{ $component->id }}';
     var averageRating = parseInt('{{\App\Helpers\RatingsHelper::getAverageForComponent($component->id)}}');
     var rated = '{{ $rated }}';
@@ -202,9 +200,6 @@
 
     console.log(userId);
     console.log(urlRatingStore);
-
-
-
 </script>
 
 <script src="{{asset('js/jsBarrating.js')}}"></script>

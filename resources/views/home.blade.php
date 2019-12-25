@@ -17,13 +17,11 @@
       {{-- // mustro los componentes --}}
         @if (Auth::check())
             @foreach ($components as $component)
-                @include('includes.component', ['component' => $component,
-                'averageRating' => \App\Helpers\RatingsHelper::getAverageForComponent($component->id),
-                'rated' => \App\Helpers\VotesQuantityHelper::votesQuantity($component->id)])
+                @include('includes.component', ['component' => $component, 'averageRating' => \App\Helpers\RatingsHelper::getAverageForComponent($component->id), 'rated' => \App\Helpers\RatingsHelper::getRated($component->id), 'ratingsQuantity' => \App\Helpers\RatingsHelper::ratingsQuantity($component->id)])
             @endforeach
         @else
             @foreach ($components as $component)
-                @include('includes.componentG', ['component' => $component, 'averageRating' => \App\Helpers\RatingsHelper::getAverageForComponent($component->id)])
+                @include('includes.componentG', ['component' => $component, 'averageRating' => \App\Helpers\RatingsHelper::getAverageForComponent($component->id), 'ratingsQuantity' => \App\Helpers\RatingsHelper::ratingsQuantity($component->id)])
             @endforeach
         @endif
 

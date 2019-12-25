@@ -5,8 +5,8 @@ USE component_depot;
 --
 -- insert into 'users'
 --
-INSERT INTO `users` VALUES(NULL, 'admin', 'Emilio', 'Rivas', 'Admin 1', NULL, 'admin@admin.com', '$2y$12$/KpQiMmVlvKXFTCZOQxtX.rilC7/bAONlGKtJ7vZJWv/KrM9EwSbu', NULL, CURTIME(), CURTIME(), NULL);
-INSERT INTO `users` VALUES(NULL, 'user', 'nombre1', 'apellido1', 'nick1', 'novato', 'user1@user1.com', '$2y$12$/KpQiMmVlvKXFTCZOQxtX.rilC7/bAONlGKtJ7vZJWv/KrM9EwSbu', NULL, CURTIME(), CURTIME(), NULL);
+INSERT INTO `users` VALUES(NULL, 'admin', 'active', 'Emilio', 'Rivas', 'Admin 1', NULL, 'admin@admin.com', '$2y$12$/KpQiMmVlvKXFTCZOQxtX.rilC7/bAONlGKtJ7vZJWv/KrM9EwSbu', NULL, CURTIME(), CURTIME(), NULL, NULL);
+INSERT INTO `users` VALUES(NULL, 'user', 'active', 'nombre1', 'apellido1', 'nick1', 'novato', 'user1@user1.com', '$2y$12$/KpQiMmVlvKXFTCZOQxtX.rilC7/bAONlGKtJ7vZJWv/KrM9EwSbu', NULL, CURTIME(), CURTIME(), NULL, NULL);
 
 --
 -- insert into `categories`
