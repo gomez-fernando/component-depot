@@ -20,9 +20,11 @@
 
                     </div>
 
-                    <div class="card-body">
-                        <div class="container_solo">
-                            <img class="img-fluid_solo" src="{{ route('component.file', ['filename' => $component->image_path]) }}" alt="">
+                    <div class="card-body align-center">
+                        <div class="row  justify-content-center">
+                            <div class="col-12 col-md-10 col-lg-8">
+                                <img class="mw-100" src="{{ route('component.file', ['filename' => $component->image_path]) }}" alt="">
+                            </div>
                         </div>
 
                         <div class="name_component">
@@ -37,14 +39,32 @@
                                 <span class="number_likes">{{ count($component->likes) }}</span>
 
                             {{--        //pintamos el average--}}
-                            <select id="stars-{{$component->id}}">
-                                <option value=""></option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </select>
+
+                            <div class="row justify-content-center mt-2">
+                                <div class="stars">
+                                    {{--        //pintamos el average--}}
+
+                                    <select id="stars-{{$component->id}}" class="stars">
+                                        <option value=""></option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+
+                                </div>
+
+                            </div>
+                            <div class="row justify-content-center mb-2">
+             <span>
+                @if ($ratingsQuantity == 1)
+                     {{ $ratingsQuantity }} valoración
+                 @else
+                     {{ $ratingsQuantity }} valoraciones
+                 @endif
+            </span>
+                            </div>
 
                         </div>
 
@@ -62,6 +82,7 @@
 
                             </div>
                         </div>
+                        <hr>
 
                         {{-- // comentarios --}}
                         <div class="clearfix"></div>
