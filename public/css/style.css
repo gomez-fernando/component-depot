@@ -231,7 +231,7 @@ HEADER-02
 BUSCADOR DE COMPONENTES
 --------------------------------------- */
 #componentsSearch {
-    margin-top: 3px;
+    /*margin-top: 3px;*/
     position: relative;
 	border-radius: 0.25rem;
 	overflow: hidden;

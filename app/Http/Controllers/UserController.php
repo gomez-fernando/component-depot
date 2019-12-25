@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use App\User;
 use App\Component;
+use App\Category;
 
 class userController extends Controller
 {
@@ -39,7 +40,10 @@ class userController extends Controller
 
 
     public function config(){
-        return view('user.config');
+        $categories = Category::orderBy('id')->get();
+        return view('user.config', [
+            'categories' => $categories
+        ]);
     }
 
     public function update(Request $request){
@@ -47,6 +51,7 @@ class userController extends Controller
         $user = \Auth::user();
 
         $id = $user->id;
+
 
         // validacion del formulario
         $validate = $this->validate($request, [
