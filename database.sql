@@ -4,6 +4,7 @@ USE component_depot;
 CREATE TABLE IF NOT EXISTS users(
 id              smallint auto_increment not null,
 role            ENUM('user', 'admin') not null,
+state           ENUM('active', 'inactive') not null,
 name            varchar(100) not null,
 surname         varchar(200) not null,
 nick            varchar(200) not null,
@@ -13,6 +14,7 @@ password        varchar(255) not null,
 image_path      varchar(255) null,
 created_at      datetime null,
 updated_at      datetime null,
+blocked_at      datetime default null,
 remember_token  varchar(255) null,
 CONSTRAINT pk_users PRIMARY KEY(id)
 )ENGINE=InnoDb;

@@ -22,10 +22,6 @@ return [
     'reset_password' => "Recuperar contraseña",
     'insert_password' => 'Contraseña',
     'forgot_password' => 'Olvidaste tu contraseña?',
-    'register' => 'Registrarse',
-    'email_address' => 'Correo Electrónico',
-    'remember_me' => 'Recuérdame',
-    'send_password_reset_link' => 'Enviar enlace de recuperación de contraseña',
     'name' => 'Nombre',
     'surname' => 'Apellidos',
     'nick' => 'Nick',
@@ -45,6 +41,7 @@ return [
     'description' => 'Descripción',
     'my_account_settings' => 'Configuración de mi cuenta',
     'save_changes' => 'Guardar cambios',
+    'users' => 'Usuarios',
 
 
 

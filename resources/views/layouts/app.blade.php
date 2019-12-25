@@ -35,6 +35,8 @@
     <link rel="stylesheet" href="{{ asset('css/fontawesome-stars.css') }}">
 </head>
 <body>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 <div class="with-background">
     <div id="app">
         <nav id="header-01" class="navbar navbar-expand-md header-01">
@@ -85,29 +87,55 @@
 
 
 
-                            <a class="dropdown-item" href="{{ route('login') }}">
-                                {{ __('lang.login') }}
-                            </a>
+                                            </div>
+                                        </li>
+                                    @else
 
-                            <a class="dropdown-item" href="{{ route('register') }}">
-                                {{ __('lang.register') }}
-                            </a>
+                                    <li class="nav dropdown float-right">
+                                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                            {{ Auth::user()->nick }} <span class="caret"></span>
+                                        </a>
+
+                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
 
-                        </div>
-                    </li>
-              @else
+                                        <a class="dropdown-item" href="{{ route('config') }}">
+                                            {{ __('lang.profile') }}
+                                            </a>
 
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#links" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class=" navbar-collapse collapse show" id="links">
-                        {{--                    formulario del buscador de tags--}}
-                        <div class="row justify-content-center ml-auto">
-                            <form method="get" action="{{ route('component.componentsSearchResult') }}" id="componentsSearch">
-                                <input type="text" id="search" class="form-control" required>
-                                <input type="submit" value="Buscar">
-                            </form>
+                                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                               onclick="event.preventDefault();
+                                                             document.getElementById('logout-form').submit();">
+                                                {{ __('lang.logout') }}
+                                            </a>
+
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                @csrf
+                                            </form>
+
+                                        </div>
+                                    </li>
+                                    @if (Auth::user() && Auth::user()->role == 'user')
+                                            <li class="nav float-right">
+                                                <a href="{{ route('likes') }}" class="nav-link">{{ __('lang.favorites') }}</a>
+                                            </li>
+                                    @endif
+
+
+                                    @if (Auth::user() && Auth::user()->role == 'admin')
+                                            <li class="nav float-right">
+                                                <a href="{{ route('component.create') }}" class="nav-link">{{ __('lang.upload_component') }}</a>
+                                            </li>
+                                            <li class="nav float-right">
+                                                <a href="{{ route('user.list') }}" class="nav-link">{{ __('lang.users') }}</a>
+                                            </li>
+                                    @endif
+                                    <li class="nav float-right">
+                                    <a href="{{ route('home') }}" class="nav-link">{{ __('lang.home') }}</a>
+                                    </li>
+
+                                    @endguest
+                                {{-- </ul> --}}
                         </div>
 
                         <!-- Right Side Of Navbar -->
@@ -169,7 +197,7 @@
         <div class="row justify-content-center redes-sociales">
             <div class="col-auto">
             <a href="https://sites.google.com/fp.uoc.edu/grupo-jadf/presentaci%C3%B3n-del-proyecto" target="_blank"><img src="{{ asset('img/google-plus-3-64.png') }}" alt=""></a>
-                <a href="" target="_blank"><img src="{{ asset('img/youtube-3-64.png') }}" alt=""></a>
+{{--                <a href="" target="_blank"><img src="{{ asset('img/youtube-3-64.png') }}" alt=""></a>--}}
                 <a href="https://github.com/FernandoDavidGomezOrtega/component-depot" target="_blank"><img src="{{ asset('img/github-8-64.png') }}" alt=""></a>
             </div>
             </div>
@@ -189,13 +217,7 @@
 
   <!-- Required JavaScript Libraries -->
   <script src="{{ asset('lib/jquery/jquery.min.js') }}"></script>
-  <script src="{{ asset('lib/jquery-ui/jquery-ui.min.js') }}"></script>
-  <script src="{{ asset('lib/bootstrap/js/bootstrap.min.js') }}"></script>
-  <script src="{{ asset('lib/superfish/hoverIntent.js') }}"></script>
-  <script src="{{ asset('lib/superfish/superfish.min.js') }}"></script>
   <script src="{{ asset('lib/morphext/morphext.min.js') }}"></script>
-  <script src="{{ asset('lib/wow/wow.min.js') }}"></script>
-  <script src="{{ asset('lib/stickyjs/sticky.js') }}"></script>
  <script src="{{ asset('lib/easing/easing.js') }}"></script>
 
 

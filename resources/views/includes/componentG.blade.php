@@ -69,7 +69,15 @@
                         <option value="4">4</option>
                         <option value="5">5</option>
                     </select>
+                    <span>
+                @if ($ratingsQuantity == 1)
+                            {{ $ratingsQuantity }} valoración
+                        @else
+                            {{ $ratingsQuantity }} valoraciones
+                        @endif
+            </span>
                 </div>
+
             </div>
             {{-- // comentarios --}}
             <div class="comments">

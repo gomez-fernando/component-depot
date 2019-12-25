@@ -21,7 +21,9 @@ class userController extends Controller
 
     public function index($search = null){
         if (!empty($search)){
-            $users = User::where('nick','LIKE', '%'.$search.'%')
+            $users = User::where('sate', 'active')
+                            ->where('role', 'user')
+                            ->where('nick','LIKE', '%'.$search.'%')
                             ->orWhere('name','LIKE', '%'.$search.'%')
                             ->orWhere('surname','LIKE', '%'.$search.'%')
                             ->orderBy('id', 'desc')
@@ -115,6 +117,53 @@ class userController extends Controller
             'user' => $user,
             'components' => $components
         ]);
+    }
+
+    public function list(){
+        if(\Auth::user()->role == 'admin'){
+            $activeUsers = User::where('state', 'active')
+                ->where('role', 'user')
+                ->orderBy('id', 'desc')
+                ->get();
+
+            $inactiveUsers = User::where('state', 'inactive')
+                ->where('role', 'user')
+                ->orderBy('id', 'desc')
+                ->get();
+
+            return view('user.list', [
+                'activeUsers' => $activeUsers,
+                'inactiveUsers' => $inactiveUsers,
+            ]);
+        } else return view('home');
+
+    }
+
+    public function block($id){
+        $user = User::find($id);
+
+        $user->state = 'inactive';
+        $user->blocked_at = date("Y-m-d H:i:s");
+        if($user->update()){
+            return redirect()->back()->with(['message' => 'El usuario ha sido bloqueado']);
+        } else {
+            return redirect()->back()->with(['message' => 'Se ha producido un error interno. Inténtelo de nuevo o contacte al servicio informático', 'status' => 'error']);
+        }
+
+    }
+
+    public function unblock($id){
+        $user = User::find($id);
+
+        $user->state = 'active';
+        $user->blocked_at = null;
+
+        if($user->update()){
+            return redirect()->back()->with(['message' => 'El usuario ha sido desbloqueado']);
+        } else {
+            return redirect()->back()->with(['message' => 'Se ha producido un error interno. Inténtelo de nuevo o contacte al servicio informático', 'status' => 'error']);
+        }
+
     }
 
 

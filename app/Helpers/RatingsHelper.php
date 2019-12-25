@@ -5,6 +5,7 @@ namespace App\Helpers;
 use Illuminate\Support\Facades\DB;
 
 use App\Component;
+use App\Rating;
 
 class RatingsHelper{
 
@@ -19,6 +20,22 @@ class RatingsHelper{
 
         return 0;
 
+    }
+
+    static function getRated($id) : int{
+        if(\Auth::check()){
+            $rated = Rating::where('user_id', \Auth::user()->id)
+                ->where('component_id', $id)
+                ->count();
+
+            return $rated;
+        } else return 1;
+    }
+
+    static function ratingsQuantity($id){
+        $ratingsQuantity = Rating::where('component_id', $id)
+            ->count();
+        return $ratingsQuantity;
     }
 
 

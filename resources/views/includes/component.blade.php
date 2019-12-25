@@ -72,29 +72,39 @@
                 <option value="4">4</option>
                 <option value="5">5</option>
             </select>
-            {{ $component->id }}
+            <span>
+                @if ($ratingsQuantity == 1)
+                    {{ $ratingsQuantity }} valoración
+                @else
+                    {{ $ratingsQuantity }} valoraciones
+                @endif
+            </span>
         </div>
     </div>
       {{-- // comentarios --}}
       <div class="comments">
           <a href="{{ route('component.detail', ['id' => $component->id]) }}" class="btn btn-sm btn-warning btn-comments">{{ __('lang.comments') }} ({{ count($component->comments) }})</a>
+{{--          <input type="text" id="valorDeId" value="{{ $component->id }}">--}}
       </div>
     </div>
   </div>
 </div>
 
 <script>
-
     var componentId = '{{ $component->id }}';
-    var averageRating = '{{\App\Helpers\RatingsHelper::getAverageForComponent($component->id)}}';
-    var userId = '{{ $identity}}';
+    // var valorDeId = $('#valorDeId').val();
+    var averageRating = parseInt({{ $averageRating }});
+    var rated = parseInt({{$rated}});
+
+    console.log(rated + 'votaciones');
+
+
+    var userId = '{{ Auth::user()->id}}';
     var urlRatingStore = '{{route('rating.store')}}';
-    var rated = '{{ $rated }}';
 
-
-
+    console.log(userId);
+    console.log(urlRatingStore);
 </script>
-
 
 <script src="{{asset('js/jsBarrating.js')}}"></script>
 <script src="{{ asset('js/stars.js') }}"></script>
