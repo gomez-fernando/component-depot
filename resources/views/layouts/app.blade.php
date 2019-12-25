@@ -35,6 +35,8 @@
     <link rel="stylesheet" href="{{ asset('css/fontawesome-stars.css') }}">
 </head>
 <body>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 <div class="with-background">
     <div id="app">
         <nav id="header-01" class="navbar navbar-expand-md header-01">
@@ -173,7 +175,7 @@
         <div class="row justify-content-center redes-sociales">
             <div class="col-auto">
             <a href="https://sites.google.com/fp.uoc.edu/grupo-jadf/presentaci%C3%B3n-del-proyecto" target="_blank"><img src="{{ asset('img/google-plus-3-64.png') }}" alt=""></a>
-                <a href="" target="_blank"><img src="{{ asset('img/youtube-3-64.png') }}" alt=""></a>
+{{--                <a href="" target="_blank"><img src="{{ asset('img/youtube-3-64.png') }}" alt=""></a>--}}
                 <a href="https://github.com/FernandoDavidGomezOrtega/component-depot" target="_blank"><img src="{{ asset('img/github-8-64.png') }}" alt=""></a>
             </div>
             </div>
