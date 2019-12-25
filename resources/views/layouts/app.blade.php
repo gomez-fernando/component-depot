@@ -21,7 +21,7 @@
 
     <!-- Libraries CSS Files -->
 <link href="{{asset('../lib/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
-<link href="{{ asset('../lib/animate-css/animate.min.css') }}" rel="stylesheet">
+{{--<link href="{{ asset('../lib/animate-css/animate.min.css') }}" rel="stylesheet">--}}
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">

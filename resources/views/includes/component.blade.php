@@ -30,7 +30,7 @@
           {{ $component->description }}
         </p>
       </div>
-      <div class="row">
+      <div class="row ">
           <div class="likes">
 {{--              <a href="{{ route('component.detail', ['id' => $component->id]) }}">--}}
                   {{--           Comprobar si el usuario le dio like a la imagen--}}
@@ -58,11 +58,9 @@
           </div>
       </div>
 
-    <div class="row">
+    <div class="row justify-content-center mt-2">
         <div class="stars">
             {{--        //pintamos el average--}}
-
-            {{--          $averageRating = \App\Helpers\RatingsHelper::getAverageForComponent();--}}
 
             <select id="stars-{{$component->id}}" class="stars">
                 <option value=""></option>
@@ -72,15 +70,19 @@
                 <option value="4">4</option>
                 <option value="5">5</option>
             </select>
-            <span>
+
+        </div>
+
+    </div>
+        <div class="row justify-content-center mb-2">
+             <span>
                 @if ($ratingsQuantity == 1)
-                    {{ $ratingsQuantity }} valoración
-                @else
-                    {{ $ratingsQuantity }} valoraciones
-                @endif
+                     {{ $ratingsQuantity }} valoración
+                 @else
+                     {{ $ratingsQuantity }} valoraciones
+                 @endif
             </span>
         </div>
-    </div>
       {{-- // comentarios --}}
       <div class="comments">
           <a href="{{ route('component.detail', ['id' => $component->id]) }}" class="btn btn-sm btn-warning btn-comments">{{ __('lang.comments') }} ({{ count($component->comments) }})</a>
