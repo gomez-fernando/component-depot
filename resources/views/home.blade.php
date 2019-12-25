@@ -23,7 +23,7 @@
             @endforeach
         @else
             @foreach ($components as $component)
-                <div class="col-12 col-md-6  col-lg-4 mb-4"">
+                <div class="col-12 col-md-6  col-lg-4 mb-4">
 
                 @include('includes.componentG', ['component' => $component, 'averageRating' => \App\Helpers\RatingsHelper::getAverageForComponent($component->id), 'ratingsQuantity' => \App\Helpers\RatingsHelper::ratingsQuantity($component->id)])
                 </div>
