@@ -31,6 +31,7 @@
         </p>
       </div>
       <div class="row ">
+
           <div class="likes">
 {{--              <a href="{{ route('component.detail', ['id' => $component->id]) }}">--}}
                   {{--           Comprobar si el usuario le dio like a la imagen--}}
@@ -59,7 +60,8 @@
       </div>
 
     <div class="row justify-content-center mt-2">
-        <div class="stars">
+
+        <div class="stars"  >
             {{--        //pintamos el average--}}
 
             <select id="stars-{{$component->id}}" class="stars">

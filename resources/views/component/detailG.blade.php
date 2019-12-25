@@ -33,6 +33,7 @@
                             </p>
 
                         </div>
+                        <span data-toggle="tooltip" title="Debes entrar en tu cuenta para valorar!">
                         <div class="likes">
 
                                 <img src="{{ asset('img/facebook-like-64-gray.png') }}" alt="">
@@ -67,7 +68,7 @@
                             </div>
 
                         </div>
-
+                        </span>
                         {{-- // descripción --}}
                         <div class="clearfix"></div>
                         <div class="description">

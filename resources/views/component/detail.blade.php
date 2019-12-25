@@ -99,6 +99,7 @@
             {{--        //pintamos el average--}}
 
         <div class="row justify-content-center mt-2">
+
             <div class="stars">
                 {{--        //pintamos el average--}}
 
