@@ -39,7 +39,7 @@
 
 <div class="with-background">
     <div id="app">
-        <nav id="header-01" class="navbar navbar-expand-md header-01">
+        <nav id="header-01" class="navbar navbar-expand-md header-01 navbar-light">
             <div class="container">
                 <!-- Left Side Of Navbar -->
                     <div id="logo" class="">
