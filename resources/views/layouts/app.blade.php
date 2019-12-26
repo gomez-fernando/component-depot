@@ -21,7 +21,7 @@
 
     <!-- Libraries CSS Files -->
 <link href="{{asset('../lib/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
-<link href="{{ asset('../lib/animate-css/animate.min.css') }}" rel="stylesheet">
+{{--<link href="{{ asset('../lib/animate-css/animate.min.css') }}" rel="stylesheet">--}}
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -39,7 +39,7 @@
 
 <div class="with-background">
     <div id="app">
-        <nav id="header-01" class="navbar navbar-expand-md header-01">
+        <nav id="header-01" class="navbar navbar-expand-md header-01 navbar-light">
             <div class="container">
                 <!-- Left Side Of Navbar -->
                     <div id="logo" class="">
@@ -90,7 +90,7 @@
                                     @guest
                                         <li class="nav dropdown float-right">
                                             <a id="navbarDropdown" class="nav-link dropdown-toggle pt-2 pb-2 pl-1 pr-1" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                                <i class="icon-cms"></i><span class="sm-hidden">Area personal</span>  <span class="caret"></span>
+                                                <i class="icon-cms"></i><span class="sm-hidden"><strong>Area personal</strong></span>  <span class="caret"></span>
                                             </a>
 
                                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -112,14 +112,26 @@
 
                                     <li class="nav dropdown float-right">
                                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                            {{ Auth::user()->nick }} <span class="caret"></span>
+                                            <strong>Bienvenido/a {{ Auth::user()->nick }}</strong> <span class="caret"></span>
                                         </a>
 
                                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
+                                            <a class="dropdown-item" href="{{ route('home') }}" class="nav-link">{{ __('lang.home') }}</a>
 
-                                        <a class="dropdown-item" href="{{ route('config') }}">
-                                            {{ __('lang.profile') }}
+                                @if (Auth::user() && Auth::user()->role == 'user')
+                                        <a class="dropdown-item" href="{{ route('likes') }}" class="nav-link">{{ __('lang.favorites') }}</a>
+                                @endif
+
+
+
+                                            @if (Auth::user() && Auth::user()->role == 'admin')
+                                                <a href="{{ route('component.create') }}" class="dropdown-item">{{ __('lang.upload_component') }}</a>
+                                                <a href="{{ route('user.list') }}" class="dropdown-item">{{ __('lang.users') }}</a>
+                                            @endif
+
+                                            <a class="dropdown-item" href="{{ route('config') }}">
+                                                {{ __('lang.profile') }}
                                             </a>
 
                                             <a class="dropdown-item" href="{{ route('logout') }}"
@@ -128,29 +140,18 @@
                                                 {{ __('lang.logout') }}
                                             </a>
 
+
                                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                                 @csrf
                                             </form>
 
                                         </div>
                                     </li>
-                                    @if (Auth::user() && Auth::user()->role == 'user')
-                                            <li class="nav float-right">
-                                                <a href="{{ route('likes') }}" class="nav-link">{{ __('lang.favorites') }}</a>
-                                            </li>
-                                    @endif
 
 
-                                    @if (Auth::user() && Auth::user()->role == 'admin')
-                                            <li class="nav float-right">
-                                                <a href="{{ route('component.create') }}" class="nav-link">{{ __('lang.upload_component') }}</a>
-                                            </li>
-                                            <li class="nav float-right">
-                                                <a href="{{ route('user.list') }}" class="nav-link">{{ __('lang.users') }}</a>
-                                            </li>
-                                    @endif
+
+
                                     <li class="nav float-right">
-                                    <a href="{{ route('home') }}" class="nav-link">{{ __('lang.home') }}</a>
                                     </li>
 
                                     @endguest

@@ -20,9 +20,11 @@
 
                     </div>
 
-                    <div class="card-body">
-                        <div class="container_solo">
-                            <img class="img-fluid_solo" src="{{ route('component.file', ['filename' => $component->image_path]) }}" alt="">
+                    <div class="card-body align-center">
+                        <div class="row  justify-content-center">
+                            <div class="col-12 col-md-10 col-lg-8">
+                                <img class="mw-100" src="{{ route('component.file', ['filename' => $component->image_path]) }}" alt="">
+                            </div>
                         </div>
 
                         <div class="name_component">
@@ -31,23 +33,42 @@
                             </p>
 
                         </div>
+                        <span data-toggle="tooltip" title="Debes entrar en tu cuenta para valorar!">
                         <div class="likes">
 
                                 <img src="{{ asset('img/facebook-like-64-gray.png') }}" alt="">
                                 <span class="number_likes">{{ count($component->likes) }}</span>
 
                             {{--        //pintamos el average--}}
-                            <select id="stars-{{$component->id}}">
-                                <option value=""></option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </select>
+
+                            <div class="row justify-content-center mt-2">
+                                <div class="stars">
+                                    {{--        //pintamos el average--}}
+
+                                    <select id="stars-{{$component->id}}" class="stars">
+                                        <option value=""></option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+
+                                </div>
+
+                            </div>
+                            <div class="row justify-content-center mb-2">
+             <span>
+                @if ($ratingsQuantity == 1)
+                     {{ $ratingsQuantity }} valoración
+                 @else
+                     {{ $ratingsQuantity }} valoraciones
+                 @endif
+            </span>
+                            </div>
 
                         </div>
-
+                        </span>
                         {{-- // descripción --}}
                         <div class="clearfix"></div>
                         <div class="description">
@@ -62,6 +83,7 @@
 
                             </div>
                         </div>
+                        <hr>
 
                         {{-- // comentarios --}}
                         <div class="clearfix"></div>
