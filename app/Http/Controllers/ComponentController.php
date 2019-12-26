@@ -87,7 +87,14 @@ class componentController extends Controller
         $averageRating = \App\Helpers\RatingsHelper::getAverageForComponent($id);
         $ratingsQuantity = Rating::where('component_id', $id)
                                     ->count();
-//        dd($ratingsQuantity);
+        if(\Auth::check()){
+            $rated = Rating::where('user_id', \Auth::user()->id)
+                ->where('component_id', $id)
+                ->count();
+        } else {
+            $rated = 1;
+        }
+//        dd($rated);
         $categories = Category::orderBy('id')->get();
 
 
@@ -96,7 +103,8 @@ class componentController extends Controller
                 'component' => $component,
                 'averageRating' => $averageRating,
                 'ratingsQuantity' => $ratingsQuantity,
-                'categories' => $categories
+                'categories' => $categories,
+                'rated' => $rated
             ]);
         } else{
             return view('component.detailG', [
@@ -203,5 +211,24 @@ class componentController extends Controller
         $component->update();
         return redirect()->route('component.detail', ['id' => $component_id])
                             ->with(['message' => 'Componente actulizado con exito']);
+    }
+
+    // buscador de componentes por nombre
+    public function componentsSearchResult($search = null) {
+        if (!empty($search)){
+            $categories = Category::orderBy('id')->get();
+            $components = Component::where('name', 'LIKE', '%'.$search.'%')
+                ->orderBy('id', 'desc')
+                ->paginate(6);
+            return view('component.componentsSearchResult', [
+                'components' => $components,
+                'search' => $search,
+                'categories' => $categories
+            ]);
+        }else{
+            return redirect()->route('home')->with([
+                'message' => 'Ningún producto coincide con la búsqueda'
+            ]);
+        }
     }
 }

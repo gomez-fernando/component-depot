@@ -22,6 +22,10 @@
 Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home/{categoryId?}', 'HomeController@index')->name('home');
+Route::get('/index', 'HomeController@index')->name('index');
+
+//buscador de componentes
+Route::get('/article/components-search-result/{search?}', 'ComponentController@componentsSearchResult')->name('component.componentsSearchResult');
 
 // RATING
 Route::get('/ratings', 'RatingController@hello');
@@ -32,6 +36,9 @@ Route::post('/user/update', 'userController@update')->name('user.update');
 Route::get('/user/avatar/{filename}', 'userController@getImage')->name('user.avatar');
 Route::get('/perfil/{id}', 'userController@profile')->name('profile');
 Route::get('/gente/{search?}', 'userController@index')->name('user.index');
+Route::get('/users', 'userController@list')->name('user.list');
+Route::get('/user/block/{id}', 'UserController@block')->name('user.block');
+Route::get('/user/unblock/{id}', 'UserController@unblock')->name('user.unblock');
 
 // COMPONENT
 Route::get('/subir-componente', 'componentController@create')->name('component.create');

@@ -26,6 +26,14 @@ class HomeController extends Controller
      */
     public function index($categoryId = null)
     {
+        if(\Auth::check() && \Auth::user()->state == 'inactive'){
+//            dd('ok');
+            \Auth::logout();
+            return redirect()->back()->with(['message' => 'Su cuenta ha sido bloqueada por incumplir las normas de la comunidad. Para más información contacte con el administrador en el email admin@admin.com.', 'status' => 'error']);
+
+        }
+
+
         if (\Auth::check()){
             $identity = \Auth::user()->id;
             $user = \Auth::user();
@@ -81,8 +89,12 @@ class HomeController extends Controller
             $categories = Category::orderBy('id')->get();
         }
 
-        // $components = Component::all(); asi tambien funcionaria pero sin ordenarlos
-//        $components = Component::orderBy('id', 'desc')->paginate(6);
+//        para mostrar la portada
+        if(!isset($_COOKIE['entra']) && !\Auth::check()){
+            setcookie("entra", 0, time()+1200);
+            return view('index');
+        }
+
 
         return view('home', [
             'identity' => $identity,
@@ -92,13 +104,16 @@ class HomeController extends Controller
     }
 
     public function home() {
-        $components = Component::orderBy('id', 'desc')->paginate(6);
-        $categories = Category::orderBy('id')->get();
 
 
-        return view('home', [
-            'components' => $components,
-            'categories' => $categories
-        ]);
+
+//        $components = Component::orderBy('id', 'desc')->paginate(6);
+//        $categories = Category::orderBy('id')->get();
+//
+//
+//        return view('home', [
+//            'components' => $components,
+//            'categories' => $categories
+//        ]);
     }
 }

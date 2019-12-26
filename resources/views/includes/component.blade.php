@@ -10,14 +10,10 @@
 
     </div>
 
-<<<<<<< Updated upstream
 {{--    {{ $identity }}--}}
 
 
     <div class="card-body">
-=======
-    <div class="card-body ">
->>>>>>> Stashed changes
       <div>
         <img class="img-fluid" src="{{ route('component.file', ['filename' => $component->image_path]) }}" alt="imagen del componente">
       </div>
@@ -34,7 +30,8 @@
           {{ $component->description }}
         </p>
       </div>
-      <div class="row">
+      <div class="row ">
+
           <div class="likes">
 {{--              <a href="{{ route('component.detail', ['id' => $component->id]) }}">--}}
                   {{--           Comprobar si el usuario le dio like a la imagen--}}
@@ -62,47 +59,56 @@
           </div>
       </div>
 
-    <div class="row">
-        <div class="stars">
+    <div class="row justify-content-center mt-2">
+
+        <div class="stars"  >
             {{--        //pintamos el average--}}
 
-            {{--          $averageRating = \App\Helpers\RatingsHelper::getAverageForComponent();--}}
-
             <select id="stars-{{$component->id}}" class="stars">
-                <option value="0">0</option>
+                <option value=""></option>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
                 <option value="5">5</option>
-                <option value="6">5</option>
             </select>
+
         </div>
+
     </div>
+        <div class="row justify-content-center mb-2">
+             <span>
+                @if ($ratingsQuantity == 1)
+                     {{ $ratingsQuantity }} valoración
+                 @else
+                     {{ $ratingsQuantity }} valoraciones
+                 @endif
+            </span>
+        </div>
       {{-- // comentarios --}}
       <div class="comments">
           <a href="{{ route('component.detail', ['id' => $component->id]) }}" class="btn btn-sm btn-warning btn-comments">{{ __('lang.comments') }} ({{ count($component->comments) }})</a>
+{{--          <input type="text" id="valorDeId" value="{{ $component->id }}">--}}
       </div>
     </div>
   </div>
 </div>
 
 <script>
-
     var componentId = '{{ $component->id }}';
-    var averageRating = '{{\App\Helpers\RatingsHelper::getAverageForComponent($component->id)}}';
-    var userId = '{{ $identity}}';
+    // var valorDeId = $('#valorDeId').val();
+    var averageRating = parseInt({{ $averageRating }});
+    var rated = parseInt({{$rated}});
+
+    console.log(rated + 'votaciones');
+
+
+    var userId = '{{ Auth::user()->id}}';
     var urlRatingStore = '{{route('rating.store')}}';
 
-
-
-<<<<<<< Updated upstream
+    console.log(userId);
+    console.log(urlRatingStore);
 </script>
-
 
 <script src="{{asset('js/jsBarrating.js')}}"></script>
 <script src="{{ asset('js/stars.js') }}"></script>
-=======
-    </script>
-@endsection
->>>>>>> Stashed changes

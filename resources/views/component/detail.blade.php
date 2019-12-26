@@ -7,7 +7,7 @@
 {{-- // mostramos mensaje --}}
 @include('includes.message')
 
-<div class="card pub_image pub_image_detail">
+<div class="card pub_image_solo pub_image_detail">
 <div class="card-header">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -59,19 +59,18 @@
 
 </div>
 
-<div class="card-body aling-center">
-    <div>
-        <img class="img-fluid" src="{{ route('component.file', ['filename' => $component->image_path]) }}" alt="">
+<div class="card-body align-center">
+    <div class="row  justify-content-center">
+        <div class="col-12 col-md-10 col-lg-8">
+            <img class="mw-100" src="{{ route('component.file', ['filename' => $component->image_path]) }}" alt="">
+        </div>
     </div>
 
-    <div class="description">
+    <div class="name_component">
         <p>
             <strong>{{ $component->name }}</strong>
         </p>
 
-        <p>
-            {{ $component->description }}
-        </p>
     </div>
     <div class="likes">
         {{--           Comprobar si el usuario le dio like a la imagen--}}
@@ -96,36 +95,47 @@
 
         @endif
 
+
+            {{--        //pintamos el average--}}
+
+        <div class="row justify-content-center mt-2">
+
+            <div class="stars">
+                {{--        //pintamos el average--}}
+
+                <select id="stars-{{$component->id}}" class="stars">
+                    <option value=""></option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+
+            </div>
+
+        </div>
+        <div class="row justify-content-center mb-2">
+             <span>
+                @if ($ratingsQuantity == 1)
+                     {{ $ratingsQuantity }} valoración
+                 @else
+                     {{ $ratingsQuantity }} valoraciones
+                 @endif
+            </span>
+        </div>
         @if ($ratingsQuantity == 0)
-            <div class="row">
+            <div class="row justify-content-center">
                 <p>Sé el primero en valorar éste producto</p>
             </div>
         @endif
-            {{--        //pintamos el average--}}
-
-            <select id="stars-{{$component->id}}">
-                {{--            <option value="0" style="visibility: hidden !important">0</option>--}}
-                <option value=""></option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-            </select>
-            <span>
-                @if ($ratingsQuantity == 1)
-                    {{ $ratingsQuantity }} valoración
-                @else
-                    {{ $ratingsQuantity }} valoraciones
-                @endif
-            </span>
 
 
     </div>
 
     {{-- // descripción --}}
     <div class="clearfix"></div>
-    <div class="comments">
+    <div class="description">
         <h2 >Descripción</h2>
         <hr>
 
@@ -140,6 +150,7 @@
 
             </div>
     </div>
+    <hr>
 
     {{-- // comentarios --}}
     <div class="clearfix"></div>
@@ -191,10 +202,11 @@
 </div>
 
 <script>
-
-
     var componentId = '{{ $component->id }}';
     var averageRating = parseInt('{{\App\Helpers\RatingsHelper::getAverageForComponent($component->id)}}');
+    var rated = '{{ $rated }}';
+
+    console.log(rated + 'votaciones');
 
 
     var userId = '{{ Auth::user()->id}}';
@@ -202,9 +214,6 @@
 
     console.log(userId);
     console.log(urlRatingStore);
-
-
-
 </script>
 
 <script src="{{asset('js/jsBarrating.js')}}"></script>
