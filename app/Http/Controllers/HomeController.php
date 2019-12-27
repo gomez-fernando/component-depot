@@ -103,17 +103,7 @@ class HomeController extends Controller
         ]);
     }
 
-    public function home() {
-
-
-
-//        $components = Component::orderBy('id', 'desc')->paginate(6);
-//        $categories = Category::orderBy('id')->get();
-//
-//
-//        return view('home', [
-//            'components' => $components,
-//            'categories' => $categories
-//        ]);
+    public function terminosDeUso() {
+        return view('importantInfo.terminosDeUso');
     }
 }

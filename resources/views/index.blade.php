@@ -11,7 +11,7 @@ ob_start();
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-@yield('title')
+    <title>Component Dêpot</title>
 
 <!-- Scripts -->
 
