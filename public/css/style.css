@@ -211,6 +211,24 @@ HEADER-01
     color: #444343;
 }
 
+@media screen and (max-width: 991px) {
+    #header-01 .nav-link{
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    #header-01 .nav-link{
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    #header-01 .nav-link{
+        font-size: 11px;
+    }
+}
+
 .header-01 .nav-link.selected,
 .header-01 .nav-link.selected:hover {
 	background-color: #b59a09;
@@ -229,15 +247,35 @@ HEADER-02
 
 @media screen and (max-width: 474px) {
     #header-02{
-        height: 62px;
+        /*height: 62px;*/
+        display: none;
+    }
+
+    #navbarDropdown {
+        font-size: 12px!important;
     }
 }
 
-@media screen and (max-width: 368px) {
-    #header-02{
-        height: 80px;
-    }
+/*----------------------------------------*/
+/*HEADER-03*/
+/*-----------------------------------------*/
+
+#header-03{
+    box-shadow: 0px -4px 0px rgba(0,0,0,.05);
 }
+
+@media screen and (min-width: 475px){
+    #header-03{
+        display: none;
+    }
+
+}
+
+/*@media screen and(max-width: 475px){*/
+/*    #header-03{*/
+/*        display: none;*/
+/*    }*/
+/*}*/
 
 /* ---------------------------------------
 BUSCADOR DE COMPONENTES
