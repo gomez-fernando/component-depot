@@ -50,10 +50,6 @@ ob_start();
 
             <div class="wow fadeIn">
 
-                <!-- <div class="welcome-logo">
-                <img class="" src="assets/img/logo.jpg" alt="Logo INPRL">
-              </div> -->
-
                 <h1>Component Depot</h1>
                 <h2><span class="rotating mt-5">Valora los productos, Participa en la comunidad, Haz tu lista de favoritos</span></h2>
                 <div class="container">
@@ -71,13 +67,7 @@ ob_start();
 <!-- Required JavaScript Libraries -->
 <script src="{{ asset('lib/jquery/jquery.min.js') }}"></script>
 <script src="lib/bootstrap/js/bootstrap.min.js"></script>
-<!-- <script src="lib/superfish/hoverIntent.js"></script> -->
-<!-- <script src="lib/superfish/superfish.min.js"></script> -->
 <script src="{{ asset('lib/morphext/morphext.min.js') }}"></script>
-{{--<script src=""></script>--}}
-{{--<!-- <script src="lib/wow/wow.min.js"></script>--}}
-{{--<script src="lib/stickyjs/sticky.js"></script>--}}
-{{--<script src="lib/easing/easing.js"></script> -->--}}
 
 <!-- Template Specisifc Custom Javascript File -->
 <script src="{{ asset('js/main.js') }}"></script>
