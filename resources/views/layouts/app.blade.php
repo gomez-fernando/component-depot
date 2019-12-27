@@ -73,7 +73,7 @@
         <nav id="header-02" class="navbar navbar-expand-md header-02">
             <div class="container">
                 <div class="row w-100 m-auto">
-                        <div class="col-4 a pt-2 pb-2 pl-1 pr-1"><strong><?php echo date("d M Y");?></strong></div>
+                        <div class="col-3 a pt-2 pb-2 pl-1 pr-1"><strong><?php echo date("d M Y");?></strong></div>
 
                         <div class="col-4">
 
@@ -83,14 +83,14 @@
                     <input type="submit" value="Buscar">
                 </form>
                         </div>
-                        <div class="col-4 b ">
+                        <div class="col-5 b ">
 
                                 <!-- Right Side Of Navbar -->
                                     <!-- Authentication Links -->
                                     @guest
                                         <li class="nav dropdown float-right">
                                             <a id="navbarDropdown" class="nav-link dropdown-toggle pt-2 pb-2 pl-1 pr-1" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                                <i class="icon-cms"></i><span class="sm-hidden"><strong>Area personal</strong></span>  <span class="caret"></span>
+                                                <span class="sm-hidden"><strong>Area personal</strong></span>  <span class="caret"></span>
                                             </a>
 
                                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -175,7 +175,7 @@
                         @guest
                             <li class="nav dropdown float-right">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle pt-2 pb-2 pl-1 pr-1" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    <i class="icon-cms"></i><span class="sm-hidden"><strong>Area personal</strong></span>  <span class="caret"></span>
+                                    <span class="sm-hidden"><strong>Area personal</strong></span>  <span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -254,6 +254,69 @@
 ============================-->
 
 <footer id="footer" >
+    <!-- Footer Links -->
+    <div class="container text-center text-md-left">
+
+        <!-- Grid row -->
+        <div class="row">
+
+
+            <!-- Grid column -->
+            <div class="col-md-4 mx-auto">
+
+                <!-- Links -->
+                <h5 class="font-weight-bold text-uppercase mt-3 mb-4">componentes para pc</h5>
+
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="https://www.pccomponentes.com/" target="_blank">PC Componentes</a>
+                    </li>
+                    <li>
+                        <a href="https://www.worten.es/productos/informatica/pc-componentes" target="_blank">Worten</a>
+                    </li>
+                    <li>
+                        <a href="https://www.coolmod.com/componentes-hardware-componentes-pc" target="_blank">CoolMod</a>
+                    </li>
+                </ul>
+
+            </div>
+            <!-- Grid column -->
+
+
+            <hr class="clearfix w-100 d-md-none">
+
+            <!-- Grid column -->
+            <div class="col-md-4 mx-auto">
+
+                <!-- Links -->
+                <h5 class="font-weight-bold text-uppercase mt-3 mb-4">INFORMACIÓN IMPORTANTE</h5>
+
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="{{ route('terminosDeUso') }}">Términos de uso</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('home') }}">Política de privacidad</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('home') }}">Política de cookies</a>
+                    </li>
+                </ul>
+
+            </div>
+            <!-- Grid column -->
+
+
+            <hr class="clearfix w-100 d-md-none">
+
+
+        </div>
+        <!-- Grid row -->
+
+    </div>
+    <!-- Footer Links -->
+
+{{--    /////////////////////////////////////////////////////////////--}}
 
         <div class="row justify-content-center redes-sociales">
             <div class="col-auto">
