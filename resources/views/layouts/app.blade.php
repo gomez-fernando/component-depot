@@ -162,6 +162,88 @@
             </div>
         </nav>
 
+        <nav id="header-03" class="navbar navbar-expand-md header-02">
+            <div class="container">
+                <div class="row w-100 m-auto">
+                    <div class="col-6 a pt-2 pl-1 pr-1">
+                        <form method="get" action="{{ route('component.componentsSearchResult') }}" id="componentsSearch">
+                            <input type="text" id="search" class="form-control" required>
+                            <input type="submit" value="Buscar">
+                        </form>
+                    </div>
+                    <div class="col-6 a pt-2 pl-1 pr-1">
+                        @guest
+                            <li class="nav dropdown float-right">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle pt-2 pb-2 pl-1 pr-1" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    <i class="icon-cms"></i><span class="sm-hidden"><strong>Area personal</strong></span>  <span class="caret"></span>
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+
+
+
+                                    <a class="dropdown-item" href="{{ route('login') }}">
+                                        {{ __('lang.login') }}
+                                    </a>
+
+                                    <a class="dropdown-item" href="{{ route('register') }}">
+                                        {{ __('lang.register') }}
+                                    </a>
+
+
+                                </div>
+                            </li>
+                        @else
+
+                            <li class="nav dropdown float-right">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    <strong>Bienvenido/a {{ Auth::user()->nick }}</strong> <span class="caret"></span>
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+
+                                    <a class="dropdown-item" href="{{ route('home') }}" class="nav-link">{{ __('lang.home') }}</a>
+
+                                    @if (Auth::user() && Auth::user()->role == 'user')
+                                        <a class="dropdown-item" href="{{ route('likes') }}" class="nav-link">{{ __('lang.favorites') }}</a>
+                                    @endif
+
+
+
+                                    @if (Auth::user() && Auth::user()->role == 'admin')
+                                        <a href="{{ route('component.create') }}" class="dropdown-item">{{ __('lang.upload_component') }}</a>
+                                        <a href="{{ route('user.list') }}" class="dropdown-item">{{ __('lang.users') }}</a>
+                                    @endif
+
+                                    <a class="dropdown-item" href="{{ route('config') }}">
+                                        {{ __('lang.profile') }}
+                                    </a>
+
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                             document.getElementById('logout-form').submit();">
+                                        {{ __('lang.logout') }}
+                                    </a>
+
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+
+                                </div>
+                            </li>
+
+
+
+
+                            <li class="nav float-right">
+                            </li>
+
+                        @endguest
+                    </div>
+                </div>
+            </div>
+        </nav>
 
         <main class="py-4">
             @yield('content')
