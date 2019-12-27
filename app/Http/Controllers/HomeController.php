@@ -104,6 +104,23 @@ class HomeController extends Controller
     }
 
     public function terminosDeUso() {
-        return view('importantInfo.terminosDeUso');
+        $categories = Category::orderBy('id')->get();
+        return view('importantInfo.terminosDeUso', [
+            'categories' => $categories,
+        ]);
+    }
+
+    public function privacyPolicy() {
+        $categories = Category::orderBy('id')->get();
+        return view('importantInfo.privacyPolicy', [
+            'categories' => $categories,
+        ]);
+    }
+
+    public function cookiesPolicy() {
+        $categories = Category::orderBy('id')->get();
+        return view('importantInfo.cookiesPolicy', [
+            'categories' => $categories,
+        ]);
     }
 }

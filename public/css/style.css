@@ -618,6 +618,10 @@ footer a{
 
 /* FOOTER-------------------------
 ------------------------------- */
+#footer a {
+    color: #212529;
+}
+
 .redes-sociales {
 	padding: 10px;
 	/*background-color: var(--purple-light);*/

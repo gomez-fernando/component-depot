@@ -269,13 +269,13 @@
 
                 <ul class="list-unstyled">
                     <li>
-                        <a href="https://www.pccomponentes.com/" target="_blank">PC Componentes</a>
+                        <a href="https://www.pccomponentes.com/" target="_blank"><strong>PC Componentes</strong></a>
                     </li>
                     <li>
-                        <a href="https://www.worten.es/productos/informatica/pc-componentes" target="_blank">Worten</a>
+                        <a href="https://www.worten.es/productos/informatica/pc-componentes" target="_blank"><strong>Worten</strong></a>
                     </li>
                     <li>
-                        <a href="https://www.coolmod.com/componentes-hardware-componentes-pc" target="_blank">CoolMod</a>
+                        <a href="https://www.coolmod.com/componentes-hardware-componentes-pc" target="_blank"><strong>CoolMod</strong></a>
                     </li>
                 </ul>
 
@@ -289,17 +289,17 @@
             <div class="col-md-4 mx-auto">
 
                 <!-- Links -->
-                <h5 class="font-weight-bold text-uppercase mt-3 mb-4">INFORMACIÓN IMPORTANTE</h5>
+                <h5 class="font-weight-bold text-uppercase mt-3 mb-4">información importante</h5>
 
                 <ul class="list-unstyled">
                     <li>
-                        <a href="{{ route('terminosDeUso') }}">Términos de uso</a>
+                        <a href="{{ route('terminosDeUso') }}"><strong>Términos de uso</strong></a>
                     </li>
                     <li>
-                        <a href="{{ route('home') }}">Política de privacidad</a>
+                        <a href="{{ route('privacyPolicy') }}"><strong>Política de privacidad</strong></a>
                     </li>
                     <li>
-                        <a href="{{ route('home') }}">Política de cookies</a>
+                        <a href="{{ route('cookiesPolicy') }}"><strong>Política de cookies</strong></a>
                     </li>
                 </ul>
 

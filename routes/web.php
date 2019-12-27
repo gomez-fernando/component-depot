@@ -60,6 +60,8 @@ Route::get('/likes', 'likeController@index')->name('likes');
 
 // INFORMACION IMPORTANTE
 Route::get('/terminos-de-uso', 'HomeController@terminosDeUso')->name('terminosDeUso');
+Route::get('/politica-de-privacidad', 'HomeController@privacyPolicy')->name('privacyPolicy');
+Route::get('/política-de-cookies', 'HomeController@cookiesPolicy')->name('cookiesPolicy');
 
 
 
