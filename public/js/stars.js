@@ -7,7 +7,7 @@
         if(rated == 0){
             var $control = drawStars(id,componentId,userId);
         } else{
-            console.log('rated:' + componentId);
+            //console.log('rated:' + componentId);
             var $control = $('#'+id).barrating({
                 theme: 'fontawesome-stars',
                 silent: true,
@@ -18,8 +18,8 @@
         }
 
         function drawStars(id,componentId,userId){
-            console.log('not rated:' + componentId);
-            console.log('userId:' + userId);
+            //console.log('not rated:' + componentId);
+            //console.log('userId:' + userId);
             var $control = $('#'+id).barrating({
                 theme: 'fontawesome-stars',
                 silent: true,
@@ -42,8 +42,10 @@
                         headers: {
                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                         }
-                    }).done(function(response) {
-                        // console.log(response)
+                    }).done(function(response){
+                        let value = parseInt(response.value);
+                        updateStarsAverage($control,value,true);
+                        printVotes(response.componentId, response.ratingsQuantity);
                     });
 
 
@@ -54,6 +56,16 @@
         }
 
         $control.barrating('set' , averageRating);
+        updateStarsAverage($control, averageRating)
 
+        function updateStarsAverage($control, value, readonly = false) {
+            $control.barrating('set' , value);
+            $control.barrating('readonly', readonly);
+        }
 
+        function printVotes(componentId, ratingsQuantity) {
+            $('#vote-' + componentId).empty();
+            $('#vote-' + componentId).text(ratingsQuantity);
+            $('#vote-'+response.componentId).text();
+        }
 

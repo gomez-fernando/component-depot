@@ -74,9 +74,9 @@
         <div class="row justify-content-center mb-2">
              <span>
                 @if ($ratingsQuantity == 1)
-                     {{ $ratingsQuantity }} valoración
+                     <i id="vote-{{$component->id}}">{{ $ratingsQuantity }}</i> valoración
                  @else
-                     {{ $ratingsQuantity }} valoraciones
+                     <i id="vote-{{$component->id}}">{{ $ratingsQuantity }}</i> valoraciones
                  @endif
             </span>
         </div>
