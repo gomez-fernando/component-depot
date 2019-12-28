@@ -18,3 +18,13 @@ $this->app->bind('path.public',function(){return base_path('public_html'); });
 
 
 
+
+
+namecheap:
+cambiar la direccion del boton inicio en index.php
+
+
+
+
+
+

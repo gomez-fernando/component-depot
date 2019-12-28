@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-<title>{{ __('lang.upload_picture') }}</title>
+<title>{{ __('lang.upload_component') }}</title>
 @endsection
 
 @section('content')
