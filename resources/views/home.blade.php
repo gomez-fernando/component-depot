@@ -9,10 +9,10 @@
 @section('content')
 
     <div class="container">
-
-        <div class="row justify-content-center">
-      {{-- // mostramos mensaje --}}
+        {{-- // mostramos mensaje --}}
         @include('includes.message')
+        <div class="row justify-content-center">
+
       {{-- // mustro los componentes --}}
         @if (Auth::check())
             @foreach ($components as $component)
