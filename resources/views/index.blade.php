@@ -32,7 +32,7 @@ ob_start();
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
     <!-- favicoon -->
-    <link rel="shortout icon" type="image/png" href="{{ asset('../img/favicon-laravel-32x32.png') }}">
+    <link rel="shortout icon" type="image/png" href="{{ asset('img/favicon.png') }}">
 
     {{--    js barratings--}}
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">

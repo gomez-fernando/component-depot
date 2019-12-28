@@ -68,8 +68,6 @@
             </div>
         </nav>
 
-{{--        @include('includes.header', ['categories' => $categories])--}}
-
         <nav id="header-02" class="navbar navbar-expand-md header-02">
             <div class="container">
                 <div class="row w-100 m-auto">
@@ -259,11 +257,8 @@
 
         <!-- Grid row -->
         <div class="row">
-
-
             <!-- Grid column -->
             <div class="col-md-4 mx-auto">
-
                 <!-- Links -->
                 <h5 class="font-weight-bold text-uppercase mt-3 mb-4">componentes para pc</h5>
 
@@ -278,16 +273,11 @@
                         <a href="https://www.coolmod.com/componentes-hardware-componentes-pc" target="_blank"><strong>CoolMod</strong></a>
                     </li>
                 </ul>
-
             </div>
             <!-- Grid column -->
-
-
             <hr class="clearfix w-100 d-md-none">
-
             <!-- Grid column -->
             <div class="col-md-4 mx-auto">
-
                 <!-- Links -->
                 <h5 class="font-weight-bold text-uppercase mt-3 mb-4">información importante</h5>
 
@@ -302,37 +292,31 @@
                         <a href="{{ route('cookiesPolicy') }}"><strong>Política de cookies</strong></a>
                     </li>
                 </ul>
-
             </div>
             <!-- Grid column -->
-
-
             <hr class="clearfix w-100 d-md-none">
-
-
         </div>
         <!-- Grid row -->
 
-    </div>
-    <!-- Footer Links -->
-
-{{--    /////////////////////////////////////////////////////////////--}}
+        <!-- Footer Links -->
 
         <div class="row justify-content-center redes-sociales">
             <div class="col-auto">
-            <a href="https://sites.google.com/fp.uoc.edu/grupo-jadf/presentaci%C3%B3n-del-proyecto" target="_blank"><img src="{{ asset('img/google-plus-3-64.png') }}" alt=""></a>
-{{--                <a href="" target="_blank"><img src="{{ asset('img/youtube-3-64.png') }}" alt=""></a>--}}
+                <a href="https://sites.google.com/fp.uoc.edu/grupo-jadf/presentaci%C3%B3n-del-proyecto" target="_blank"><img src="{{ asset('img/google-plus-3-64.png') }}" alt=""></a>
+                {{--                <a href="" target="_blank"><img src="{{ asset('img/youtube-3-64.png') }}" alt=""></a>--}}
                 <a href="https://github.com/FernandoDavidGomezOrtega/component-depot" target="_blank"><img src="{{ asset('img/github-8-64.png') }}" alt=""></a>
             </div>
-            </div>
+        </div>
 
-            <div class="row ">
+        <div class="row">
             <div class="col-12" id="">
-                <p>
+                <p class="text-center">
                     <strong>Developed by: Grupo JDAF - UOC 2019 &copy;</strong>
                 </p>
             </div>
         </div>
+    </div>
+
 </footer>
 
 

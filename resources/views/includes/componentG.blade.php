@@ -52,17 +52,16 @@
 
                             </div>
                             <div class="row justify-content-center mb-2">
-             <span>
-                @if ($ratingsQuantity == 1)
-                     {{ $ratingsQuantity }} valoración
-                 @else
-                     {{ $ratingsQuantity }} valoraciones
-                 @endif
-            </span>
+                                 <span>
+                                    @if ($ratingsQuantity == 1)
+                                         {{ $ratingsQuantity }} valoración
+                                     @else
+                                         {{ $ratingsQuantity }} valoraciones
+                                     @endif
+                                </span>
                             </div>
-
                         </div>
-                        </span>
+            </span>
             {{-- // comentarios --}}
             <div class="comments">
                 <a href="{{ route('component.detail', ['id' => $component->id]) }}" class="btn btn-sm btn-warning btn-comments">{{ __('lang.comments') }} ({{ count($component->comments) }})</a>

@@ -1,4 +1,4 @@
-{{-- mostramos mensaje de exito o no en la actalizacion --}}
+{{-- mostramos mensaje de exito o no en la actualizacion --}}
 @if (session('message'))
     @if (session('status') == 'error')
         <div class="alert alert-danger">

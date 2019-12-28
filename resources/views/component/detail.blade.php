@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('title')
+    <title>Información del componente</title>
+@endsection
 
 @section('content')
 <div class="container">

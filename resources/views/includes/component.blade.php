@@ -10,9 +10,6 @@
 
     </div>
 
-{{--    {{ $identity }}--}}
-
-
     <div class="card-body">
       <div>
         <img class="img-fluid" src="{{ route('component.file', ['filename' => $component->image_path]) }}" alt="imagen del componente">
@@ -33,8 +30,6 @@
       <div class="row ">
 
           <div class="likes">
-{{--              <a href="{{ route('component.detail', ['id' => $component->id]) }}">--}}
-                  {{--           Comprobar si el usuario le dio like a la imagen--}}
                   @if (Auth::check())
                       <?php $user_like = false ?>
                       @foreach ($component->likes as $like)
@@ -88,7 +83,6 @@
       {{-- // comentarios --}}
       <div class="comments">
           <a href="{{ route('component.detail', ['id' => $component->id]) }}" class="btn btn-sm btn-warning btn-comments">{{ __('lang.comments') }} ({{ count($component->comments) }})</a>
-{{--          <input type="text" id="valorDeId" value="{{ $component->id }}">--}}
       </div>
     </div>
   </div>
