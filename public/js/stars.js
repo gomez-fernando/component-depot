@@ -5,47 +5,28 @@
         var id = 'stars-' + componentId;
         var urlRatingStore = urlRatingStore;
         if(rated == 0){
-            var $control = $('#'+id).barrating({
-                theme: 'fontawesome-stars',
-                silent: true,
-                initialRating:null,
-                readonly: false,
-
-                emptyRatingValue : true,
-                onSelect: function(value, text) {
-
-                    data = {
-                        user_id: userId,
-                        component_id: componentId,
-                        value: value
-                    }
-                    urlAjax = urlRatingStore;
-
-                    $.ajax({
-                        url:urlAjax,
-                        data:data,
-                        method: "POST",
-                        dataType: 'json',
-                        headers: {
-                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                        }
-                    }).done(function(response) {
-                        console.log(response)
-                    });
-
-
-                }
-            });
+            var $control = drawStars(id,componentId,userId);
         } else{
+            console.log('rated:' + componentId);
             var $control = $('#'+id).barrating({
                 theme: 'fontawesome-stars',
                 silent: true,
                 initialRating:null,
                 readonly: true,
+                emptyRatingValue : true,
+            });
+        }
 
+        function drawStars(id,componentId,userId){
+            console.log('not rated:' + componentId);
+            console.log('userId:' + userId);
+            var $control = $('#'+id).barrating({
+                theme: 'fontawesome-stars',
+                silent: true,
+                initialRating:null,
+                readonly: false,
                 emptyRatingValue : true,
                 onSelect: function(value, text) {
-
                     data = {
                         user_id: userId,
                         component_id: componentId,
@@ -62,17 +43,15 @@
                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                         }
                     }).done(function(response) {
-                        console.log(response)
+                        // console.log(response)
                     });
 
 
                 }
             });
+
+            return $control;
         }
-
-
-
-
 
         $control.barrating('set' , averageRating);
 

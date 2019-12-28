@@ -81,7 +81,7 @@
     var urlRatingStore = '{{route('rating.store')}}';
 
     // console.log(userId);
-    console.log(urlRatingStore);
+    // console.log(urlRatingStore);
 
 
 
@@ -123,7 +123,7 @@
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             }).done(function(response) {
-                console.log(response)
+                // console.log(response)
             });
 
 

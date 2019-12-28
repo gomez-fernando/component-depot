@@ -172,7 +172,7 @@
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     }
                 }).done(function(response) {
-                    console.log(response)
+                    // console.log(response)
                 });
 
 

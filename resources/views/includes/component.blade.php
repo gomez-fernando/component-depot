@@ -94,14 +94,14 @@
     var averageRating = parseInt({{ $averageRating }});
     var rated = parseInt({{$rated}});
 
-    console.log(rated + 'votaciones');
+    // console.log(rated + 'votaciones');
 
 
     var userId = '{{ Auth::user()->id}}';
     var urlRatingStore = '{{route('rating.store')}}';
 
-    console.log(userId);
-    console.log(urlRatingStore);
+    // console.log(userId);
+    // console.log(urlRatingStore);
 </script>
 
 <script src="{{asset('js/jsBarrating.js')}}"></script>
