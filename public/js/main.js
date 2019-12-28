@@ -17,11 +17,8 @@ window.addEventListener('load', function(){
                 url: url+'/like/'+$(this).data('id'),
                 type: 'GET',
                 success: function(response){
-                    if (response.like){
-                        // console.log('has dado like al componente');
-                    } else {
-                        // console.log('error al dar like');
-                    }
+                    $('#likesQuantity-'+ response.componentId).html(response.value);
+
 
                 }
             });
@@ -43,11 +40,8 @@ window.addEventListener('load', function(){
                 url: url+'/dislike/'+$(this).data('id'),
                 type: 'GET',
                 success: function(response){
-                    if (response.like){
-                        console.log('has dado dislike al componente');
-                    } else {
-                        console.log('error al dar dislike');
-                    }
+                    $('#likesQuantity-'+response.componentId).html(response.value);
+
 
                 }
             });

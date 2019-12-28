@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Like;
+use App\Helpers\RatingsHelper ;
 
 class likeController extends Controller
 {
@@ -25,6 +26,8 @@ class likeController extends Controller
 //                             var_dump($user->id);
 //                             die();
                             /////// end debug /////////
+
+
 
         return view('like.index', [
             'identity' => $identity,
@@ -57,7 +60,10 @@ class likeController extends Controller
             $like->save();
 
             return response()->json([
-                'like' => $like
+                'status' => 200,
+                'message' => 'SUCCESS',
+                'componentId' => $component_id,
+                'value' => RatingsHelper::likes($component_id),
             ]);
         } else{
             return response()->json([
@@ -87,8 +93,10 @@ class likeController extends Controller
             $like->delete();
 
             return response()->json([
-                'like' => $like,
-                'message' => 'Has dado dislike correctamente'
+                'status' => 200,
+                'message' => 'SUCCESS',
+                'componentId' => $component_id,
+                'value' => RatingsHelper::likes($component_id),
             ]);
         } else{
             return response()->json([

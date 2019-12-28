@@ -40,14 +40,14 @@
 
 
                       @if ($user_like)
-                          <img class="img-fluid" src="{{ asset('img/facebook-like-64-blue.png') }}" alt="" data-id="{{ $component->id }}" class="btn-dislike">
+                          <img class="img-fluid btn-dislike"  src="{{ asset('img/facebook-like-64-blue.png') }}" alt="" data-id="{{ $component->id }}">
                       @else
-                          <img class="img-fluid" src="{{ asset('img/facebook-like-64-gray.png') }}" alt="" data-id="{{ $component->id }}" class="btn-like">
+                          <img class="img-fluid btn-like" src="{{ asset('img/facebook-like-64-gray.png') }}" alt="" data-id="{{ $component->id }}">
                       @endif
-                      <span class="number_likes">{{ count($component->likes) }}</span>
+                      <span class="number_likes" id="likesQuantity-{{ $component->id }}">{{ count($component->likes) }}</span>
                   @else
                       <img src="{{ asset('img/facebook-like-64-gray.png') }}" alt="">
-                      <span class="number_likes">{{ count($component->likes) }}</span>
+                      <span class="number_likes" id="likesQuantity-{{ $component->id }}">{{ count($component->likes) }}</span>
 
                   @endif
 {{--              </a>--}}
