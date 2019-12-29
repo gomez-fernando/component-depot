@@ -30,7 +30,7 @@
       <div class="row ">
 
           <div class="likes">
-                  @if (Auth::check())
+                  @if (Auth::check() && Auth::user()->role != 'admin')
                       <?php $user_like = false ?>
                       @foreach ($component->likes as $like)
                           @if ($like->user->id == Auth::user()->id)

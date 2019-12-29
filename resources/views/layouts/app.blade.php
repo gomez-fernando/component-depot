@@ -21,7 +21,6 @@
 
     <!-- Libraries CSS Files -->
 <link href="{{asset('lib/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
-{{--<link href="{{ asset('../lib/animate-css/animate.min.css') }}" rel="stylesheet">--}}
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -31,7 +30,6 @@
     <link rel="shortout icon" type="image/png" href="{{ asset('img/favicon.png') }}">
 
 {{--    js barratings--}}
-{{--    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">--}}
     <link rel="stylesheet" href="{{ asset('css/fontawesome-stars.css') }}">
 </head>
 <body>
