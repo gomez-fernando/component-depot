@@ -165,7 +165,6 @@
         var averageRating = parseInt('{{\App\Helpers\RatingsHelper::getAverageForComponent($component->id)}}');
 
 
-        {{--var userId = '{{ Auth::user()->id}}';--}}
         var urlRatingStore = '{{route('rating.store')}}';
 
         // console.log(userId);
@@ -176,7 +175,6 @@
     </script>
 
     <script src="{{asset('js/jsBarrating.js')}}"></script>
-{{--    <script src="{{ asset('js/stars.js') }}"></script>--}}
     <script>
 
 
