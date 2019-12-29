@@ -98,7 +98,7 @@ class componentController extends Controller
         $categories = Category::orderBy('id')->get();
 
 
-        if (Auth::check()){
+        if (Auth::check() && Auth::user()->role != 'admin' ){
             return view('component.detail', [
                 'component' => $component,
                 'averageRating' => $averageRating,

@@ -8,6 +8,7 @@
             var $control = drawStars(id,componentId,userId);
         } else{
             //console.log('rated:' + componentId);
+
             var $control = $('#'+id).barrating({
                 theme: 'fontawesome-stars',
                 silent: true,
@@ -15,6 +16,7 @@
                 readonly: true,
                 emptyRatingValue : true,
             });
+            // updateStarsAverage($control, value, readonly = true)
         }
 
         function drawStars(id,componentId,userId){
@@ -56,7 +58,7 @@
         }
 
         $control.barrating('set' , averageRating);
-        updateStarsAverage($control, averageRating)
+        // updateStarsAverage($control, averageRating)
 
         function updateStarsAverage($control, value, readonly = false) {
             $control.barrating('set' , value);

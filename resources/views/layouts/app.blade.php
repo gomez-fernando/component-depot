@@ -21,7 +21,6 @@
 
     <!-- Libraries CSS Files -->
 <link href="{{asset('lib/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
-{{--<link href="{{ asset('../lib/animate-css/animate.min.css') }}" rel="stylesheet">--}}
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -31,7 +30,6 @@
     <link rel="shortout icon" type="image/png" href="{{ asset('img/favicon.png') }}">
 
 {{--    js barratings--}}
-{{--    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">--}}
     <link rel="stylesheet" href="{{ asset('css/fontawesome-stars.css') }}">
 </head>
 <body>
@@ -110,7 +108,7 @@
 
                                     <li class="nav dropdown float-right">
                                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                            <strong>Bienvenido/a {{ Auth::user()->nick }}</strong> <span class="caret"></span>
+                                            <strong>Bienvenido/a &nbsp; {{ Auth::user()->nick }}</strong> <span class="caret"></span>
                                         </a>
 
                                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -125,6 +123,7 @@
 
                                             @if (Auth::user() && Auth::user()->role == 'admin')
                                                 <a href="{{ route('component.create') }}" class="dropdown-item">{{ __('lang.upload_component') }}</a>
+                                                <a href="{{ route('category.list') }}" class="dropdown-item">Categorias</a>
                                                 <a href="{{ route('user.list') }}" class="dropdown-item">{{ __('lang.users') }}</a>
                                             @endif
 
@@ -195,7 +194,7 @@
 
                             <li class="nav dropdown float-right">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    <strong>Bienvenido/a {{ Auth::user()->nick }}</strong> <span class="caret"></span>
+                                    <strong>Bienvenido/a &nbsp; {{ Auth::user()->nick }}</strong> <span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">

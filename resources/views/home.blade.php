@@ -14,7 +14,7 @@
         <div class="row justify-content-center">
 
       {{-- // mustro los componentes --}}
-        @if (Auth::check())
+        @if (Auth::check() && Auth::user()->role != 'admin')
             @foreach ($components as $component)
                     <div class="col-12 col-md-6  col-lg-4 mb-4">
 
