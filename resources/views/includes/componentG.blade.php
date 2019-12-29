@@ -27,7 +27,9 @@
                     {{ $component->description }}
                 </p>
             </div>
-            <span data-toggle="tooltip" @if(Auth::user()->role != 'admin')  title="Debes entrar en tu cuenta para valorar!" @else title="Los administradores no pueden valorar!" @endif>
+            <span data-toggle="tooltip" @if(Auth::check()) @if (Auth::user()->role == 'admin')
+            title="Los administradores no pueden valorar!"
+            @endif  @else title="Debes entrar en tu cuenta para valorar!" @endif>
                         <div class="likes">
 
                                 <img src="{{ asset('img/facebook-like-64-gray.png') }}" alt="">
