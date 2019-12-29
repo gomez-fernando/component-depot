@@ -60,12 +60,16 @@ class HomeController extends Controller
                     $user->level = 'avanzado';
                     $user->update();
                 }
+                if ($ratings >= 50 && $seniority >= 720){
+                    $user->level = 'experto';
+                    $user->update();
+                }
+
             } elseif ($userLevel == 'avanzado'){
                 $seniority = seniority($user->created_at);
                 if ($ratings >= 50 && $seniority >= 720){
                     $user->level = 'experto';
                     $user->update();
-
                 }
             }
 
