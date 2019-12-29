@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('title')
+    <title>Información del componente</title>
+@endsection
 
 @section('content')
 <div class="container">
@@ -206,14 +209,14 @@
     var averageRating = parseInt('{{\App\Helpers\RatingsHelper::getAverageForComponent($component->id)}}');
     var rated = '{{ $rated }}';
 
-    console.log(rated + 'votaciones');
+    // console.log(rated + 'votaciones');
 
 
     var userId = '{{ Auth::user()->id}}';
     var urlRatingStore = '{{route('rating.store')}}';
 
-    console.log(userId);
-    console.log(urlRatingStore);
+    // console.log(userId);
+    // console.log(urlRatingStore);
 </script>
 
 <script src="{{asset('js/jsBarrating.js')}}"></script>

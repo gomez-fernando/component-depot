@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('title')
+    <title>Información del componente</title>
+@endsection
 
 @section('content')
     <div class="container">
@@ -14,6 +17,45 @@
                         <div class="data-user mr-auto">
                             {{ $component->name}}
 
+                            @if (Auth::user() && Auth::user()->role == 'admin')
+                                <div class="actions ml-auto">
+                                    <a href="{{ route('component.edit', ['id' => $component->id]) }}" class="btn btn-sm btn-warning">Actualizar</a>
+
+                                    <!-- Button to Open the Modal -->
+                                    <button type="button" class="btn btn-sm btn-light" data-toggle="modal" data-target="#myModal">
+                                        Borrar
+                                    </button>
+
+                                    <!-- The Modal -->
+                                    <div class="modal" id="myModal">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+
+                                                <!-- Modal Header -->
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title">Confirmación necesaria</h4>
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+
+                                                <!-- Modal body -->
+                                                <div class="modal-body">
+                                                    ¿Quiere borrar éste componente definitivamente?
+                                                </div>
+
+                                                <!-- Modal footer -->
+                                                <div class="modal-footer">
+                                                    <a href="{{ route('component.delete', ['id' => $component->id]) }}" class="btn btn-danger">Borrar definitivamente</a>
+                                                    <button type="button" class="btn btn-success" data-dismiss="modal">Cancelar</button>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            @endif
                         </div>
 
 
@@ -33,7 +75,9 @@
                             </p>
 
                         </div>
-                        <span data-toggle="tooltip" title="Debes entrar en tu cuenta para valorar!">
+                        <span data-toggle="tooltip" @if(Auth::check()) @if (Auth::user()->role == 'admin')
+                        title="Los administradores no pueden valorar!"
+                              @endif  @else title="Debes entrar en tu cuenta para valorar!" @endif>
                         <div class="likes">
 
                                 <img src="{{ asset('img/facebook-like-64-gray.png') }}" alt="">
@@ -123,7 +167,6 @@
         var averageRating = parseInt('{{\App\Helpers\RatingsHelper::getAverageForComponent($component->id)}}');
 
 
-        {{--var userId = '{{ Auth::user()->id}}';--}}
         var urlRatingStore = '{{route('rating.store')}}';
 
         // console.log(userId);
@@ -134,7 +177,6 @@
     </script>
 
     <script src="{{asset('js/jsBarrating.js')}}"></script>
-{{--    <script src="{{ asset('js/stars.js') }}"></script>--}}
     <script>
 
 
@@ -169,7 +211,7 @@
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     }
                 }).done(function(response) {
-                    console.log(response)
+                    // console.log(response)
                 });
 
 
