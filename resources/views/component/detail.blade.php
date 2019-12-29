@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('title')
+    <title>Información del componente</title>
+@endsection
 
 @section('content')
 <div class="container">
@@ -60,8 +63,10 @@
 </div>
 
 <div class="card-body align-center">
-    <div>
-        <img class="img-fluid_solo" src="{{ route('component.file', ['filename' => $component->image_path]) }}" alt="">
+    <div class="row  justify-content-center">
+        <div class="col-12 col-md-10 col-lg-8">
+            <img class="mw-100" src="{{ route('component.file', ['filename' => $component->image_path]) }}" alt="">
+        </div>
     </div>
 
     <div class="name_component">
@@ -93,29 +98,40 @@
 
         @endif
 
+
+            {{--        //pintamos el average--}}
+
+        <div class="row justify-content-center mt-2">
+
+            <div class="stars">
+                {{--        //pintamos el average--}}
+
+                <select id="stars-{{$component->id}}" class="stars">
+                    <option value=""></option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+
+            </div>
+
+        </div>
+        <div class="row justify-content-center mb-2">
+             <span>
+                @if ($ratingsQuantity == 1)
+                     {{ $ratingsQuantity }} valoración
+                 @else
+                     {{ $ratingsQuantity }} valoraciones
+                 @endif
+            </span>
+        </div>
         @if ($ratingsQuantity == 0)
-            <div class="row">
+            <div class="row justify-content-center">
                 <p>Sé el primero en valorar éste producto</p>
             </div>
         @endif
-            {{--        //pintamos el average--}}
-
-            <select id="stars-{{$component->id}}" >
-                {{--            <option value="0" style="visibility: hidden !important">0</option>--}}
-                <option value=""></option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-            </select>
-            <span>
-                @if ($ratingsQuantity == 1)
-                    {{ $ratingsQuantity }} valoración
-                @else
-                    {{ $ratingsQuantity }} valoraciones
-                @endif
-            </span>
 
 
     </div>
@@ -137,6 +153,7 @@
 
             </div>
     </div>
+    <hr>
 
     {{-- // comentarios --}}
     <div class="clearfix"></div>
@@ -192,14 +209,14 @@
     var averageRating = parseInt('{{\App\Helpers\RatingsHelper::getAverageForComponent($component->id)}}');
     var rated = '{{ $rated }}';
 
-    console.log(rated + 'votaciones');
+    // console.log(rated + 'votaciones');
 
 
     var userId = '{{ Auth::user()->id}}';
     var urlRatingStore = '{{route('rating.store')}}';
 
-    console.log(userId);
-    console.log(urlRatingStore);
+    // console.log(userId);
+    // console.log(urlRatingStore);
 </script>
 
 <script src="{{asset('js/jsBarrating.js')}}"></script>

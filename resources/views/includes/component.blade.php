@@ -10,9 +10,6 @@
 
     </div>
 
-{{--    {{ $identity }}--}}
-
-
     <div class="card-body">
       <div>
         <img class="img-fluid" src="{{ route('component.file', ['filename' => $component->image_path]) }}" alt="imagen del componente">
@@ -30,10 +27,9 @@
           {{ $component->description }}
         </p>
       </div>
-      <div class="row">
+      <div class="row ">
+
           <div class="likes">
-{{--              <a href="{{ route('component.detail', ['id' => $component->id]) }}">--}}
-                  {{--           Comprobar si el usuario le dio like a la imagen--}}
                   @if (Auth::check())
                       <?php $user_like = false ?>
                       @foreach ($component->likes as $like)
@@ -44,25 +40,24 @@
 
 
                       @if ($user_like)
-                          <img class="img-fluid" src="{{ asset('img/facebook-like-64-blue.png') }}" alt="" data-id="{{ $component->id }}" class="btn-dislike">
+                          <img class="img-fluid btn-dislike"  src="{{ asset('img/facebook-like-64-blue.png') }}" alt="" data-id="{{ $component->id }}">
                       @else
-                          <img class="img-fluid" src="{{ asset('img/facebook-like-64-gray.png') }}" alt="" data-id="{{ $component->id }}" class="btn-like">
+                          <img class="img-fluid btn-like" src="{{ asset('img/facebook-like-64-gray.png') }}" alt="" data-id="{{ $component->id }}">
                       @endif
-                      <span class="number_likes">{{ count($component->likes) }}</span>
+                      <span class="number_likes" id="likesQuantity-{{ $component->id }}">{{ count($component->likes) }}</span>
                   @else
                       <img src="{{ asset('img/facebook-like-64-gray.png') }}" alt="">
-                      <span class="number_likes">{{ count($component->likes) }}</span>
+                      <span class="number_likes" id="likesQuantity-{{ $component->id }}">{{ count($component->likes) }}</span>
 
                   @endif
 {{--              </a>--}}
           </div>
       </div>
 
-    <div class="row">
-        <div class="stars">
-            {{--        //pintamos el average--}}
+    <div class="row justify-content-center mt-2">
 
-            {{--          $averageRating = \App\Helpers\RatingsHelper::getAverageForComponent();--}}
+        <div class="stars"  >
+            {{--        //pintamos el average--}}
 
             <select id="stars-{{$component->id}}" class="stars">
                 <option value=""></option>
@@ -72,19 +67,22 @@
                 <option value="4">4</option>
                 <option value="5">5</option>
             </select>
-            <span>
+
+        </div>
+
+    </div>
+        <div class="row justify-content-center mb-2">
+             <span>
                 @if ($ratingsQuantity == 1)
-                    {{ $ratingsQuantity }} valoración
-                @else
-                    {{ $ratingsQuantity }} valoraciones
-                @endif
+                     <i id="vote-{{$component->id}}">{{ $ratingsQuantity }}</i> valoración
+                 @else
+                     <i id="vote-{{$component->id}}">{{ $ratingsQuantity }}</i> valoraciones
+                 @endif
             </span>
         </div>
-    </div>
       {{-- // comentarios --}}
       <div class="comments">
           <a href="{{ route('component.detail', ['id' => $component->id]) }}" class="btn btn-sm btn-warning btn-comments">{{ __('lang.comments') }} ({{ count($component->comments) }})</a>
-{{--          <input type="text" id="valorDeId" value="{{ $component->id }}">--}}
       </div>
     </div>
   </div>
@@ -96,14 +94,14 @@
     var averageRating = parseInt({{ $averageRating }});
     var rated = parseInt({{$rated}});
 
-    console.log(rated + 'votaciones');
+    // console.log(rated + 'votaciones');
 
 
     var userId = '{{ Auth::user()->id}}';
     var urlRatingStore = '{{route('rating.store')}}';
 
-    console.log(userId);
-    console.log(urlRatingStore);
+    // console.log(userId);
+    // console.log(urlRatingStore);
 </script>
 
 <script src="{{asset('js/jsBarrating.js')}}"></script>

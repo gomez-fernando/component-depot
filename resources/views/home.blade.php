@@ -9,19 +9,24 @@
 @section('content')
 
     <div class="container">
-
-        <div class="row justify-content-center">
-    <div class="col-md-8">
-      {{-- // mostramos mensaje --}}
+        {{-- // mostramos mensaje --}}
         @include('includes.message')
+        <div class="row justify-content-center">
+
       {{-- // mustro los componentes --}}
         @if (Auth::check())
             @foreach ($components as $component)
-                @include('includes.component', ['component' => $component, 'averageRating' => \App\Helpers\RatingsHelper::getAverageForComponent($component->id), 'rated' => \App\Helpers\RatingsHelper::getRated($component->id), 'ratingsQuantity' => \App\Helpers\RatingsHelper::ratingsQuantity($component->id)])
+                    <div class="col-12 col-md-6  col-lg-4 mb-4">
+
+                    @include('includes.component', ['component' => $component, 'averageRating' => \App\Helpers\RatingsHelper::getAverageForComponent($component->id), 'rated' => \App\Helpers\RatingsHelper::getRated($component->id), 'ratingsQuantity' => \App\Helpers\RatingsHelper::ratingsQuantity($component->id)])
+                    </div>
             @endforeach
         @else
             @foreach ($components as $component)
+                <div class="col-12 col-md-6  col-lg-4 mb-4">
+
                 @include('includes.componentG', ['component' => $component, 'averageRating' => \App\Helpers\RatingsHelper::getAverageForComponent($component->id), 'ratingsQuantity' => \App\Helpers\RatingsHelper::ratingsQuantity($component->id)])
+                </div>
             @endforeach
         @endif
 
@@ -32,7 +37,7 @@
             {{ $components->links() }}
       </div>
 
-    </div>
+{{--    </div>--}}
 
   </div>
 </div>

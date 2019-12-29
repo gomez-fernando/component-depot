@@ -90,8 +90,8 @@ class HomeController extends Controller
         }
 
 //        para mostrar la portada
-        if(!isset($_COOKIE['entra']) && !\Auth::check()){
-            setcookie("entra", 0, time()+1200);
+        if(!isset($_COOKIE['en']) && !\Auth::check()){
+            setcookie("en", 0, time()+1200);
             return view('index');
         }
 
@@ -103,17 +103,24 @@ class HomeController extends Controller
         ]);
     }
 
-    public function home() {
+    public function terminosDeUso() {
+        $categories = Category::orderBy('id')->get();
+        return view('importantInfo.terminosDeUso', [
+            'categories' => $categories,
+        ]);
+    }
 
+    public function privacyPolicy() {
+        $categories = Category::orderBy('id')->get();
+        return view('importantInfo.privacyPolicy', [
+            'categories' => $categories,
+        ]);
+    }
 
-
-//        $components = Component::orderBy('id', 'desc')->paginate(6);
-//        $categories = Category::orderBy('id')->get();
-//
-//
-//        return view('home', [
-//            'components' => $components,
-//            'categories' => $categories
-//        ]);
+    public function cookiesPolicy() {
+        $categories = Category::orderBy('id')->get();
+        return view('importantInfo.cookiesPolicy', [
+            'categories' => $categories,
+        ]);
     }
 }

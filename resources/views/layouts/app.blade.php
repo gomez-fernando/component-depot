@@ -20,8 +20,8 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
 
     <!-- Libraries CSS Files -->
-<link href="{{asset('../lib/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
-<link href="{{ asset('../lib/animate-css/animate.min.css') }}" rel="stylesheet">
+<link href="{{asset('lib/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
+{{--<link href="{{ asset('../lib/animate-css/animate.min.css') }}" rel="stylesheet">--}}
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -31,7 +31,7 @@
     <link rel="shortout icon" type="image/png" href="{{ asset('img/favicon.png') }}">
 
 {{--    js barratings--}}
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+{{--    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">--}}
     <link rel="stylesheet" href="{{ asset('css/fontawesome-stars.css') }}">
 </head>
 <body>
@@ -39,7 +39,7 @@
 
 <div class="with-background">
     <div id="app">
-        <nav id="header-01" class="navbar navbar-expand-md header-01">
+        <nav id="header-01" class="navbar navbar-expand-md header-01 navbar-light">
             <div class="container">
                 <!-- Left Side Of Navbar -->
                     <div id="logo" class="">
@@ -68,12 +68,10 @@
             </div>
         </nav>
 
-{{--        @include('includes.header', ['categories' => $categories])--}}
-
         <nav id="header-02" class="navbar navbar-expand-md header-02">
             <div class="container">
                 <div class="row w-100 m-auto">
-                        <div class="col-4 a pt-2 pb-2 pl-1 pr-1"><strong><?php echo date("d M Y");?></strong></div>
+                        <div class="col-3 a pt-2 pb-2 pl-1 pr-1"><strong><?php echo date("d M Y");?></strong></div>
 
                         <div class="col-4">
 
@@ -83,14 +81,14 @@
                     <input type="submit" value="Buscar">
                 </form>
                         </div>
-                        <div class="col-4 b ">
+                        <div class="col-5 b ">
 
                                 <!-- Right Side Of Navbar -->
                                     <!-- Authentication Links -->
                                     @guest
                                         <li class="nav dropdown float-right">
                                             <a id="navbarDropdown" class="nav-link dropdown-toggle pt-2 pb-2 pl-1 pr-1" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                                <i class="icon-cms"></i><span class="sm-hidden"><strong>Area personal</strong></span>  <span class="caret"></span>
+                                                <span class="sm-hidden"><strong>Area personal</strong></span>  <span class="caret"></span>
                                             </a>
 
                                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -162,6 +160,88 @@
             </div>
         </nav>
 
+        <nav id="header-03" class="navbar navbar-expand-md header-02">
+            <div class="container">
+                <div class="row w-100 m-auto">
+                    <div class="col-6 a pt-2 pl-1 pr-1">
+                        <form method="get" action="{{ route('component.componentsSearchResult') }}" id="componentsSearch">
+                            <input type="text" id="search" class="form-control" required>
+                            <input type="submit" value="Buscar">
+                        </form>
+                    </div>
+                    <div class="col-6 a pt-2 pl-1 pr-1">
+                        @guest
+                            <li class="nav dropdown float-right">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle pt-2 pb-2 pl-1 pr-1" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    <span class="sm-hidden"><strong>Area personal</strong></span>  <span class="caret"></span>
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+
+
+
+                                    <a class="dropdown-item" href="{{ route('login') }}">
+                                        {{ __('lang.login') }}
+                                    </a>
+
+                                    <a class="dropdown-item" href="{{ route('register') }}">
+                                        {{ __('lang.register') }}
+                                    </a>
+
+
+                                </div>
+                            </li>
+                        @else
+
+                            <li class="nav dropdown float-right">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    <strong>Bienvenido/a {{ Auth::user()->nick }}</strong> <span class="caret"></span>
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+
+                                    <a class="dropdown-item" href="{{ route('home') }}" class="nav-link">{{ __('lang.home') }}</a>
+
+                                    @if (Auth::user() && Auth::user()->role == 'user')
+                                        <a class="dropdown-item" href="{{ route('likes') }}" class="nav-link">{{ __('lang.favorites') }}</a>
+                                    @endif
+
+
+
+                                    @if (Auth::user() && Auth::user()->role == 'admin')
+                                        <a href="{{ route('component.create') }}" class="dropdown-item">{{ __('lang.upload_component') }}</a>
+                                        <a href="{{ route('user.list') }}" class="dropdown-item">{{ __('lang.users') }}</a>
+                                    @endif
+
+                                    <a class="dropdown-item" href="{{ route('config') }}">
+                                        {{ __('lang.profile') }}
+                                    </a>
+
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                             document.getElementById('logout-form').submit();">
+                                        {{ __('lang.logout') }}
+                                    </a>
+
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+
+                                </div>
+                            </li>
+
+
+
+
+                            <li class="nav float-right">
+                            </li>
+
+                        @endguest
+                    </div>
+                </div>
+            </div>
+        </nav>
 
         <main class="py-4">
             @yield('content')
@@ -172,22 +252,71 @@
 ============================-->
 
 <footer id="footer" >
+    <!-- Footer Links -->
+    <div class="container text-center text-md-left">
+
+        <!-- Grid row -->
+        <div class="row">
+            <!-- Grid column -->
+            <div class="col-md-4 mx-auto">
+                <!-- Links -->
+                <h5 class="font-weight-bold text-uppercase mt-3 mb-4">componentes para pc</h5>
+
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="https://www.pccomponentes.com/" target="_blank"><strong>PC Componentes</strong></a>
+                    </li>
+                    <li>
+                        <a href="https://www.worten.es/productos/informatica/pc-componentes" target="_blank"><strong>Worten</strong></a>
+                    </li>
+                    <li>
+                        <a href="https://www.coolmod.com/componentes-hardware-componentes-pc" target="_blank"><strong>CoolMod</strong></a>
+                    </li>
+                </ul>
+            </div>
+            <!-- Grid column -->
+            <hr class="clearfix w-100 d-md-none">
+            <!-- Grid column -->
+            <div class="col-md-4 mx-auto">
+                <!-- Links -->
+                <h5 class="font-weight-bold text-uppercase mt-3 mb-4">información importante</h5>
+
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="{{ route('terminosDeUso') }}"><strong>Términos de uso</strong></a>
+                    </li>
+                    <li>
+                        <a href="{{ route('privacyPolicy') }}"><strong>Política de privacidad</strong></a>
+                    </li>
+                    <li>
+                        <a href="{{ route('cookiesPolicy') }}"><strong>Política de cookies</strong></a>
+                    </li>
+                </ul>
+            </div>
+            <!-- Grid column -->
+            <hr class="clearfix w-100 d-md-none">
+        </div>
+        <!-- Grid row -->
+
+        <!-- Footer Links -->
 
         <div class="row justify-content-center redes-sociales">
             <div class="col-auto">
-            <a href="https://sites.google.com/fp.uoc.edu/grupo-jadf/presentaci%C3%B3n-del-proyecto" target="_blank"><img src="{{ asset('img/google-plus-3-64.png') }}" alt=""></a>
-{{--                <a href="" target="_blank"><img src="{{ asset('img/youtube-3-64.png') }}" alt=""></a>--}}
+                <a href="https://sites.google.com/fp.uoc.edu/grupo-jadf/presentaci%C3%B3n-del-proyecto" target="_blank"><img src="{{ asset('img/google-plus-3-64.png') }}" alt=""></a>
+                {{--                <a href="" target="_blank"><img src="{{ asset('img/youtube-3-64.png') }}" alt=""></a>--}}
                 <a href="https://github.com/FernandoDavidGomezOrtega/component-depot" target="_blank"><img src="{{ asset('img/github-8-64.png') }}" alt=""></a>
             </div>
-            </div>
+        </div>
 
-            <div class="row ">
+        <div class="row">
             <div class="col-12" id="">
-                <p>
+                <p class="text-center">
                     <strong>Developed by: Grupo JDAF - UOC 2019 &copy;</strong>
                 </p>
             </div>
         </div>
+    </div>
+
 </footer>
 
 

@@ -58,4 +58,10 @@ Route::get('/like/{component_id}', 'likeController@like')->name('like.save');
 Route::get('/dislike/{component_id}', 'likeController@dislike')->name('like.delete');
 Route::get('/likes', 'likeController@index')->name('likes');
 
+// INFORMACION IMPORTANTE
+Route::get('/terminos-de-uso', 'HomeController@terminosDeUso')->name('terminosDeUso');
+Route::get('/politica-de-privacidad', 'HomeController@privacyPolicy')->name('privacyPolicy');
+Route::get('/política-de-cookies', 'HomeController@cookiesPolicy')->name('cookiesPolicy');
+
+
 

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
+use App\Helpers\RatingsHelper ;
 
 class RatingController extends Controller
 {
@@ -15,8 +16,6 @@ class RatingController extends Controller
     }
 
     public function store(Request $request) {
-
-
 
             try {
                 $status = true;
@@ -66,12 +65,21 @@ class RatingController extends Controller
                     $rating->save();
                 }
 
+                $response = [
+                    'status' => 200,
+                    'message' => 'SUCCESS',
+                    'componentId' => $component_id,
+                    'value' => RatingsHelper::getAverageForComponent($component_id),
+                    'ratingsQuantity' => RatingsHelper::ratingsQuantity($component_id),
+                ] ;
+
             } catch (\Exception $e) {
-                $status = false;
-                return \Response::json($e->getMessage(),200);
+                $response = ['status' => 400, 'message' => 'this fail'] ;
+                return \Response::json($response,400);
             }
 
-            return \Response::json($status,200);
+
+            return \Response::json($response,200);
 
 
 
