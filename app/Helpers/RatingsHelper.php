@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\DB;
 
 use App\Component;
 use App\Rating;
+use App\Like;
 
 class RatingsHelper{
 
@@ -38,5 +39,10 @@ class RatingsHelper{
         return $ratingsQuantity;
     }
 
+    static function likes($id){
+        $ratingsQuantity = Like::where('component_id', $id)
+            ->count();
+        return $ratingsQuantity;
+    }
 
 }

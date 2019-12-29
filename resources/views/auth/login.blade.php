@@ -62,10 +62,6 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('lang.login') }}
                                 </button>
-
-{{--                                <a class="btn btn-link" href="{{ route('password.request') }}">--}}
-{{--                                    {{ __('lang.forgot_password') }}--}}
-{{--                                </a>--}}
                         </div>
                     </form>
                 </div>

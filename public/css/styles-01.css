@@ -80,20 +80,7 @@ h1, h2, h3, h4 {
 	text-align: right;
 	padding: 0.5rem 0 0.5rem 1rem;
 }
-.header-01 i.icon-cms {
-	float: left;
-	width: 20px;
-	height: 20px;
-	background-image: url(../img/icon-header-cms.png);
-	margin-right: 5px;
-}
-.header-01 i.icon-profile {
-	float: left;
-	width: 20px;
-	height: 20px;
-	background-image: url(../img/icon-header-profile.png);
-	margin-right: 5px;
-}
+
 .header-01 .b {
 	text-align: right;
 }

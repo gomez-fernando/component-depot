@@ -269,7 +269,7 @@
                 resetStyle();
 
                 // add classes
-                console.log('this ok');
+                // console.log('this ok');
                 $a.addClass('br-selected br-current')[nextAllorPreviousAll()]()
                     .addClass('br-selected');
 

@@ -43,7 +43,6 @@ class userController extends Controller
     }
 
     public function update(Request $request){
-        // conseguir el usuario identificado, si el usuario no está identificado hay que hacer un find es decir un select a la base de datos
         $user = \Auth::user();
 
         $id = $user->id;

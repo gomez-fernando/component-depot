@@ -27,7 +27,9 @@
                     {{ $component->description }}
                 </p>
             </div>
-            <span data-toggle="tooltip" title="Debes entrar en tu cuenta para valorar!">
+            <span data-toggle="tooltip" @if(Auth::check()) @if (Auth::user()->role == 'admin')
+            title="Los administradores no pueden valorar!"
+            @endif  @else title="Debes entrar en tu cuenta para valorar!" @endif>
                         <div class="likes">
 
                                 <img src="{{ asset('img/facebook-like-64-gray.png') }}" alt="">
@@ -52,17 +54,16 @@
 
                             </div>
                             <div class="row justify-content-center mb-2">
-             <span>
-                @if ($ratingsQuantity == 1)
-                     {{ $ratingsQuantity }} valoración
-                 @else
-                     {{ $ratingsQuantity }} valoraciones
-                 @endif
-            </span>
+                                 <span>
+                                    @if ($ratingsQuantity == 1)
+                                         {{ $ratingsQuantity }} valoración
+                                     @else
+                                         {{ $ratingsQuantity }} valoraciones
+                                     @endif
+                                </span>
                             </div>
-
                         </div>
-                        </span>
+            </span>
             {{-- // comentarios --}}
             <div class="comments">
                 <a href="{{ route('component.detail', ['id' => $component->id]) }}" class="btn btn-sm btn-warning btn-comments">{{ __('lang.comments') }} ({{ count($component->comments) }})</a>
@@ -82,7 +83,7 @@
     var urlRatingStore = '{{route('rating.store')}}';
 
     // console.log(userId);
-    console.log(urlRatingStore);
+    // console.log(urlRatingStore);
 
 
 
@@ -124,7 +125,7 @@
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             }).done(function(response) {
-                console.log(response)
+                // console.log(response)
             });
 
 

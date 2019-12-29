@@ -8,7 +8,7 @@ window.addEventListener('load', function(){
     // boton de like
     function like(){
         $('.btn-like').unbind('click').click(function(){
-            console.log('like');
+            // console.log('like');
 
             $(this).addClass('btn-dislike').removeClass('btn-like');
             $(this).attr('src', url+'/img/facebook-like-64-blue.png');
@@ -17,11 +17,8 @@ window.addEventListener('load', function(){
                 url: url+'/like/'+$(this).data('id'),
                 type: 'GET',
                 success: function(response){
-                    if (response.like){
-                        console.log('has dado like al componente');
-                    } else {
-                        console.log('error al dar like');
-                    }
+                    $('#likesQuantity-'+ response.componentId).html(response.value);
+
 
                 }
             });
@@ -34,7 +31,7 @@ window.addEventListener('load', function(){
         // boton de dislike
     function dislike(){
         $('.btn-dislike').unbind('click').click(function(){
-            console.log('dislike');
+            // console.log('dislike');
 
             $(this).addClass('btn-like').removeClass('btn-dislike');
             $(this).attr('src', url+'/img/facebook-like-64-gray.png');
@@ -43,11 +40,8 @@ window.addEventListener('load', function(){
                 url: url+'/dislike/'+$(this).data('id'),
                 type: 'GET',
                 success: function(response){
-                    if (response.like){
-                        console.log('has dado dislike al componente');
-                    } else {
-                        console.log('error al dar dislike');
-                    }
+                    $('#likesQuantity-'+response.componentId).html(response.value);
+
 
                 }
             });

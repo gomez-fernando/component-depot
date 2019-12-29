@@ -6,15 +6,17 @@ USE component_depot;
 -- insert into 'users'
 --
 INSERT INTO `users` VALUES(NULL, 'admin', 'active', 'Emilio', 'Rivas', 'Admin 1', NULL, 'admin@admin.com', '$2y$12$/KpQiMmVlvKXFTCZOQxtX.rilC7/bAONlGKtJ7vZJWv/KrM9EwSbu', NULL, CURTIME(), CURTIME(), NULL, NULL);
-INSERT INTO `users` VALUES(NULL, 'user', 'active', 'nombre1', 'apellido1', 'nick1', 'novato', 'user1@user1.com', '$2y$12$/KpQiMmVlvKXFTCZOQxtX.rilC7/bAONlGKtJ7vZJWv/KrM9EwSbu', NULL, CURTIME(), CURTIME(), NULL, NULL);
+INSERT INTO `users` VALUES(NULL, 'user', 'active', 'José', 'Duarte', '@soy_novato', 'novato', 'user1@user1.com', '$2y$12$/KpQiMmVlvKXFTCZOQxtX.rilC7/bAONlGKtJ7vZJWv/KrM9EwSbu', NULL, CURTIME(), CURTIME(), NULL, NULL);
+INSERT INTO `users` VALUES(NULL, 'user', 'active', 'Luis', 'Rivas', '@soy_avanzado', 'novato', 'user2@user2.com', '$2y$12$/KpQiMmVlvKXFTCZOQxtX.rilC7/bAONlGKtJ7vZJWv/KrM9EwSbu', NULL, '2019-05-28 13:41:04', CURTIME(), NULL, NULL);
+INSERT INTO `users` VALUES(NULL, 'user', 'active', 'Emilio', 'Zambrano', '@soy_experto', 'novato', 'user3@user3.com', '$2y$12$/KpQiMmVlvKXFTCZOQxtX.rilC7/bAONlGKtJ7vZJWv/KrM9EwSbu', NULL, '2016-10-28 13:41:04', CURTIME(), NULL, NULL);
 
 --
 -- insert into `categories`
 --
 INSERT INTO `categories` VALUES
-(null, 1, 'Tarjetas gráficas', 'Tarjetas gráficas', CURTIME(), CURTIME()),
+(null, 1, 'Tarjetas gráficas', 'Tarjetas gráficas para PC y portátil', CURTIME(), CURTIME()),
 (null, 1, 'Procesadores CPU', 'AMD e INTEL', CURTIME(), CURTIME()),
-(null, 1, 'Memoria RAM', 'Memoria RAM DDR', CURTIME(), CURTIME()),
+(null, 1, 'Memoria RAM', 'Memoria RAM DDR para PC y portátil', CURTIME(), CURTIME()),
 (null, 1, 'Discos duros', 'Discos duros para PC y portátil', CURTIME(), CURTIME());
 
 
@@ -33,7 +35,7 @@ INSERT INTO `components` VALUES
 (null, 3, 1, 'Corsair Vengeance LPX DDR4 2400', 'DDR43200CORSAIRVEGEANCE.jpg', 'La memoria Vengeance LPX se ha diseñado para overclocking de alto rendimiento. El disipador de calor, fabricado en aluminio puro, permite una disipación térmica más rápida; la placa impresa de ocho capas administra el calor y proporciona una capacidad superior para incrementar el overclocking. Cada circuito integrado está seleccionado individualmente para el máximo potencial de rendimiento. El formato DDR4 está optimizado para las placas base Intel de la serie X99/100 Series más recientes y ofrece frecuencias más elevadas, mayor ancho de banda y menor consumo energético que los módulos DDR3.\r\n\r\nSe ha verificado la compatibilidad de los módulos Vengeance LPX DDR4 para toda las placas base de la serie X99/100 Series, lo que asegura un rendimiento rápido y fiable. Compatibilidad con XMP 2.0 para un overclocking automático sin problemas. Y están disponibles en distintos colores para combinar con su placa base, sus componentes, o sencillamente con su estilo personal.', CURTIME(), CURTIME()),
 (null, 3, 1, 'Corsair Dominator Platinum RGB DDR4', 'DDR43200CORSAIR.jpg', 'La memoria DDR4 CORSAIR DOMINATOR PLATINUM RGB redefine las memorias premium DDR4, con un diseño superior en aluminio, chips de memoria de alta frecuencia estrictamente verificados y 12 LED RGB CAPELLIX de direccionamiento individual y gran intensidad.\r\n', CURTIME(), CURTIME()),
 (null, 4, 1, 'Kingston UV500 Disco Duro SSD 240GB', 'suv500ms-120g-s-hr.jpg', 'La familia UV500 de unidades de estado sólido (SSD) de Kingston mejora drásticamente la capacidad de respuesta de su sistema existente con increíbles tiempos de arranque, carga y transferencia en comparación con los discos duros mecánicos. Apoyadas en un controlador Marvell Dean aunado a memoria Flash NAND 3D, ofrecen velocidades de lectura y escritura de hasta 520 MB/s y 500 MB/s1 respectivamente. Estas unidades SSD son 10 veces más rápidas que los discos duros tradicionales y proveen un mejor rendimiento, velocidad de respuesta ultrarrápida en el procesamiento multitareas y una aceleración general del sistema. Las UV500 suministran protección de los datos de extremo a extremo, y admiten cifrado AES de 256 bits basado en hardware además de soluciones TCG Opal 2.0 de gestión de la seguridad.\r\n\r\nMás fiables y duraderas que las unidades de disco duro, las UV500 incorporan tecnología de memoria Flash con semiconductores NAND. No tienen piezas móviles, lo que las hace mucho menos susceptibles a fallos que los discos duros mecánicos. Además generan menos calor y son más silenciosas, y su alta resistencia a impactos y vibraciones las hace ideales para portátiles y otros dispositivos móviles.\r\n\r\nLas UV500 están disponibles en varias capacidades, de 120 GB hasta 960 GB2, de modo que usted puede utilizarlas como unidades de arranque o aprovechar las de mayores capacidades para almacenar vídeos, fotos y alojar las aplicaciones que más utilice.', CURTIME(), CURTIME()),
-(null, 4, 1, 'Kingston SSDNow Disco Duro SSD 120GB M.2', 'suv500m8-120g-s-hr.jpg', 'La familia UV500 de unidades de estado sólido (SSD) de Kingston mejora drásticamente la capacidad de respuesta de su sistema existente con increíbles tiempos de arranque, carga y transferencia en comparación con los discos duros mecánicos. Apoyadas en un controlador Marvell Dean aunado a memoria Flash NAND 3D, ofrecen velocidades de lectura y escritura de hasta 520 MB/s y 500 MB/s1 respectivamente. Estas unidades SSD son 10 veces más rápidas que los discos duros tradicionales y proveen un mejor rendimiento, velocidad de respuesta ultrarrápida en el procesamiento multitareas y una aceleración general del sistema. Las UV500 suministran protección de los datos de extremo a extremo, y admiten cifrado AES de 256 bits basado en hardware además de soluciones TCG Opal 2.0 de gestión de la seguridad.\r\n\r\nMás fiables y duraderas que las unidades de disco duro, las UV500 incorporan tecnología de memoria Flash con semiconductores NAND. No tienen piezas móviles, lo que las hace mucho menos susceptibles a fallos que los discos duros mecánicos. Además generan menos calor y son más silenciosas, y su alta resistencia a impactos y vibraciones las hace ideales para portátiles y otros dispositivos móviles.\r\n\r\nLas UV500 están disponibles en varias capacidades, de 120 GB hasta 960 GB2, de modo que usted puede utilizarlas como unidades de arranque o aprovechar las de mayores capacidades para almacenar vídeos, fotos y alojar las aplicaciones que más utilice.', CURTIME(), CURTIME()),
+(null, 4, 1, 'Kingston SSDNow Disco Duro SSD 120GB M.2', 'suv500m8-120g-s-hr.jpg', 'Ésta unidad de estado sólido (SSD) de Kingston mejora drásticamente la capacidad de respuesta de su sistema existente con increíbles tiempos de arranque, carga y transferencia en comparación con los discos duros mecánicos. Apoyadas en un controlador Marvell Dean aunado a memoria Flash NAND 3D, ofrecen velocidades de lectura y escritura de hasta 520 MB/s y 500 MB/s1 respectivamente. Estas unidades SSD son 10 veces más rápidas que los discos duros tradicionales y proveen un mejor rendimiento, velocidad de respuesta ultrarrápida en el procesamiento multitareas y una aceleración general del sistema. Las UV500 suministran protección de los datos de extremo a extremo, y admiten cifrado AES de 256 bits basado en hardware además de soluciones TCG Opal 2.0 de gestión de la seguridad.\r\n\r\nMás fiables y duraderas que las unidades de disco duro, las UV500 incorporan tecnología de memoria Flash con semiconductores NAND. No tienen piezas móviles, lo que las hace mucho menos susceptibles a fallos que los discos duros mecánicos. Además generan menos calor y son más silenciosas, y su alta resistencia a impactos y vibraciones las hace ideales para portátiles y otros dispositivos móviles.\r\n\r\nLas UV500 están disponibles en varias capacidades, de 120 GB hasta 960 GB2, de modo que usted puede utilizarlas como unidades de arranque o aprovechar las de mayores capacidades para almacenar vídeos, fotos y alojar las aplicaciones que más utilice.', CURTIME(), CURTIME()),
 (null, 4, 1, 'Toshiba OCZ TR200 SSD 480GB SATA3', 'discoduro1.jpg', 'Actualizar desde una unidad de disco duro (HDD) debería ser fácil y asequible y es ahí donde entran las SSD OCZ TR200. Diseñada para aumentar la velocidad de su computadora portátil o PC en discos duros convencionales, la Serie TR200 aprovecha la avanzada tecnología 3D BiCS FLASH ™ de 64 capas de Toshiba, para ofrecer un rendimiento equilibrado, fiabilidad y valor que transformará su sistema móvil o de escritorio.\r\n\r\nCon una estructura celular de 64 capas apiladas verticalmente, la tecnología Toshiba BiCS FLASH permite una mayor capacidad, resistencia, rendimiento y eficiencia en el mismo espacio, ofreciendo una experiencia de almacenamiento de última generación.\r\n\r\nMejore su productividad con la serie TR200 y disfrute de arranques más rápidos, transferencias de archivos y capacidad de respuesta del sistema. Despídase del retraso de la unidad de disco duro y obtenga una experiencia informática digna de su tiempo.\r\n\r\nEn comparación con las unidades de disco duro, las unidades Toshiba OCZ TR200 SSD también ofrecen mayor durabilidad y menos consumo de energía, lo que se traduce en una mayor duración de la batería para mantenerlo en funcionamiento más tiempo.', CURTIME(), CURTIME());
 
 
@@ -48,7 +50,89 @@ INSERT INTO `comments` VALUES(null, 1, 2, 'Excelente tarjeta gráfica. La recomi
 --
 INSERT INTO `likes` VALUES(null, 2, 1, CURTIME(), CURTIME() );
 
---
--- insert into `ratings`
---
-INSERT INTO `ratings` VALUES(null, 2, 1, 5, CURTIME(), CURTIME() );
+-- ---------------------------
+-- insert 28 ratings a @soy_avanzado
+-- ---------------------------
+INSERT INTO `ratings` VALUES (NULL, '3', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '3', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '3', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '3', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '3', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '3', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '3', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '3', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '3', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '3', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '3', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '3', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '3', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '3', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '3', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '3', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '3', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '3', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '3', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '3', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '3', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '3', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '3', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '3', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '3', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '3', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '3', '7', '5', curtime(), curtime());
+
+-- ---------------------------------
+-- insert 52 ratings a @soy_experto
+-- ------------------------------------
+INSERT INTO `ratings` VALUES (NULL, '4', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '4', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '4', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '4', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '4', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '4', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '4', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '4', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '4', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '4', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '4', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '4', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '4', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '4', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '4', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '4', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '4', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '4', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '4', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '4', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '4', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '4', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '4', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '4', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '4', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '4', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '4', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '4', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '4', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '4', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '4', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '4', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '4', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '4', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '4', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '4', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '4', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '4', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '4', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '4', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '4', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '4', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '4', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '4', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '4', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '4', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '4', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '4', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '4', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '4', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '4', '7', '5', curtime(), curtime());
+INSERT INTO `ratings` VALUES (NULL, '4', '7', '5', curtime(), curtime());
