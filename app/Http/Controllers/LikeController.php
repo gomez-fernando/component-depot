@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Like;
 use App\Helpers\RatingsHelper ;
+use Illuminate\Support\Facades\DB;
 
 class likeController extends Controller
 {
@@ -16,6 +17,10 @@ class likeController extends Controller
     public function index(){
         $user = \Auth::user();
         $identity = $user->id;
+        $categories = DB::table('categories')
+            ->orderBy('id')
+            ->get();
+
 
         $likes = Like::where('user_id', $user->id)
                             ->orderBy('id', 'desc')
@@ -31,7 +36,8 @@ class likeController extends Controller
 
         return view('like.index', [
             'identity' => $identity,
-            'likes' => $likes
+            'likes' => $likes,
+            'categories' => $categories
         ]);
     }
 
