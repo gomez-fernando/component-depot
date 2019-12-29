@@ -14,9 +14,9 @@ INSERT INTO `users` VALUES(NULL, 'user', 'active', 'Emilio', 'Zambrano', '@soy_e
 -- insert into `categories`
 --
 INSERT INTO `categories` VALUES
-(null, 1, 'Tarjetas gráficas', 'Tarjetas gráficas', CURTIME(), CURTIME()),
+(null, 1, 'Tarjetas gráficas', 'Tarjetas gráficas para PC y portátil', CURTIME(), CURTIME()),
 (null, 1, 'Procesadores CPU', 'AMD e INTEL', CURTIME(), CURTIME()),
-(null, 1, 'Memoria RAM', 'Memoria RAM DDR', CURTIME(), CURTIME()),
+(null, 1, 'Memoria RAM', 'Memoria RAM DDR para PC y portátil', CURTIME(), CURTIME()),
 (null, 1, 'Discos duros', 'Discos duros para PC y portátil', CURTIME(), CURTIME());
 
 

@@ -40,6 +40,17 @@ Route::get('/users', 'userController@list')->name('user.list');
 Route::get('/user/block/{id}', 'UserController@block')->name('user.block');
 Route::get('/user/unblock/{id}', 'UserController@unblock')->name('user.unblock');
 
+// CATEGORY
+Route::get('/categories', 'categoryController@list')->name('category.list');
+Route::get('/category/edit/{id}', 'categoryController@edit')->name('category.edit');
+Route::post('category/update', 'categoryController@update')->name('category.update');
+Route::get('/category/delete/{id}', 'categoryController@delete')->name('category.delete');
+Route::get('/create-category', 'categoryController@new')->name('category.new');
+Route::post('category/save', 'categoryController@save')->name('category.save');
+
+
+
+
 // COMPONENT
 Route::get('/subir-componente', 'componentController@create')->name('component.create');
 Route::post('/component/save', 'componentController@save')->name('component.save');
