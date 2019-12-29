@@ -1,6 +1,9 @@
 <div class="col-sm-12">
 <div class="card pub_image h-100 card-body">
     <div class="card-header">
+
+
+
         <meta name="csrf-token" content="{{ csrf_token() }}">
       <div class="data-user">
       <a href="{{ route('component.detail', ['id' => $component->id]) }}">
@@ -73,10 +76,10 @@
     </div>
         <div class="row justify-content-center mb-2">
              <span>
-                @if ($ratingsQuantity == 1)
-                     <i id="vote-{{$component->id}}">{{ $ratingsQuantity }}</i> valoración
+                @if (\App\Helpers\RatingsHelper::ratingsQuantity($component->id) == 1)
+                     <i id="vote-{{$component->id}}">{{ \App\Helpers\RatingsHelper::ratingsQuantity($component->id) }}</i> valoración
                  @else
-                     <i id="vote-{{$component->id}}">{{ $ratingsQuantity }}</i> valoraciones
+                     <i id="vote-{{$component->id}}">{{ \App\Helpers\RatingsHelper::ratingsQuantity($component->id) }}</i> valoraciones
                  @endif
             </span>
         </div>
@@ -91,8 +94,8 @@
 <script>
     var componentId = '{{ $component->id }}';
     // var valorDeId = $('#valorDeId').val();
-    var averageRating = parseInt({{ $averageRating }});
-    var rated = parseInt({{$rated}});
+    var averageRating = parseInt({{ \App\Helpers\RatingsHelper::getAverageForComponent($component->id)}});
+    var rated = parseInt({{ \App\Helpers\RatingsHelper::getRated($component->id) }});
 
     // console.log(rated + 'votaciones');
 
