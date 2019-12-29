@@ -16,7 +16,7 @@
                 readonly: true,
                 emptyRatingValue : true,
             });
-            updateStarsAverage($control, value, readonly = true)
+            // updateStarsAverage($control, value, readonly = true)
         }
 
         function drawStars(id,componentId,userId){
@@ -58,7 +58,7 @@
         }
 
         $control.barrating('set' , averageRating);
-        updateStarsAverage($control, averageRating)
+        // updateStarsAverage($control, averageRating)
 
         function updateStarsAverage($control, value, readonly = false) {
             $control.barrating('set' , value);
