@@ -120,10 +120,10 @@
         </div>
         <div class="row justify-content-center mb-2">
              <span>
-                @if ($ratingsQuantity == 1)
-                     {{ $ratingsQuantity }} valoración
+                @if (\App\Helpers\RatingsHelper::ratingsQuantity($component->id) == 1)
+                     <i id="vote-{{$component->id}}">{{ \App\Helpers\RatingsHelper::ratingsQuantity($component->id) }} valoración</i>
                  @else
-                     {{ $ratingsQuantity }} valoraciones
+                     <i id="vote-{{$component->id}}">{{ \App\Helpers\RatingsHelper::ratingsQuantity($component->id) }} valoraciones</i>
                  @endif
             </span>
         </div>

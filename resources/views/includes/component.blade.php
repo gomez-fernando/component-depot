@@ -77,9 +77,9 @@
         <div class="row justify-content-center mb-2">
              <span>
                 @if (\App\Helpers\RatingsHelper::ratingsQuantity($component->id) == 1)
-                     <i id="vote-{{$component->id}}">{{ \App\Helpers\RatingsHelper::ratingsQuantity($component->id) }}</i> valoración
+                     <i id="vote-{{$component->id}}">{{ \App\Helpers\RatingsHelper::ratingsQuantity($component->id) }} valoración</i>
                  @else
-                     <i id="vote-{{$component->id}}">{{ \App\Helpers\RatingsHelper::ratingsQuantity($component->id) }}</i> valoraciones
+                     <i id="vote-{{$component->id}}">{{ \App\Helpers\RatingsHelper::ratingsQuantity($component->id) }} valoraciones</i>
                  @endif
             </span>
         </div>
