@@ -66,8 +66,14 @@
         }
 
         function printVotes(componentId, ratingsQuantity) {
+            if (ratingsQuantity == 1){
+                valoraciones = ' valoración';
+            } else {
+                valoraciones = ' valoraciones';
+
+            }
             $('#vote-' + componentId).empty();
-            $('#vote-' + componentId).text(ratingsQuantity);
+            $('#vote-' + componentId).text(ratingsQuantity + valoraciones);
             $('#vote-'+response.componentId).text();
         }
 
