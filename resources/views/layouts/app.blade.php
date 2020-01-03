@@ -209,6 +209,7 @@
 
                                     @if (Auth::user() && Auth::user()->role == 'admin')
                                         <a href="{{ route('component.create') }}" class="dropdown-item">{{ __('lang.upload_component') }}</a>
+                                        <a href="{{ route('category.list') }}" class="dropdown-item">Categorias</a>
                                         <a href="{{ route('user.list') }}" class="dropdown-item">{{ __('lang.users') }}</a>
                                     @endif
 
