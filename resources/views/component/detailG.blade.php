@@ -22,7 +22,7 @@
                                     <a href="{{ route('component.edit', ['id' => $component->id]) }}" class="btn btn-sm btn-warning">Actualizar</a>
 
                                     <!-- Button to Open the Modal -->
-                                    <button type="button" class="btn btn-sm btn-light" data-toggle="modal" data-target="#myModal">
+                                    <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#myModal">
                                         Borrar
                                     </button>
 

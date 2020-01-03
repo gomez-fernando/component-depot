@@ -111,9 +111,9 @@ class CategoryController extends Controller
 
         foreach ($componentesRelacionados as $component){
             $component = Component::find($component->id);
-            $comments = Comment::where('component_id', $id)->get();
-            $likes = Like::where('component_id', $id)->get();
-            $ratings = Rating::where('component_id', $id)->get();
+            $comments = Comment::where('component_id', $component->id)->get();
+            $likes = Like::where('component_id', $component->id)->get();
+            $ratings = Rating::where('component_id', $component->id)->get();
 
             // eliminar comentarios
             if ($comments && count($comments) >= 1){
