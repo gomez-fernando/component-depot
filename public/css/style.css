@@ -285,6 +285,11 @@ HEADER-02
     #navbarDropdown {
         font-size: 12px!important;
     }
+
+    a.ml-auto {
+        z-index: 99;
+
+    }
 }
 
 
@@ -353,8 +358,12 @@ BUSCADOR DE COMPONENTES
 /*----------------*/
 /*link login*/
 /*---------------*/
-#navbarDropdown{
-    color: #444343;
+#navbarDropdown, #inicio{
+    color: #444343 !important;
+}
+
+#marginlf {
+    margin-left: auto !important;
 }
 
 .avatar{
