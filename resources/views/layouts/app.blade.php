@@ -66,7 +66,7 @@
             </div>
         </nav>
 
-        <nav id="header-02" class="navbar navbar-expand-md header-02">
+        <nav id="header-02" class="navbar navbar-expand-md header-02 navbar-light">
             <div class="container">
                 <div class="row w-100 m-auto">
                         <div class="col-3 a pt-2 pb-2 pl-1 pr-1"><strong><?php echo date("d M Y");?></strong></div>
@@ -79,7 +79,7 @@
                     <input type="submit" value="Buscar">
                 </form>
                         </div>
-                        <div class="col-5 b ">
+                        <div class="col-5  ">
 
                                 <!-- Right Side Of Navbar -->
                                     <!-- Authentication Links -->
@@ -105,15 +105,26 @@
                                             </div>
                                         </li>
                                     @else
+                                <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent2" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
+                                    <span class="navbar-toggler-icon"></span>
+                                </button>
 
-                                    <li class="nav dropdown float-right">
-                                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                            <strong>Bienvenido/a &nbsp; {{ Auth::user()->nick }}</strong> <span class="caret"></span>
+                                <div class="collapse navbar-collapse" id="navbarSupportedContent2">
+                                        <ul class="navbar-nav ml-auto" id="marginlf">
+<li class="nav-item ml-auto" >
+    <a class="nav-link" id="inicio" href="{{ route('home') }}" ><strong>{{ __('lang.home') }} &nbsp;</strong></a>
+
+</li>
+
+
+                                <li class="nav dropdown float-right">
+                                        <a id="navbarDropdown" class="nav-link dropdown-toggle ml-auto" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                            <strong>{{ Auth::user()->nick }}</strong> <span class="caret"></span>
                                         </a>
 
                                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
-                                            <a class="dropdown-item" href="{{ route('home') }}" class="nav-link">{{ __('lang.home') }}</a>
+{{--                                            <a class="dropdown-item" href="{{ route('home') }}" class="nav-link">{{ __('lang.home') }}</a>--}}
 
                                 @if (Auth::user() && Auth::user()->role == 'user')
                                         <a class="dropdown-item" href="{{ route('likes') }}" class="nav-link">{{ __('lang.favorites') }}</a>
@@ -150,7 +161,8 @@
 
                                     <li class="nav float-right">
                                     </li>
-
+                                </ul>
+                                </div>
                                     @endguest
                                 {{-- </ul> --}}
                         </div>
@@ -192,6 +204,9 @@
                             </li>
                         @else
 
+                            <a class="nav-link" href="{{ route('home') }}" class="nav-link">{{ __('lang.home') }}</a>
+
+
                             <li class="nav dropdown float-right">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     <strong>Bienvenido/a &nbsp; {{ Auth::user()->nick }}</strong> <span class="caret"></span>
@@ -199,7 +214,7 @@
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
-                                    <a class="dropdown-item" href="{{ route('home') }}" class="nav-link">{{ __('lang.home') }}</a>
+{{--                                    <a class="dropdown-item" href="{{ route('home') }}" class="nav-link">{{ __('lang.home') }}</a>--}}
 
                                     @if (Auth::user() && Auth::user()->role == 'user')
                                         <a class="dropdown-item" href="{{ route('likes') }}" class="nav-link">{{ __('lang.favorites') }}</a>
