@@ -640,25 +640,7 @@ footer a {
     text-decoration: none;
     transition: 0.3s ease all;
 }
-#margin-plus a:hover {
-    margin-left: 10px;
-    margin-right: 10px;
-    transform: scale(2);
-}
-#margin-plus .copyright a:hover {
-    padding-bottom: 20px !important;
-    transform: scale(2);
-}
 
-#copyright a:hover {
-    margin-left: 10px;
-    margin-right: 10px;
-    transform: scale(2);
-}
-#copyright .copyright a:hover {
-    padding-bottom: 20px !important;
-    transform: scale(2);
-}
 
 .redes-sociales {
     padding: 10px;
@@ -688,7 +670,25 @@ footer a {
     }
 }
 
-/* .copyright a {
-    text-decoration: none;
-    transition: 0.3s ease all;
+#margin-plus a:hover {
+    margin-left: 10px;
+    margin-right: 10px;
+    transform: scale(2);
+}
+/* #margin-plus .copyright a:hover {
+    padding-bottom: 20px !important;
+    transform: scale(2);
 } */
+
+/* #copyright a:hover {
+    margin-left: 10px;
+    margin-right: 10px;
+    transform: scale(2);
+} */
+#copyright{
+    transition: 0.3s ease all;
+}
+p#copyright:hover {
+    padding-bottom: 20px !important;
+    transform: scale(1.2);
+}
