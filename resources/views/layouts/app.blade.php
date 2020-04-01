@@ -22,6 +22,10 @@
     <!-- Libraries CSS Files -->
 <link href="{{asset('lib/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
 
+  {{-- <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> --}}
+
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
@@ -271,7 +275,7 @@
     <div class="container text-center text-md-left">
 
         <!-- Grid row -->
-        <div class="row">
+        <div id="margin-plus" class="row">
             <!-- Grid column -->
             <div class="col-md-4 mx-auto">
                 <!-- Links -->
@@ -316,20 +320,20 @@
         <!-- Footer Links -->
 
         <div class="row justify-content-center redes-sociales">
+            <!-- codigo de color de los iconos #2379ca -->
             <div class="col-auto">
-                <a href="https://sites.google.com/fp.uoc.edu/grupo-jadf/presentaci%C3%B3n-del-proyecto" target="_blank"><img src="{{ asset('img/google-plus-3-64.png') }}" alt=""></a>
-                {{--                <a href="" target="_blank"><img src="{{ asset('img/youtube-3-64.png') }}" alt=""></a>--}}
+                <a href="https://www.linkedin.com/in/gomez-fernando" target="_blank"><img src="{{ asset('img/linkedin.png') }}" alt=""></a>
+            </div>
+            <div class="col-auto">
                 <a href="https://github.com/FernandoDavidGomezOrtega/component-depot" target="_blank"><img src="{{ asset('img/github-8-64.png') }}" alt=""></a>
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-12" id="">
-                <p class="text-center">
-                    <strong>Developed by: Grupo JDAF - UOC 2019 &copy;</strong>
-                </p>
-            </div>
-        </div>
+        <hr class="clearfix w-100 d-md-none">
+
+        <p id="copyright" class=" text-center">
+            <a href="https://gomez-fernando.github.io/portfolio/" target="_blank"><strong>Developed with &#x1F49A; by: Fernando Gómez Web &copy; 2019</strong></a>
+        </p>
     </div>
 
 </footer>
@@ -338,8 +342,23 @@
 </div>
 <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
+  <!-- JS FontAwesome -->
+  {{-- <script src="https://kit.fontawesome.com/a2e8d0339c.js"></script> --}}
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+
   <!-- Required JavaScript Libraries -->
-  <script src="{{ asset('lib/jquery/jquery.min.js') }}"></script>
+  {{-- <script src="{{ asset('lib/jquery/jquery.min.js') }}"></script> --}}
   <script src="{{ asset('lib/morphext/morphext.min.js') }}"></script>
  <script src="{{ asset('lib/easing/easing.js') }}"></script>
 
